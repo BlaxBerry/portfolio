@@ -15,7 +15,7 @@ export default function App() {
 
   const routesElement = useRoutes([
     {
-      path: "portfolio/skills",
+      path: "/skills",
       element: <Skills />,
       children: [
         { index: true, element: <SkillsFront /> },
@@ -24,7 +24,7 @@ export default function App() {
       ],
     },
     {
-      path: "portfolio/works",
+      path: "/works",
       element: <Works />,
       children: [
         { index: true, element: <WorksPC /> },
@@ -32,21 +32,21 @@ export default function App() {
         { path: "mobile", element: <WorksMobile /> },
       ],
     },
-    { path: "portfolio/skill/:ID", element: <DetailSkill /> },
-    { path: "portfolio/work/:ID", element: <DetailWork /> },
-    { path: "portfolio/about", element: <About /> },
-    { path: "portfolio/home", element: <Home /> },
-    { path: "portfolio/", element: <Home /> },
+    { path: "/skill/:ID", element: <DetailSkill /> },
+    { path: "/work/:ID", element: <DetailWork /> },
+    { path: "/about", element: <About /> },
+    { path: "/home", element: <Home /> },
+    { path: "/", element: <Home /> },
     { path: "*", element: <NotFound /> },
   ]);
 
   return (
     <>
       <div>
-        <Link to={'portfolio/home'}>Home</Link>
-        <Link to={'portfolio/about'}>About</Link>
-        <Link to={'portfolio/skills'}>Skills</Link>
-        <Link to={'portfolio/works'}>Works</Link>
+        <Link to={'/home'}>Home</Link>
+        <Link to={'/about'}>About</Link>
+        <Link to={'/skills'}>Skills</Link>
+        <Link to={'/works'}>Works</Link>
       </div>
       <div>{routesElement}</div>
     </>
