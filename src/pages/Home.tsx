@@ -1,10 +1,7 @@
+import React from 'react'
 
 const IndexPage = (): JSX.Element => {
-    return (
-        <>
-        home
-        </>
-    )
+  return <>home</>
 }
 
 export default IndexPage

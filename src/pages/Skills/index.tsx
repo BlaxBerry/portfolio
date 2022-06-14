@@ -1,16 +1,17 @@
-import { Link, Outlet } from "react-router-dom";
+import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
 const IndexPage = (): JSX.Element => {
-    return (
-        <>
-            <div>
-                <Link to={'front'}>Front</Link>
-                <Link to={'back'}>Back</Link>
-            </div>
+  return (
+    <>
+      <div>
+        <Link to={'front'}>Front</Link>
+        <Link to={'back'}>Back</Link>
+      </div>
 
-            <Outlet />
-        </>
-    )
+      <Outlet />
+    </>
+  )
 }
 
 export default IndexPage

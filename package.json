@@ -5,7 +5,11 @@
   "scripts": {
     "develop": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:es": "eslint --cache . --ext .ts,.tsx,.js",
+    "lint:style": "stylelint --cache \"**/*.{css,sass,scss}\"",
+    "prettier": "prettier --write .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
@@ -18,7 +22,17 @@
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "eslint": "^8.17.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.7.0",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-prettier": "^2.0.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   }
