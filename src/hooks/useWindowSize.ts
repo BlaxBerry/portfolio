@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 type WindowSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 const useWindowSize = () => {
-  const getSize = useCallback((): WindowSize => {
+  const getSize = (): WindowSize => {
     const { innerWidth: width } = window
     if (width < 576) return 'xs'
     else if (width >= 576 && width < 768) return 'sm'
@@ -12,7 +12,7 @@ const useWindowSize = () => {
     else if (width >= 1200 && width < 1400) return 'xl'
     else if (width >= 1400) return 'xxl'
     return 'lg'
-  }, [window.innerWidth])
+  }
 
   const [windowSize, setWindowSize] = useState<WindowSize>(getSize())
 
@@ -27,8 +27,8 @@ const useWindowSize = () => {
   }, [])
 
   const isMobile = useMemo((): boolean => {
-    return getSize() === 'xs'
-  }, [getSize])
+    return windowSize === 'xs'
+  }, [windowSize])
 
   return {
     windowSize,
