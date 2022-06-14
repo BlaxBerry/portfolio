@@ -1,9 +1,10 @@
 # Portfolio
 
-- [Tech Stacks]()
-- [Folder]()
-- [Tech Stacks]()
-- [Tech Stacks]()
+- [Tech Stacks](#tech-stacks)
+- [Folder](#folder)
+- [Description](#description)
+- [Developement](#developement)
+- [Pages & Images](#pages--images)
 
 <br/>
 
@@ -84,6 +85,8 @@ mian folder :
 ## Description
 
 ummmm ... as practice
+
+still developing if not busy ....
 
 <br/>
 
