@@ -1,3 +1,4 @@
+import React from "react"
 import { useRoutes } from "react-router-dom";
 import Home from "../../pages/Home";
 import About from "../../pages/About";
@@ -14,7 +15,6 @@ import DetailWork from "../../pages/Detail/Work/[ID]"
 import HomeIcon from '@material-ui/icons/Home';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import PaletteIcon from '@material-ui/icons/Palette';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 export interface NavigationItemType {
     to: string

@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -11,7 +12,7 @@ const NavBarMobile = (): JSX.Element => {
 
     const [selected, setSelected] = useState<string>(navigationItems[0].to);  // pathname
 
-    const handleChange = (event: React.ChangeEvent<{}>, pathname: string) => {
+    const handleChange = (event: unknown, pathname: string) => {
         setSelected(pathname);
         navigate(pathname)
     };

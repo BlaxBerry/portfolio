@@ -1,4 +1,4 @@
-
+import React from "react"
 import logo from "../assets/logo/favicon.ico"
 
 const IndexPage = (): JSX.Element => {

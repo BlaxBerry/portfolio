@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import { HashRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.Fragment>
     {/* 使用 HashRouter 使路径变为 /#/:pathname 来解决 github page 陆路由跳转时 404 问题  */}
     <HashRouter>

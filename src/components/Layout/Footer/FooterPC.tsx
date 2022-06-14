@@ -1,3 +1,4 @@
+import React from "react"
 
 const FooterPC = (): JSX.Element => {
     return (
