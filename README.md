@@ -1,32 +1,93 @@
 # Portfolio
 
-## Tech Stacks
-
-[Vite]() v2.9+
-
-[TypeScript]() v4.6+
-
-[React]() v18
-
-[React-Router-Dom]() v6
-
-[Material UI]() v4
-
-> [Sass]() ?
-
-> [Tailwind]() ?
-
-[yarn]()
-
-> [Graphql]() ?
-
-> [Axios]() ?
-
-> [Storybook]() ?
+- [Tech Stacks]()
+- [Folder]()
+- [Tech Stacks]()
+- [Tech Stacks]()
 
 <br/>
 
-## Usage
+## Tech Stacks
+
+- created by
+
+  - [Vite]() v2.9+
+  - [yarn]()
+
+  - [TypeScript]() v4.6+
+
+  - [React]() v18
+
+  - [React-Router-Dom]() v6
+
+- state mangement
+
+  - > [Redux]() ?
+
+- styles
+
+  - [Material UI]() v4
+
+  - > [Sass]() ?
+
+  - > [Tailwind]() ?
+
+- date request
+
+  - > [Graphql]() ?
+
+  - > [Axios]() ?
+
+- document ?
+
+  - > [Storybook]() ?
+
+- linter
+
+  - > [prettier]()
+
+  - > [eslint]()
+
+  - > [stylelint]()
+
+<br/>
+
+## Folder
+
+mian folder :
+
+```js
+|- docs // build outDir, github pages source
+|- src
+    |- assets
+    |- components
+    |- configs
+    |- hooks  // custom hooks
+    |- locales  // i18next
+    |- pages
+        |- Detail
+        |- Skills
+        |- Works
+        |- 404.tsx
+        |- about.tsx
+        |- Home.tsx
+    |- styles
+    |- App.tsx  // app component
+    |- index.tsx
+|- package.json
+|- tsconfig.json
+|- vite.config.ts
+```
+
+<br/>
+
+## Description
+
+ummmm ... as practice
+
+<br/>
+
+## Developement
 
 ### Setup
 
@@ -36,7 +97,7 @@ yarn
 yarn run develop
 ```
 
-### Git commit
+### Git commit message
 
 - feat: (feature)
 - fix: (fix bugs)
@@ -46,7 +107,7 @@ yarn run develop
 - merge:
 - revert:
 
-### How to update
+### Update to github pages
 
 ```bash
 yarn run build
@@ -58,7 +119,7 @@ git push
 
 <br/>
 
-## Routes & Images
+## Pages & Images
 
 ## Routes
 
