@@ -1,6 +1,6 @@
-import React from "react";
-import { Layout } from "./components/Layout/index";
-import RouterView from "./components/Routes/RouterView";
+import React from 'react'
+import { Layout } from './components/Layout/index'
+import RouterView from './components/Routes/RouterView'
 
 export default function App() {
   return (

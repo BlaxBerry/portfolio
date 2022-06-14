@@ -1,11 +1,7 @@
-import React from "react"
+import React from 'react'
 
 const IndexPage = (): JSX.Element => {
-    return (
-        <>
-        skills front
-        </>
-    )
+  return <>skills front</>
 }
 
 export default IndexPage
