@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "lint:es": "eslint --cache . --ext .ts,.tsx,.js",
     "lint:style": "stylelint --cache \"**/*.{css,sass,scss}\"",
+    "stylelint": "stylelint --fix --cache \"**/*.{css,sass,scss}\"",
     "prettier": "prettier --write .",
     "type-check": "tsc --noEmit"
   },
@@ -29,6 +30,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "prettier": "^2.7.0",
+    "sass": "^1.52.3",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",

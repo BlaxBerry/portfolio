@@ -1,0 +1,59 @@
+// 文本 front
+
+$default-h-sizes: (
+    "h1": 32px,
+    "h2": 24px,
+    "h3": 18.72px,
+    "h4": 16px,  // default
+    "h5": 13.28px,
+    "h6": 12px,
+);
+
+$default-colors: (
+    "red": red,
+    "crimson": crimson,
+    "orangered": orangered,
+);
+
+$default-weight-sizes: (
+    500, 700
+);
+
+
+
+.front {
+    /* 字体大小 front-size
+     * .front-h1  <h1>  font-size: 32px
+     * .front-h2  <h2>  font-size: 24px
+     * .front-h3  <h3>  font-size: 18.72px
+     * .front-h4  <h4>  font-size: 16px
+     * .front-h5  <h5>  font-size: 13.28px
+     * .front-h6  <h6>  font-size: 12px
+     */
+    @each $key, $value in $default-h-sizes {
+        &-#{$key} {
+            font-size: $value;
+        }
+    };
+
+    /* 字体颜色 color
+     * .front-red  color: red
+     * .front-crimson  color: crimson
+     * .front-orangered  color: orangered
+     */
+    @each $color, $value in $default-colors {
+        &-#{$color} {
+            color: $value;
+        }
+    };
+
+    /* 字体重量 front-weight
+     * .front-500  front-weight: 500
+     * .front-700  front-weight: 700
+     */
+    @each $value in $default-weight-sizes {
+        &-#{$value} {
+            font-weight: $value;
+        }
+    };
+}
