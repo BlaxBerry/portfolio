@@ -1,6 +1,5 @@
 export { default as Layout } from './Layout'
-export { default as HeaderPC } from './Header/HeaderPC'
-export { default as HeaderMobile } from './Header/HeaderMobile'
+export { default as Header } from './Header'
 export { default as FooterPC } from './Footer/FooterPC'
 export { default as FooterMobile } from './Footer/FooterMobile'
 export { default as NavbarPC } from './NavBar/NavbarPC'

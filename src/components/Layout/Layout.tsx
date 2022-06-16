@@ -3,13 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import { ScrollTop } from '../Common'
-import {
-  HeaderMobile,
-  NavbarMobile,
-  NavbarPC,
-  FooterPC,
-  FooterMobile,
-} from './index'
+import { NavbarMobile, FooterPC, FooterMobile, Header } from './index'
 import { useWindowSize } from '../../hooks'
 
 interface LayoutProps {
@@ -30,12 +24,9 @@ const Layout = (props: LayoutProps): JSX.Element => {
     )
     .join('\n')
 
-  const PCLayout = (): JSX.Element => (
+  const renderPCLayout = (): JSX.Element => (
     <Container maxWidth="lg">
       <Typography component="div" style={{ backgroundColor: '#cfe8fc' }}>
-        {/* PC Top NavBar */}
-        <NavbarPC />
-
         {/* 各个路由页面内容 */}
         {props.children}
 
@@ -48,7 +39,7 @@ const Layout = (props: LayoutProps): JSX.Element => {
     </Container>
   )
 
-  const MobileLayout = (): JSX.Element => (
+  const renderMobileLayout = (): JSX.Element => (
     <Typography component="div" style={{ backgroundColor: '#cfe8fc' }}>
       {/* 各个路由页面内容 */}
       {props.children}
@@ -64,19 +55,18 @@ const Layout = (props: LayoutProps): JSX.Element => {
   return (
     <React.Fragment>
       <CssBaseline />
-
-      {/* Mobile Header  */}
-      {isMobile && <HeaderMobile />}
+      {/* header */}
+      <Header />
 
       {/* Back to Top */}
       {!isLargeScreen && <div id="back-to-top-anchor" />}
       {!isLargeScreen && <ScrollTop />}
 
       {/* Mobile 布局 */}
-      {isMobile && MobileLayout()}
+      {isMobile && renderMobileLayout()}
 
       {/* PC 布局 */}
-      {isPC && PCLayout()}
+      {isPC && renderPCLayout()}
 
       {/* Mobile Bottom NavBar */}
       {isMobile && <NavbarMobile />}

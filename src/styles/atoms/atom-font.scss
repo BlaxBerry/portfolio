@@ -32,7 +32,7 @@ $default-weight-sizes: (
      */
     @each $key, $value in $default-h-sizes {
         &-#{$key} {
-            font-size: $value;
+            font-size: $value !important;
         }
     };
 
@@ -43,7 +43,7 @@ $default-weight-sizes: (
      */
     @each $color, $value in $default-colors {
         &-#{$color} {
-            color: $value;
+            color: $value !important;
         }
     };
 
@@ -53,7 +53,7 @@ $default-weight-sizes: (
      */
     @each $value in $default-weight-sizes {
         &-#{$value} {
-            font-weight: $value;
+            font-weight: $value !important;
         }
     };
 }
