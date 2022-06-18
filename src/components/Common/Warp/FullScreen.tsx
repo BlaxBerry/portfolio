@@ -1,10 +1,18 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
-import { WarpProps } from '.'
+
+export interface WarpProps {
+  children: NonNullable<React.ReactNode>
+}
 
 const FullScreen = ({ children }: WarpProps) => {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'pink' }}>
+    <div
+      style={{
+        minHeight: '100vh',
+        backgroundColor: 'white', // TODO: delete
+      }}
+    >
       <Container maxWidth="lg">{children}</Container>
     </div>
   )

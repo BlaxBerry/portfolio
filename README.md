@@ -51,6 +51,7 @@ mian folder :
 
 ```js
 |- docs // build outDir, github pages source
+|- pubilc  // static files
 |- src
     |- assets
     |- components

@@ -1,16 +1,16 @@
 import React from 'react'
-import { WarpFullScreen, WrapContainer } from '../components/Common'
+import { WarpFullScreen, WrapTransparent } from '../components/Common'
 
 const IndexPage = (): JSX.Element => {
   return (
     <div>
-      <WarpFullScreen>top page</WarpFullScreen>
+      <WrapTransparent>toppage image</WrapTransparent>
 
-      <WrapContainer>1</WrapContainer>
+      <WarpFullScreen>about</WarpFullScreen>
 
-      <WarpFullScreen>2</WarpFullScreen>
+      <WrapTransparent hasMask>skills</WrapTransparent>
 
-      <WrapContainer>3</WrapContainer>
+      <WarpFullScreen>works</WarpFullScreen>
     </div>
   )
 }

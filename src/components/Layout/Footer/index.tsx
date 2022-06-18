@@ -1,11 +1,16 @@
 import React from 'react'
-import { WarpFullScreen } from '../../Common'
+import { WrapTransparent } from '../../Common'
 
 const FooterPC = (): JSX.Element => {
   return (
     <>
-      <WarpFullScreen>PC Footer</WarpFullScreen>
-      <div className="text-align-center">©2022 Chen.Blaxberry </div>
+      <WrapTransparent hasMask>Footer</WrapTransparent>
+      <div
+        className="text-align-center front-white"
+        style={{ backgroundColor: '#121212' }} // TODO: atomic
+      >
+        ©2022 Chen.Blaxberry{' '}
+      </div>
     </>
   )
 }
