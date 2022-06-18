@@ -7,8 +7,7 @@ export interface WarpProps {
 }
 
 const InsideContainer = ({ children, hasMask = false }: WarpProps) => {
-
-  console.log(hasMask); // TODO: mask 遮罩层 by CSS or div
+  console.log(hasMask) // TODO: mask 遮罩层 by CSS or div
 
   return (
     <Container

@@ -1,10 +1,13 @@
 import React from 'react'
-import { WarpFullScreen, WrapTransparent } from '../components/Common'
+import { WarpFullScreen, WrapTransparent } from '../../components/Common'
+import HomeWelcome from './HomeWelcome'
 
 const IndexPage = (): JSX.Element => {
   return (
     <div>
-      <WrapTransparent>toppage image</WrapTransparent>
+      <WrapTransparent>
+        <HomeWelcome />
+      </WrapTransparent>
 
       <WarpFullScreen>about</WarpFullScreen>
 

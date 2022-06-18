@@ -16,7 +16,9 @@
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.61",
+    "animate.css": "^4.1.1",
     "react": "^18.0.0",
+    "react-animation-on-scroll": "^5.1.0",
     "react-country-flag": "^3.0.2",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0"
