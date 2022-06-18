@@ -1,5 +1,4 @@
-// 文本 front
-
+// font & text
 $default-h-sizes: (
     "h1": 32px,
     "h2": 24px,
@@ -19,8 +18,11 @@ $default-weight-sizes: (
     500, 700
 );
 
+$default-text-align-direction: (
+    left, center, right
+);
 
-
+// 字体 front
 .front {
     /* 字体大小 front-size
      * .front-h1  <h1>  font-size: 32px
@@ -56,4 +58,18 @@ $default-weight-sizes: (
             font-weight: $value !important;
         }
     };
+}
+
+// 文本 text
+.text {
+    /* 文本对齐 text-align
+     * .text-align-left  text-align: left
+     * .text-align-center  text-align: center
+     * .text-align-right  text-align: right
+     */
+    @each $value in $default-text-align-direction {
+        &-align-#{$value} {
+            text-align: $value !important;
+        }
+    }
 }
