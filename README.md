@@ -1,10 +1,24 @@
 # Portfolio
 
+- [Description](#description)
 - [Tech Stacks](#tech-stacks)
 - [Folder](#folder)
-- [Description](#description)
+- [Pages](#pages)
+  - [Routes](#routes)
+  - [Images](#Images)
+- [Design](#design)
 - [Developement](#developement)
-- [Pages & Images](#pages--images)
+  - [Setup](#setup)
+  - [Git commit message](#git-commit-message)
+  - [Update to github pages](#update-to-github-pages)
+
+<br/>
+
+## Description
+
+ummmm ... as practice
+
+still developing if not busy ....
 
 <br/>
 
@@ -13,41 +27,42 @@
 - created by
 
   - [Vite]() v2.9+
-  - [yarn]()
   - [TypeScript]() v4.6+
   - [React]() v18
   - [React-Router-Dom]() v6
+
+- package & version manager
+
+  - [yarn]()
+  - [git]()
 
 - state mangement
 
   - > [Redux]() ?
 
-- styles
+- style and design
 
   - [Material UI]() v4
-  - > [Sass]() ?
-  - > [Tailwind]() ?
+  - [Sass]()
 
 - date request
 
   - > [Graphql]() ?
   - > [Axios]() ?
 
+- linter & format
+
+  - [prettier]()
+  - [eslint]()
+  - [stylelint]()
+
 - document ?
 
   - > [Storybook]() ?
 
-- linter
-
-  - > [prettier]()
-  - > [eslint]()
-  - > [stylelint]()
-
 <br/>
 
 ## Folder
-
-mian folder :
 
 ```js
 |- docs // build outDir, github pages source
@@ -87,11 +102,56 @@ mian folder :
 
 <br/>
 
-## Description
+## Pages
 
-ummmm ... as practice
+### Routes
 
-still developing if not busy ....
+- `/portfolio/`
+- `/portfolio/home`
+- > `/portfolio/about` ?
+- `/portfolio/skills/front`
+- `/portfolio/skills/back`
+- `/portfolio/skill/:ID`
+- `/portfolio/works/pc`
+- `/portfolio/works/mobile`
+- `/portfolio/work/:ID`
+- `/portfolio/404`
+
+### Images
+
+TODO:
+
+<br/>
+
+## Design
+
+emmm... use atomic design style
+
+for example:
+
+```jsx
+<p className="example-p text-align-center front-h3 front-red front-700">
+  {variable}
+</p>
+```
+
+```scss
+p.example-p {
+  color: red;
+  font-size: 18.72px; // equal <h3> title element
+  font-weight: 700;
+  text-align: center;
+}
+```
+
+- front & text
+
+  - `.front-h{size-number}`
+  - `.front-{weight-number}`
+  - `.front-{color}`
+  - `.text-align-{direction}`
+
+[more detail →](./src/styles/atoms/index.scss)
 
 <br/>
 
@@ -119,63 +179,22 @@ yarn run develop
 
 ```bash
 yarn run build
-yarn run preview
+yarn run preview  # boot up local static web server that serves the files from docs at http://localhost:4173 .
+
 git add .
-git cimmit -m "message"
+git cimmit -m "description message"
 git push
 ```
 
-<br/>
+For this project, after `yarn run build`, the build directory `docs` is created/updated. And GitHub Pages site is built from the `/docs` folder in the main branch. [check project folder](#folder)
 
-## Design
-
-emmm... use atomic design
-
-```jsx
-<p className="front-h3 front-red front-700">{variable}</p>
-
-<div className="flex-justify-center flex-align-items-center">
-  <span className="md-1 pt-2"></span>
-  <span className="md-1 pd-2"></span>
-  <span className="md-1 pr-2"></span>
-</div>
+```js
+<myGithubName>.github.io
+  |- portfolio
+      |- assets
+      |- Images
+      |- ...
+      |- index.html
 ```
-
-- front [see more detail](./src/styles/atoms/atom-font.scss)
-
-  - `.front-h{size-number}`
-  - `.front-{weight-number}`
-  - `.front-{color}`
-
-- direction
-
-  - > flex
-    - > `.flex-justify-{direction}`
-    - > `.flex-align-items-{direction}`
-  - > grid
-
-- box
-  - > height
-  - > width
-  - > margin
-  - > padding
-  - > background
-
-<br/>
-
-## Pages & Images
-
-## Routes
-
-- `/portfolio/`
-- `/portfolio/home`
-- `/portfolio/about`
-- `/portfolio/skills/front`
-- `/portfolio/skills/back`
-- `/portfolio/skill/:ID`
-- `/portfolio/works/pc`
-- `/portfolio/works/mobile`
-- `/portfolio/work/:ID`
-- `/portfolio/404`
 
 <br/>
