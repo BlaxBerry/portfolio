@@ -1,21 +1,19 @@
 import React from 'react'
+import Container from '@material-ui/core/Container'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Avatar from '@material-ui/core/Avatar'
-import logo from '../../../assets/logo/logo.jpeg'
 import NavBarPC from '../NavBar/NavbarPC'
+import { NavbarTools, Drawer } from '../../Common'
+import logo from '../../../assets/logo/logo.jpeg'
 import { useWindowSize } from '../../../hooks/index'
-import { NavbarTools } from '../../Common'
-import Container from '@material-ui/core/Container'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
 
 const Header = (): JSX.Element => {
   const { isPC, isMobile } = useWindowSize()
 
   const renderLayout = (): JSX.Element => {
     return (
-      <Toolbar variant="dense">
+      <Toolbar variant="dense" style={{ padding: 0 }}>
         {/* 左侧 logo */}
         {isPC && (
           <Avatar
@@ -29,12 +27,8 @@ const Header = (): JSX.Element => {
           />
         )}
 
-        {/* TODO: mobile 右侧菜单按钮 */}
-        {isMobile && (
-          <IconButton aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-        )}
+        {/* mobile 右侧菜单按钮上拉抽屉开关 */}
+        {isMobile && <Drawer direction={'left'} />}
 
         {/* PC 布局 左侧路由导航按钮 */}
         {isPC && <NavBarPC />}
