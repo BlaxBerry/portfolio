@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactCountryFlag from 'react-country-flag'
 import Tooltip from '@material-ui/core/Tooltip'
+import GitHubIcon from '@material-ui/icons/GitHub'
 import SunIcon from '@material-ui/icons/WbSunnyOutlined'
 // import MoonIcon from '@material-ui/icons/Brightness3Outlined'
 import TranslateIcon from '@material-ui/icons/Translate'
 import { Menu } from '../../'
-import { useWindowSize } from '../../../../hooks'
-// import { PROJECT_GITHUB_REPOSITORY } from '../../../../config'
+import { PROJECT_GITHUB_REPOSITORY } from '../../../../config'
 
 export interface ToolButtonItemType {
   id: string
@@ -26,19 +26,17 @@ export interface ToolMenuItemType {
 }
 
 const NavBarTools = (): JSX.Element => {
-  const { isPC, isMobile } = useWindowSize()
-
   const toolIconButtons: Array<ToolButtonItemType> = [
-    // {
-    //   id: 'tool-github',
-    //   name: '',
-    //   tooltip: 'GitHub Repository',
-    //   href: PROJECT_GITHUB_REPOSITORY,
-    //   icon: <GitHubIcon />,
-    //   onClick() {
-    //     window.open(PROJECT_GITHUB_REPOSITORY, '_blank')
-    //   },
-    // },
+    {
+      id: 'tool-github',
+      name: '',
+      tooltip: 'GitHub Repository',
+      href: PROJECT_GITHUB_REPOSITORY,
+      icon: <GitHubIcon />,
+      onClick() {
+        window.open(PROJECT_GITHUB_REPOSITORY, '_blank')
+      },
+    },
     {
       id: 'tool-theme',
       name: '',
@@ -86,17 +84,11 @@ const NavBarTools = (): JSX.Element => {
     <div>
       {toolIconButtons?.map((item: ToolButtonItemType) => (
         <React.Fragment key={item.id}>
-          {/* PC 工具按钮组布局 */}
-          {isPC && (
-            <Tooltip title={item.tooltip}>
-              <React.Fragment>
-                <Menu item={item} />
-              </React.Fragment>
-            </Tooltip>
-          )}
-
-          {/* Mobile 工具按钮组布局 */}
-          {isMobile && <Menu item={item} />}
+          <Tooltip title={item.tooltip}>
+            <React.Fragment>
+              <Menu item={item} />
+            </React.Fragment>
+          </Tooltip>
         </React.Fragment>
       ))}
     </div>

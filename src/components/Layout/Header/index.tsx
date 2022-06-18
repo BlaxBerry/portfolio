@@ -14,7 +14,7 @@ const Header = (): JSX.Element => {
   const renderLayout = (): JSX.Element => {
     return (
       <Toolbar variant="dense" style={{ padding: 0 }}>
-        {/* 左侧 logo */}
+        {/* PC 左侧 logo */}
         {isPC && (
           <Avatar
             src={logo}
@@ -27,15 +27,22 @@ const Header = (): JSX.Element => {
           />
         )}
 
-        {/* mobile 右侧菜单按钮上拉抽屉开关 */}
+        {/* mobile 左侧抽屉菜单按钮开关 */}
         {isMobile && <Drawer direction={'left'} />}
+        {/* mobile 左侧 title */}
+        {isMobile && <>mobile</>}
 
-        {/* PC 布局 左侧路由导航按钮 */}
+        {/* PC 左侧路由导航按钮 */}
         {isPC && <NavBarPC />}
-
-        {/* 右侧 工具按钮组 */}
-        <div style={{ flexGrow: 1 }} />
-        <NavbarTools />
+        {/* PC 右侧工具按钮组 */}
+        {isPC && (
+          <React.Fragment>
+            {/* 占位间隔元素 */}
+            <div style={{ flexGrow: 1 }} />
+            {/* 工具按钮组 */}
+            <NavbarTools />
+          </React.Fragment>
+        )}
       </Toolbar>
     )
   }
@@ -51,13 +58,14 @@ const Header = (): JSX.Element => {
           backgroundColor: 'rgba(255,255,255,0.72)',
         }}
       >
-        {/* PC layout content  */}
+        {/* PC 布局 Heade 内容 */}
         {isPC && <Container maxWidth="lg">{renderLayout()}</Container>}
 
-        {/* Mobile layout content  */}
+        {/* Mobile 布局 Heade 内容 */}
         {isMobile && renderLayout()}
       </AppBar>
-      {/* 占位栏 高度等于顶部应用栏 */}
+
+      {/* 占位元素 高度等于顶部应用栏 */}
       <Toolbar variant="dense" />
     </>
   )
