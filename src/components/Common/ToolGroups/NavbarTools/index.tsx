@@ -5,7 +5,7 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import SunIcon from '@material-ui/icons/WbSunnyOutlined'
 // import MoonIcon from '@material-ui/icons/Brightness3Outlined'
 import TranslateIcon from '@material-ui/icons/Translate'
-import { Menu } from '../../'
+import Menu, { CustomMenuProps } from '../../Menu'
 import { PROJECT_GITHUB_REPOSITORY } from '../../../../config'
 
 export interface ToolButtonItemType {
@@ -49,7 +49,7 @@ const NavBarTools = (): JSX.Element => {
     {
       id: 'tool-translation',
       name: '',
-      tooltip: 'Translation',
+      tooltip: '',
       icon: <TranslateIcon />,
       menus: [
         {
@@ -80,14 +80,25 @@ const NavBarTools = (): JSX.Element => {
     },
   ]
 
+  // 解决 material-ui tooltip 需要访问 DOM 节点但 React 函数组件定义的 Menu 没有的问题
+  const MenuForwardRef = React.forwardRef(
+    (props: CustomMenuProps, ref: React.LegacyRef<HTMLSpanElement>) => {
+      return (
+        <span {...props} ref={ref}>
+          <Menu item={props.item} />
+        </span>
+      )
+    }
+  )
+  // 解决 MenuForwardRef 组件 “Component definition is missing display name” 问题
+  MenuForwardRef.displayName = 'MenuForwardRef'
+
   return (
     <div>
       {toolIconButtons?.map((item: ToolButtonItemType) => (
         <React.Fragment key={item.id}>
           <Tooltip title={item.tooltip}>
-            <React.Fragment>
-              <Menu item={item} />
-            </React.Fragment>
+            <MenuForwardRef item={item} />
           </Tooltip>
         </React.Fragment>
       ))}

@@ -1,4 +1,4 @@
-import React, { ForwardedRef, useState } from 'react'
+import React, { useState } from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import Menu from '@material-ui/core/Menu'
@@ -9,9 +9,8 @@ import {
   ToolMenuItemType as MenuItemType,
 } from '../ToolGroups/NavbarTools/index'
 
-interface CustomMenuProps {
+export interface CustomMenuProps {
   item: MenuButtonItemType
-  forwardRef?: ForwardedRef<unknown>
 }
 
 const CustomMenu = (props: CustomMenuProps) => {
