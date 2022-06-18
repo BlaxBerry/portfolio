@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Fab from '@material-ui/core/Fab'
-import { navigationItems } from '../../Routes/RouterView'
+import { navigationItems, NavigationItemType } from '../../Routes/RouterView'
+import Button from '@material-ui/core/Button'
 
 const NavBarPC = (): JSX.Element => {
   const navigate = useNavigate()
@@ -12,17 +12,15 @@ const NavBarPC = (): JSX.Element => {
 
   return (
     <div>
-      {navigationItems?.map((item) => (
-        <Fab
+      {navigationItems?.map((item: NavigationItemType) => (
+        <Button
           key={item.to}
-          variant="extended"
+          className="front-700"
+          style={{ textTransform: 'unset' }} // tuen off material-ui button text uppercase
           onClick={() => onClick(item.to)}
-          // color={item.color}
-          // aria-label={item.label}
         >
-          {item.icon} &nbsp;
           {item.title}
-        </Fab>
+        </Button>
       ))}
     </div>
   )
