@@ -16,11 +16,17 @@ interface ListProps {
 const CustomList = ({ list }: ListProps): JSX.Element => {
   // 选中的列表选择
   const [selectedListID, setSelectedListID] = useState<string | null>()
+
   // 选点击列表选择
   const handleClickDrawerListItem = (item: DrwerListItemType) => {
     if (item.onClick) item.onClick()
     if (selectedListID === item.id) setSelectedListID(null)
     else setSelectedListID(item.id)
+  }
+
+  // 选点击折叠面板列表选择
+  const handleClickCollapseListItem = (item: DrwerListCollapseItemType) => {
+    if (item.onClick) item.onClick()
   }
 
   return (
@@ -61,7 +67,7 @@ const CustomList = ({ list }: ListProps): JSX.Element => {
                       button
                       key={collapseItem.id}
                       style={{ paddingLeft: 32 }}
-                      onClick={item.onClick}
+                      onClick={() => handleClickCollapseListItem(collapseItem)}
                     >
                       {collapseItem.icon && (
                         <ListItemIcon style={{ minWidth: 32 }}>

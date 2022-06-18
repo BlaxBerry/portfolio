@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactCountryFlag from 'react-country-flag'
 import Drawer from '@material-ui/core/Drawer'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -9,6 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import { List } from '../'
 import { PROJECT_GITHUB_REPOSITORY } from '../../../config'
 import Typography from '@material-ui/core/Typography'
+import LanguageOptions from '../ToolGroups/LanguageOptions'
 
 export interface DrwerListItemType {
   id: string
@@ -22,7 +22,7 @@ export interface DrwerListCollapseItemType {
   id: string
   name: string
   icon?: JSX.Element
-  onClick: () => void
+  onClick?: () => void
 }
 
 interface CustomDrawerProps {
@@ -31,6 +31,9 @@ interface CustomDrawerProps {
 
 const CustomDrawer = ({ direction }: CustomDrawerProps) => {
   const [isDrawerShow, setIsDrawerShow] = useState<boolean>(false)
+
+  // 语言切换选项列表
+  const { translationOptionItems } = LanguageOptions()
 
   const drawerListSetting: Array<DrwerListItemType> = [
     {
@@ -43,32 +46,7 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
     {
       id: 'drawer-translation',
       name: 'Translation',
-      collapse: [
-        {
-          id: 'drawer-translation-cn',
-          name: 'cn',
-          icon: <ReactCountryFlag countryCode="CN" />,
-          onClick() {
-            console.log('drawer-translation-cn')
-          },
-        },
-        {
-          id: 'drawer-translation-en',
-          name: 'en',
-          icon: <ReactCountryFlag countryCode="US" />,
-          onClick() {
-            console.log('drawer-translation-en')
-          },
-        },
-        {
-          id: 'drawer-translation-ja',
-          name: 'ja',
-          icon: <ReactCountryFlag countryCode="JP" />,
-          onClick() {
-            console.log('drawer-translation-jp')
-          },
-        },
-      ],
+      collapse: translationOptionItems,
     },
   ]
 

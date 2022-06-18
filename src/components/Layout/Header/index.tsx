@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Avatar from '@material-ui/core/Avatar'
+import Typography from '@material-ui/core/Typography'
 import NavBarPC from '../NavBar/NavbarPC'
 import { NavbarTools, Drawer } from '../../Common'
 import logo from '../../../assets/logo/logo.jpeg'
@@ -30,7 +31,11 @@ const Header = (): JSX.Element => {
         {/* mobile 左侧抽屉菜单按钮开关 */}
         {isMobile && <Drawer direction={'left'} />}
         {/* mobile 左侧 title */}
-        {isMobile && <>mobile</>}
+        {isMobile && (
+          <Typography variant="inherit" className="front-700">
+            {"Chen's Portfo"}
+          </Typography>
+        )}
 
         {/* PC 左侧路由导航按钮 */}
         {isPC && <NavBarPC />}

@@ -1,90 +1,67 @@
-import React, { useState } from 'react'
-import IconButton from '@material-ui/core/IconButton'
+import React, { useCallback } from 'react'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Typography from '@material-ui/core/Typography'
 import {
   ToolButtonItemType as MenuButtonItemType,
-  ToolMenuItemType as MenuItemType,
+  ToolMenuListItemType as MenuListItemType,
 } from '../ToolGroups/NavbarTools/index'
 
-export interface CustomMenuProps {
-  item: MenuButtonItemType
+interface CustomMenuProps {
+  menuItem: MenuButtonItemType
+  anchorElement: HTMLElement | null
+  changeAnchorElement: (element: HTMLElement | null) => void
+  menuAnchorElIdSelected: string | null
 }
 
-const CustomMenu = (props: CustomMenuProps) => {
-  // 展示菜单的按钮
-  const [menuSelected, setMenuSelected] = useState<string | null>(null)
-  // 菜单的锚元素
-  const [menuPositionUnderElement, setMenuPositionUnderElement] =
-    useState<null | HTMLElement>(null)
+const CustomMenu = ({
+  menuItem,
+  anchorElement, // menu position under which element
+  changeAnchorElement,
+  menuAnchorElIdSelected, // menu will show after clicking which element
+}: CustomMenuProps) => {
+  // 关闭菜单列表
+  const closeMenu = () => changeAnchorElement(null)
 
-  // 获取展示菜单对应的按钮元素（展开菜单）
-  const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setMenuPositionUnderElement(event.currentTarget)
-  }
-  // 清除展示菜单对应的按钮元素（关闭菜单）
-  const closeMenu = () => {
-    setMenuPositionUnderElement(null)
-  }
+  // 是否展示菜单列表
+  const openMenu = useCallback(
+    (ID: string): boolean => {
+      return Boolean(anchorElement) && menuAnchorElIdSelected === ID
+    },
+    [anchorElement, menuAnchorElIdSelected]
+  )
 
-  // 点击菜单对应的按钮
-  const handleClickMenuBtn = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    item: MenuButtonItemType
-  ) => {
-    if (item.menus) {
-      openMenu(event)
-      setMenuSelected(item.id)
-    }
-    if (item.onClick) item.onClick()
-  }
-
-  // 点击菜单的选项元素
-  const handleClickMenuItem = (item: MenuItemType) => {
-    closeMenu()
-    if (item.onClick) item.onClick()
+  // 点击展示菜单列表选项
+  const handleClickMenuListItem = (listItem: MenuListItemType) => {
+    // closeMenu() // TOTO：按需处理是否需要关闭菜单
+    if (listItem.onClick) listItem.onClick()
   }
 
   return (
-    <>
-      <IconButton
-        aria-label={props.item.name}
-        aria-controls="simple-menu"
-        aria-haspopup="true"
-        onClick={(e) => handleClickMenuBtn(e, props.item)}
-      >
-        {props.item.icon}
-      </IconButton>
-      {props.item?.menus && (
-        <Menu
-          id="simple-menu"
-          anchorEl={menuPositionUnderElement}
-          keepMounted
-          open={
-            Boolean(menuPositionUnderElement) && menuSelected === props.item.id
-          }
-          onClose={closeMenu}
+    <Menu
+      id="simple-menu"
+      anchorEl={anchorElement}
+      keepMounted
+      open={openMenu(menuItem.id)}
+      onClose={closeMenu}
+    >
+      {menuItem?.menus?.map((menuListItem) => (
+        <MenuItem
+          key={menuListItem?.id}
+          onClick={() => handleClickMenuListItem(menuListItem)}
         >
-          {props.item?.menus?.map((menuItem) => (
-            <MenuItem
-              key={menuItem?.id}
-              onClick={() => handleClickMenuItem(menuItem)}
-            >
-              {menuItem?.icon && (
-                <ListItemIcon style={{ minWidth: 30 }}>
-                  {menuItem?.icon}
-                </ListItemIcon>
-              )}
-              <Typography variant="inherit" noWrap>
-                {menuItem?.name}
-              </Typography>
-            </MenuItem>
-          ))}
-        </Menu>
-      )}
-    </>
+          {menuListItem?.icon && (
+            <ListItemIcon style={{ minWidth: 30 }}>
+              {menuListItem?.icon}
+            </ListItemIcon>
+          )}
+          <Typography variant="inherit" noWrap>
+            {menuListItem?.name}
+          </Typography>
+        </MenuItem>
+      ))}
+    </Menu>
   )
 }
 
