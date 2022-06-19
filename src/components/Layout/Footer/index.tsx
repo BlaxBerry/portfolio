@@ -4,7 +4,7 @@ import { WrapTransparent } from '../../Common'
 const FooterPC = (): JSX.Element => {
   return (
     <>
-      <WrapTransparent hasMask>Footer</WrapTransparent>
+      <WrapTransparent>Footer</WrapTransparent>
       <div
         className="text-align-center front-white"
         style={{ backgroundColor: '#121212' }} // TODO: atomic
