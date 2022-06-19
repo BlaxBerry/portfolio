@@ -1,4 +1,3 @@
-// font & text
 $default-h-sizes: (
     "h1": 32px,
     "h2": 24px,
@@ -9,10 +8,9 @@ $default-h-sizes: (
 );
 
 $default-colors: (
-    "red": red,
-    "crimson": crimson,
-    "orangered": orangered,
-    "white": white,
+   "red": red, 
+   "white": white, 
+   "black": black,
 );
 
 $default-weight-sizes: (
@@ -22,6 +20,7 @@ $default-weight-sizes: (
 $default-text-align-direction: (
     left, center, right
 );
+
 
 // 字体 front
 .front {
@@ -44,8 +43,8 @@ $default-text-align-direction: (
      * .front-crimson  color: crimson
      * .front-orangered  color: orangered
      */
-    @each $color, $value in $default-colors {
-        &-#{$color} {
+    @each $key, $value in $default-colors {
+        &-#{$key} {
             color: $value !important;
         }
     };

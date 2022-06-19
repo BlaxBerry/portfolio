@@ -1,0 +1,47 @@
+$default-space-direction: (
+   top,
+   bottom,
+   left,
+   right,
+);
+
+@mixin edge-distance-direction-style($which-distance) {
+    @each $value in $default-space-direction {
+        @for $i from 0 through 50 {
+            &-#{$value}-#{$i} {
+                #{$which-distance}-#{$value}: #{$i} + px !important;
+            }
+        }
+    }
+}
+
+
+// margin 外边距
+.m {
+    /* 
+     * m-{direction}-{number}  margin-{direction}: {number}px
+     * m-top-0  margin-top: 0px
+     * m-bottom-10  margin-bottom: 10px
+     * 省略
+     */
+    @include edge-distance-direction-style(margin);
+
+    &-0 {
+        margin: 0 !important;
+    }
+}
+
+// padding 内边距
+.p {
+    /* 
+     * p-{direction}-{number}  padding-{direction}: {number}px
+     * p-top-0  padding-top: 0px
+     * p-bottom-10  padding-bottom: 10px
+     * 省略
+     */
+     @include edge-distance-direction-style(padding);
+
+     &-0 {
+        padding: 0 !important;
+    }
+}

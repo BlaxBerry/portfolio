@@ -6,12 +6,9 @@ const HomeWelcome = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         height: '100vh',
       }}
+      className="display-flex flex-direction-column flex-justify-content-center flex-align-items-center"
     >
       {/* title */}
       <AnimationOnScroll

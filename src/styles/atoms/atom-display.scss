@@ -1,0 +1,124 @@
+$default-flex-justify-content-position: (
+    start, end, center, space-around, space-between
+);
+$default-flex-align-items-position: (
+    flex-start, flex-end, center
+);
+
+@mixin flex-direction-style($direction-list) {
+    @each $value in $direction-list {
+        &-#{$value} {
+            justify-content: $value !important;
+        }
+    }
+}
+
+
+// flex 弹性盒子模型
+.flex {
+    /* flex-direction
+     * .flex-direction-row  flex-direction: row
+     * .flex-direction-column  flex-direction: column
+    */
+    &-direction {
+
+        &-row {
+            flex-direction: row !important;
+        }
+
+        &-column {
+            flex-direction: column !important;
+        }
+    }
+
+    /* justify-content
+     * .flex-justify-content-start justify-content: start
+     * .flex-justify-content-end  justify-content: end
+     * .flex-justify-content-center  justify-content: center
+     * .flex-justify-content-space-around  justify-content: space-around
+     * .flex-justify-content-space-between  justify-content: space-between
+    */
+    &-justify-content {
+        @include flex-direction-style($default-flex-justify-content-position);
+    }
+
+    /* align-items
+     * .flex-align-items-start  align-items: start
+     * .flex-align-items-end  align-items: end
+     * .flex-align-items-center  align-items: center
+     * .flex-align-items-space-around  align-items: space-around
+     * .flex-align-items-space-between  align-items: space-between
+    */
+    &-align-items {
+        @include flex-direction-style($default-flex-align-items-position);
+    }
+}
+
+
+// display 盒子模型
+.display {
+    /* display
+     * .display-flex  display: flex
+     * .display-inline-block  display: inline-block
+     * .display-flex  display: block
+     * .display-none  display: none
+     */
+    &-flex {
+        display: flex !important;
+    }
+
+    &-inline-block {
+        display: inline-block !important;
+    }
+
+    &-block {
+        display: block !important;   
+    }
+
+    &-none {
+        display: none !important;
+    }
+}
+
+
+// opacity 透明
+.opacity {
+    /* 
+     * .opacity-0  opacity: 0
+     * .opacity-1  opacity: 1
+     * .opacity-01  opacity: 0.1
+     * .opacity-02  opacity: 0.2
+     * .opacity-09  opacity: 0.9
+     */
+    @for $i from 0 through 10 {
+        @if $i == 0 {
+
+            &-0 {
+                opacity: 0 !important;
+            }
+        }@else if $i == 10 {
+
+            &-1{
+                opacity: 1 !important;
+            }
+        }@else {
+            &-0#{$i} {
+                opacity: 0.1 * $i !important;
+            }
+        }
+      }
+}
+
+
+// visibility
+.visibility {
+
+    &-hidden {
+        visibility: hidden !important;
+    }
+    
+    &-visible{
+        visibility: visible !important;
+    }
+}
+
