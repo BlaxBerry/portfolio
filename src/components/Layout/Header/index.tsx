@@ -70,8 +70,8 @@ const Header = (): JSX.Element => {
         {isMobile && renderLayout()}
       </AppBar>
 
-      {/* 占位元素 高度等于顶部应用栏 */}
-      <Toolbar variant="dense" />
+      {/* 占位元素 高度等于顶部应用栏 (此处不能用，会影响路由页面布局)*/}
+      {/* <Toolbar variant="dense" /> */}
     </>
   )
 }

@@ -1,52 +1,42 @@
-import Typography from '@material-ui/core/Typography'
 import React from 'react'
+import Typography from '@material-ui/core/Typography'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
+// 该页面组件在屏幕中居中展示
 const HomeWelcome = () => {
+  // const [count, SetCount] = React.useState(0)
+
   return (
     <div
-      style={{
-        height: '100vh',
-      }}
       className="display-flex flex-direction-column flex-justify-content-center flex-align-items-center"
+      style={{ height: '100vh' }}
     >
-      {/* title */}
-      <AnimationOnScroll
-        animateIn="animate__rubberBand"
-        initiallyVisible={true}
-        offset={0}
-      >
+      {/* chen's Portfolio */}
+      <AnimationOnScroll animateIn="animate__rubberBand">
         <Typography
           variant="h2"
           component="h2"
-          className="text-align-center front-700 front-white"
+          align="center"
+          className="front-white front-700"
         >
           {"Chen's Portfolio"}
         </Typography>
       </AnimationOnScroll>
 
-      {/* subtitle items */}
-      <AnimationOnScroll
-        animateIn="animate__fadeInLeftBig"
-        animateOnce={true}
-        delay={100}
-      >
-        <p className="text-align-center front-white front-h2">aaaaaaaa</p>
+      {/* after first time accessing's "thanks watching" */}
+      <AnimationOnScroll animateIn="animate__bounceInUp">
+        <Typography
+          variant="h4"
+          component="h4"
+          align="center"
+          gutterBottom
+          className="front-700 front-white"
+        >
+          {'Thanks for Watching'}
+        </Typography>
       </AnimationOnScroll>
-      <AnimationOnScroll
-        animateIn="animate__fadeInLeftBig"
-        animateOnce={true}
-        delay={200}
-      >
-        <p className="text-align-center front-white front-h2">aaaaaaaa</p>
-      </AnimationOnScroll>
-      <AnimationOnScroll
-        animateIn="animate__fadeInLeftBig"
-        animateOnce={true}
-        delay={300}
-      >
-        <p className="text-align-center front-white front-h2">aaaaaaaa</p>
-      </AnimationOnScroll>
+
+      {/* TODO: down arrow */}
     </div>
   )
 }

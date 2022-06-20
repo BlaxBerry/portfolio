@@ -1,6 +1,22 @@
+// 背景图
 body::before {
     background: url("/images/background.png") no-repeat center center;
     background-size: cover;
+    content: "";
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: -2;
+}
+
+// mask 遮罩层
+body::after {
+    background:  rgb(0, 0, 0, .3);  // TODO:
+    //   linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+    //   linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+    //   linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     content: "";
     height: 100vh;
     left: 0;

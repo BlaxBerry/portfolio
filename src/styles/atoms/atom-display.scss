@@ -60,11 +60,16 @@ $default-flex-align-items-position: (
     /* display
      * .display-flex  display: flex
      * .display-inline-block  display: inline-block
+     * .display-inline  display: inline
      * .display-flex  display: block
      * .display-none  display: none
      */
     &-flex {
         display: flex !important;
+    }
+
+    &-inline {
+        display: inline !important;
     }
 
     &-inline-block {
