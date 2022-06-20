@@ -72,18 +72,18 @@ still developing if not busy ....
     |- components
         |- common
         |- Layout
-        |- Pages
+        |- Pages  // each page's components
         |- Routes  // route view and route elements
         |- ...
     |- configs
     |- hooks  // custom hooks
     |- locales  // i18next
     |- pages
-        |- About
         |- Detail
         |- Skills
         |- Works
         |- 404.tsx
+        |- About.tsx
         |- Home.tsx
         |- ...
     |- styles

@@ -1,9 +1,9 @@
 import React from 'react'
-import { WarpFullScreen, WrapTransparent } from '../../components/Common'
-import HomeWelcome from './HomeWelcome'
-import HomeAboutBrief from './HomeAboutBrief'
-import HomeSkillsBrief from './HomeSkillsBrief'
-import HomeWorksBrief from './HomeWorksBrief'
+import { WarpFullScreen, WrapTransparent } from '../components/Common'
+import HomeWelcome from '../components/Pages/Home/HomeWelcome'
+import HomeAboutBrief from '../components/Pages/Home/HomeAboutBrief'
+import HomeSkillsBrief from '../components/Pages/Home/HomeSkillsBrief'
+import HomeWorksBrief from '../components/Pages/Home/HomeWorksBrief'
 
 const IndexPage = (): JSX.Element => {
   return (

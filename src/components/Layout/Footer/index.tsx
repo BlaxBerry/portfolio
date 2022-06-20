@@ -24,7 +24,7 @@ const FooterPC = (): JSX.Element => {
 
           {/* content */}
           <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-            <Text align="center">
+            <Text align={isMobile ? 'left' : 'center'}>
               <p
                 className={clsx(isMobile ? 'display-inline' : 'display-block')}
               >

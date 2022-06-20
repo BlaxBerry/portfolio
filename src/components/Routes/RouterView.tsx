@@ -1,20 +1,20 @@
-import React from 'react'
-import { useRoutes } from 'react-router-dom'
+import React, { useLayoutEffect } from 'react'
+import { useRoutes, useLocation } from 'react-router-dom'
+import HomeIcon from '@material-ui/icons/Home'
+import PieChartIcon from '@material-ui/icons/PieChart'
+import PaletteIcon from '@material-ui/icons/Palette'
+// router view pages
 import Home from '../../pages/Home'
 import About from '../../pages/About'
 import NotFound from '../../pages/404'
-import Skills from '../../pages/Skills/index'
+import Skills from '../../pages/Skills'
 import SkillsFront from '../../pages/Skills/SkillsFront'
 import SkillsBack from '../../pages/Skills/SkillsBack'
-import Works from '../../pages/Works/index'
+import Works from '../../pages/Works'
 import WorksPC from '../../pages/Works/WorksPC'
 import WorksMobile from '../../pages/Works/WorksMobile'
 import DetailSkill from '../../pages/Detail/Skill/[ID]'
 import DetailWork from '../../pages/Detail/Work/[ID]'
-
-import HomeIcon from '@material-ui/icons/Home'
-import PieChartIcon from '@material-ui/icons/PieChart'
-import PaletteIcon from '@material-ui/icons/Palette'
 
 export interface NavigationItemType {
   to: string
@@ -22,30 +22,16 @@ export interface NavigationItemType {
   title: string
 }
 
-export const navigationItems: Array<NavigationItemType> = [
-  {
-    to: '/home',
-    icon: <HomeIcon />,
-    title: 'Home',
-  },
-  {
-    to: '/skills',
-    icon: <PieChartIcon />,
-    title: 'Skills',
-  },
-  {
-    to: '/works',
-    icon: <PaletteIcon />,
-    title: 'Works',
-  },
-  // {
-  //     to: '/about',
-  //     icon: <HelpOutlineIcon />,
-  //     title: 'About',
-  // }
-]
-
 const RouterView = () => {
+  const location = useLocation()
+
+  // Scroll To Top On Route Change
+  useLayoutEffect(
+    () => document.documentElement.scrollTo(0, 0),
+    [location.pathname]
+  )
+
+  // 路由匹配规则
   const routesElements = useRoutes([
     {
       path: '/skills',
@@ -77,3 +63,27 @@ const RouterView = () => {
 }
 
 export default RouterView
+
+// navbar 路由导航链接
+export const navigationItems: Array<NavigationItemType> = [
+  {
+    to: '/home',
+    icon: <HomeIcon />,
+    title: 'Home',
+  },
+  {
+    to: '/skills',
+    icon: <PieChartIcon />,
+    title: 'Skills',
+  },
+  {
+    to: '/works',
+    icon: <PaletteIcon />,
+    title: 'Works',
+  },
+  // {
+  //     to: '/about',
+  //     icon: <HelpOutlineIcon />,
+  //     title: 'About',
+  // }
+]

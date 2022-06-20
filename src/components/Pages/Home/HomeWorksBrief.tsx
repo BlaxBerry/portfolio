@@ -1,21 +1,24 @@
 import React from 'react'
 import clsx from 'clsx'
+import Toolbar from '@material-ui/core/Toolbar'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
-import { Title, Text } from '../../components/Common'
-import { useWindowSize } from '../../hooks'
+import { Title, Text } from '../../Common'
+import { useWindowSize } from '../../../hooks'
 
 // 该页面组件在屏幕中居中展示
-const HomeAboutBrief = () => {
+const HomeWorksBrief = () => {
   const { isMobile } = useWindowSize()
 
   return (
-    <div
-      className="display-flex flex-direction-column flex-justify-content-center flex-align-items-center"
-      style={{ height: '100vh' }}
-    >
+    <>
+      {/* TODO: 顶间距占位 */}
+      <Toolbar variant="dense" />
+      <Toolbar variant="dense" />
+      <Toolbar variant="dense" />
+
       {/* title */}
       <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}>
-        <Title title={'このサイトについて'} />
+        <Title title={'作品集について'} />
       </AnimationOnScroll>
 
       {/* content */}
@@ -26,10 +29,10 @@ const HomeAboutBrief = () => {
           delay={100}
         >
           <p className={clsx(isMobile ? 'display-inline' : 'display-block')}>
-            これまでに手がけた作品や、身につけたスキルをこのポートフォリオでまとめいです。
+            フロントからバックエンドまで幅広く練習してきました。
           </p>
           <p className={clsx(isMobile ? 'display-inline' : 'display-none')}>
-            このポートフォリオを通して、私のことを少しでも知っていただければ嬉しいと思います。
+            これからポロジェットに携わりながら、作品集を不定期に更新します。
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
@@ -38,12 +41,12 @@ const HomeAboutBrief = () => {
           delay={200}
         >
           <p className={clsx(isMobile ? 'display-none' : 'display-block')}>
-            このポートフォリオを通して、私のことを少しでも知っていただければ嬉しいと思います。
+            これからポロジェットに携わりながら、作品集を不定期に更新します。
           </p>
         </AnimationOnScroll>
       </Text>
-    </div>
+    </>
   )
 }
 
-export default HomeAboutBrief
+export default HomeWorksBrief
