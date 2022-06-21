@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react'
-import { useRoutes, useLocation } from 'react-router-dom'
+import { useRoutes, useLocation, Navigate } from 'react-router-dom'
 import HomeIcon from '@material-ui/icons/Home'
 import PieChartIcon from '@material-ui/icons/PieChart'
 import PaletteIcon from '@material-ui/icons/Palette'
@@ -8,8 +8,7 @@ import Home from '../../pages/Home'
 import About from '../../pages/About'
 import NotFound from '../../pages/404'
 import Skills from '../../pages/Skills'
-import SkillsFront from '../../pages/Skills/SkillsFront'
-import SkillsBack from '../../pages/Skills/SkillsBack'
+import SkillBranch from '../../pages/Skills/[skillBranch]'
 import Works from '../../pages/Works'
 import WorksPC from '../../pages/Works/WorksPC'
 import WorksMobile from '../../pages/Works/WorksMobile'
@@ -21,6 +20,10 @@ export interface NavigationItemType {
   icon: JSX.Element
   title: string
 }
+
+// 默认
+export const skillsChildrenRoute = ['front', 'back', 'others']
+export const worksChildrenRoute = ['pc', 'mobile']
 
 const RouterView = () => {
   const location = useLocation()
@@ -37,9 +40,11 @@ const RouterView = () => {
       path: '/skills',
       element: <Skills />,
       children: [
-        { index: true, element: <SkillsFront /> },
-        { path: 'front', element: <SkillsFront /> },
-        { path: 'back', element: <SkillsBack /> },
+        {
+          index: true,
+          element: <Navigate to={`/skills/${skillsChildrenRoute[0]}`} />,
+        },
+        { path: ':skillBranch', element: <SkillBranch /> },
       ],
     },
     {

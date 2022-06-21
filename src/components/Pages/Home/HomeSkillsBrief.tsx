@@ -1,12 +1,15 @@
 import React from 'react'
 import clsx from 'clsx'
-import Toolbar from '@material-ui/core/Toolbar'
+import { useNavigate } from 'react-router-dom'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import Toolbar from '@material-ui/core/Toolbar'
+import Button from '@material-ui/core/Button'
 import { Title, Text, RadarChart } from '../../Common'
 import { useWindowSize } from '../../../hooks'
 
 const HomeSkillsBrief = () => {
   const { isMobile } = useWindowSize()
+  const navigate = useNavigate()
 
   // chart 数据
   const data = {
@@ -135,7 +138,11 @@ const HomeSkillsBrief = () => {
       {/* TODO: 3. navigation button */}
       <Text align={'center'}>
         <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-          <p> more</p>
+          <p>
+            <Button variant="outlined" onClick={() => navigate('/skills')}>
+              More
+            </Button>
+          </p>
         </AnimationOnScroll>
       </Text>
 
