@@ -17,14 +17,14 @@ const HomeWorksBrief = () => {
       <Toolbar variant="dense" />
 
       {/* title */}
-      <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}>
+      <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce={true}>
         <Title title={'作品集について'} />
       </AnimationOnScroll>
 
       {/* content */}
       <Text align={isMobile ? 'left' : 'center'}>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInRight"
           animateOnce={true}
           delay={100}
         >
@@ -36,7 +36,7 @@ const HomeWorksBrief = () => {
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInRight"
           animateOnce={true}
           delay={200}
         >

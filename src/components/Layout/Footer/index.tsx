@@ -8,7 +8,7 @@ const FooterPC = (): JSX.Element => {
   const { isMobile } = useWindowSize()
 
   return (
-    <div>
+    <div className="footer">
       <WrapTransparent>
         <div
           className="display-flex flex-direction-column flex-justify-content-center flex-align-items-center"
