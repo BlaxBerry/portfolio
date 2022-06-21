@@ -12,7 +12,12 @@ export interface SkillItemType {
   id: string
   name: string
   img: string
-  extraInfo: unknown
+  extraInfo: {
+    show: boolean // 是否展示在 skills page
+    preparing: boolean // 是否在学习（点击后是否会进入详情页面）
+    description: string | null
+    relations?: string[] // 相关技术列表
+  }
 }
 
 interface SkillsListProps {
@@ -25,8 +30,12 @@ const SkillsList = ({ list }: SkillsListProps): JSX.Element => {
   const { isPC, isMobile } = useWindowSize()
 
   const handleClick = (item: SkillItemType) => {
-    naviagte(`/skill/${item.id}`, { state: { item } })
+    if (item?.extraInfo?.preparing) {
+      // TODO： 禁止进入详情页面
+      alert('Navigation Forbidden, 没有相关内容')
+    } else naviagte(`/skill/${item.id}`, { state: { item } })
   }
+
   return (
     <>
       {/* xs, 全部 */}
@@ -37,7 +46,11 @@ const SkillsList = ({ list }: SkillsListProps): JSX.Element => {
       <Grid
         container
         spacing={1}
-        className={clsx(isPC ? 'display-flex flex-justify-content-center' : '')}
+        className={clsx([
+          isPC &&
+            list.length < 12 &&
+            'display-flex flex-justify-content-center',
+        ])}
       >
         {list?.map((item, index) => (
           <Grid key={item.id} item={true} xs={3} sm={2} md={1} lg={1} xl={1}>
@@ -45,12 +58,13 @@ const SkillsList = ({ list }: SkillsListProps): JSX.Element => {
               animateIn="animate__rubberBand"
               animateOnce={true}
               delay={50 * index}
+              offset={0}
             >
               {/* PC 场景布局 */}
               {isPC && (
                 <Tooltip title={item.name} arrow>
                   {/* TODO: card style */}
-                  <Paper elevation={3} style={{ borderRadius: 20 }}>
+                  <Paper elevation={3}>
                     <Image
                       src={item.img}
                       loading={false}

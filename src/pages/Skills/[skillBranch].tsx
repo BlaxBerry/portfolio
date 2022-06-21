@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import Toolbar from '@material-ui/core/Toolbar'
 import { skillsChildrenRoute } from '../../components/Routes/RouterView'
 import SkillsList from '../../components/Pages/Skills/SkillsList'
 import { SKILLS_FRONT, SKILLS_BACK, SKILLS_OTHERS } from '../../mock'
@@ -19,18 +20,25 @@ const IndexPage = (): JSX.Element => {
     }
   }, [skillBranch, naviagte])
 
+  // 筛选展示的 skills
+  const FRONTS = SKILLS_FRONT.filter((item) => item.extraInfo.show)
+  const BACKS = SKILLS_BACK.filter((item) => item.extraInfo.show)
+  const OTHERS = SKILLS_OTHERS.filter((item) => item.extraInfo.show)
+
   return (
     <>
       {/* TODO: 顶间距 */}
-      {/* <Toolbar variant="dense" /> */}
-      <br />
+      <Toolbar variant="dense" />
 
       {/* fornt */}
-      {skillBranch === 'front' && <SkillsList list={SKILLS_FRONT} />}
+      {skillBranch === 'front' && <SkillsList list={FRONTS} />}
       {/* back */}
-      {skillBranch === 'back' && <SkillsList list={SKILLS_BACK} />}
+      {skillBranch === 'back' && <SkillsList list={BACKS} />}
       {/* others */}
-      {skillBranch === 'others' && <SkillsList list={SKILLS_OTHERS} />}
+      {skillBranch === 'others' && <SkillsList list={OTHERS} />}
+
+      {/* TODO: 底部间距 */}
+      <Toolbar variant="dense" />
     </>
   )
 }
