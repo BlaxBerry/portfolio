@@ -7,7 +7,7 @@ $default-space-direction: (
 
 @mixin edge-distance-direction-style($which-distance) {
     @each $value in $default-space-direction {
-        @for $i from 0 through 50 {
+        @for $i from 0 through 100 {
             &-#{$value}-#{$i} {
                 #{$which-distance}-#{$value}: #{$i} + px !important;
             }

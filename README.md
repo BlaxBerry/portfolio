@@ -69,21 +69,23 @@ still developing if not busy ....
 |- pubilc  // static files
 |- src
     |- assets
+        |- svg  // peronal skills' images
     |- components
         |- common
         |- Layout
-        |- Pages
+        |- Pages  // each page's (router view) components
         |- Routes  // route view and route elements
         |- ...
     |- configs
     |- hooks  // custom hooks
     |- locales  // i18next
+    |- mock  // mock data
     |- pages
-        |- About
         |- Detail
         |- Skills
         |- Works
         |- 404.tsx
+        |- About.tsx
         |- Home.tsx
         |- ...
     |- styles
@@ -96,6 +98,7 @@ still developing if not busy ....
     |- index.tsx
 |- package.json
 |- tsconfig.json
+|- tsconfig.node.json  // vite's ts
 |- vite.config.ts
 |- ...
 ```

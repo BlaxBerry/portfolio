@@ -8,7 +8,7 @@ const FooterPC = (): JSX.Element => {
   const { isMobile } = useWindowSize()
 
   return (
-    <div>
+    <div className="footer">
       <WrapTransparent>
         <div
           className="display-flex flex-direction-column flex-justify-content-center flex-align-items-center"
@@ -24,7 +24,7 @@ const FooterPC = (): JSX.Element => {
 
           {/* content */}
           <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-            <Text align="center">
+            <Text align={isMobile ? 'left' : 'center'}>
               <p
                 className={clsx(isMobile ? 'display-inline' : 'display-block')}
               >

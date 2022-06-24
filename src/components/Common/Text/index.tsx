@@ -8,9 +8,15 @@ interface TextProps {
   children: React.ReactNode
   ellipsis?: boolean
   align?: 'left' | 'center' | 'right'
+  className?: string
 }
 
-const Text = ({ children, ellipsis = false, align = 'left' }: TextProps) => {
+const Text = ({
+  children,
+  ellipsis = false,
+  align = 'left',
+  className,
+}: TextProps) => {
   const { windowSize } = useWindowSize()
 
   // TODO: 调整 material ui Typography 字体大小
@@ -35,7 +41,8 @@ const Text = ({ children, ellipsis = false, align = 'left' }: TextProps) => {
     <div
       className={clsx(
         isEllipsis ? 'display-flex' : 'display-block',
-        `text-align-${align}`
+        `text-align-${align}`,
+        className
       )}
       style={{ lineHeight: '32px' }} // TODO: variant body-1
     >
