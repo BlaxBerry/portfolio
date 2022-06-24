@@ -5,6 +5,7 @@ import SVGCSS from '../assets/svg/front/css3.svg'
 import SVGSass from '../assets/svg/front/sass.svg'
 import SVGJavascript from '../assets/svg/front/javascript.svg'
 import SVGTypescript from '../assets/svg/front/typescript.svg'
+import SVGDart from '../assets/svg/front/dart.svg'
 import SVGjQuery from '../assets/svg/front/jquery.svg'
 import SVGAngular from '../assets/svg/front/angular.svg'
 import SVGVue from '../assets/svg/front/vue.svg'
@@ -39,6 +40,7 @@ import SVGAdobeXD from '../assets/svg/others/adobe-xd.svg'
 import SVGAdobePS from '../assets/svg/others/adobe-ps.svg'
 import SVGAdobeAI from '../assets/svg/others/adobe-ai.svg'
 import SVGAdobePR from '../assets/svg/others/adobe-pr.svg'
+import SVGBlender from '../assets/svg/others/blender.svg'
 
 const SKILLS_FRONT: SkillItemType[] = [
   {
@@ -62,16 +64,6 @@ const SKILLS_FRONT: SkillItemType[] = [
     },
   },
   {
-    id: 'sass',
-    name: 'Sass',
-    img: SVGSass,
-    extraInfo: {
-      show: true,
-      preparing: true,
-      description: '...',
-    },
-  },
-  {
     id: 'javascript',
     name: 'Javascript',
     img: SVGJavascript,
@@ -83,7 +75,7 @@ const SKILLS_FRONT: SkillItemType[] = [
   },
   {
     id: 'typescript',
-    name: 'TypeScriptt',
+    name: 'TypeScript',
     img: SVGTypescript,
     extraInfo: {
       show: true,
@@ -102,13 +94,22 @@ const SKILLS_FRONT: SkillItemType[] = [
     },
   },
   {
-    id: 'angular',
-    name: 'Angular',
-    img: SVGAngular,
+    id: 'react',
+    name: 'React',
+    img: SVGReact,
     extraInfo: {
       show: true,
-      preparing: true,
+      preparing: false,
       description: '...',
+      relations: [
+        'react-ant-design',
+        'react-create-react-app',
+        'react-docusaurus',
+        'react-gatsby',
+        'react-material-ui',
+        'react-redux',
+        'react-router',
+      ],
     },
   },
   {
@@ -130,22 +131,13 @@ const SKILLS_FRONT: SkillItemType[] = [
     },
   },
   {
-    id: 'react',
-    name: 'React',
-    img: SVGReact,
+    id: 'angular',
+    name: 'Angular',
+    img: SVGAngular,
     extraInfo: {
       show: true,
-      preparing: false,
+      preparing: true,
       description: '...',
-      relations: [
-        'react-ant-design',
-        'react-create-react-app',
-        'react-docusaurus',
-        'react-gatsby',
-        'react-material-ui',
-        'react-redux',
-        'react-router',
-      ],
     },
   },
   {
@@ -169,6 +161,16 @@ const SKILLS_FRONT: SkillItemType[] = [
     },
   },
   {
+    id: 'sass',
+    name: 'Sass',
+    img: SVGSass,
+    extraInfo: {
+      show: true,
+      preparing: true,
+      description: '...',
+    },
+  },
+  {
     id: 'electron',
     name: 'Electron',
     img: SVGElectron,
@@ -176,6 +178,16 @@ const SKILLS_FRONT: SkillItemType[] = [
       show: true,
       preparing: true,
       description: '...',
+    },
+  },
+  {
+    id: 'dart',
+    name: 'Dart',
+    img: SVGDart,
+    extraInfo: {
+      show: true,
+      preparing: true,
+      description: null,
     },
   },
   {
@@ -348,7 +360,7 @@ const SKILLS_BACK: SkillItemType[] = [
     img: SVGNodejs,
     extraInfo: {
       show: true,
-      preparing: true,
+      preparing: false,
       relations: ['nodejs-express', 'nodejs-koa'],
       description: '...',
     },
@@ -411,6 +423,16 @@ const SKILLS_OTHERS: SkillItemType[] = [
     id: 'adobe-pr',
     name: 'Adobe Premiere',
     img: SVGAdobePR,
+    extraInfo: {
+      show: true,
+      preparing: true,
+      description: null,
+    },
+  },
+  {
+    id: 'blender',
+    name: 'Blender',
+    img: SVGBlender,
     extraInfo: {
       show: true,
       preparing: true,
