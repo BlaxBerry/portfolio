@@ -26,15 +26,15 @@ const HomeSkillsBrief = () => {
     datasets: [
       {
         label: '# Languages',
-        data: [1, 1, 1, 1, 0.2, 0.2, 0.5],
+        data: [1, 1, 1, 1, 0.2, 0.2, 1],
         backgroundColor: [
-          'rgba(243, 223, 80, 0.8)',
-          'rgba(50, 121, 198, 0.8)',
-          'rgba(100, 180, 135, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
-          'rgba(70, 115, 160, 0.8)',
-          'rgba(171, 43, 25, 0.8)',
-          'rgba(57, 73, 92, 0.8)',
+          'rgba(243, 223, 80)',
+          'rgba(50, 121, 198)',
+          'rgba(100, 180, 135)',
+          'rgba(75, 192, 192)',
+          'rgba(70, 115, 160)',
+          'rgba(171, 43, 25)',
+          'rgba(57, 73, 92)',
         ],
         borderColor: [
           'rgba(243, 223, 80, 1)',
@@ -51,21 +51,21 @@ const HomeSkillsBrief = () => {
   }
 
   return (
-    <>
+    <div>
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
 
       {/* title */}
-      <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}>
+      <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
         <Title title={'スキルについて'} />
       </AnimationOnScroll>
 
       {/* 1. text description */}
       <Text align={isMobile ? 'left' : 'center'}>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
@@ -73,27 +73,23 @@ const HomeSkillsBrief = () => {
             フロントからバックエンドまで幅広くスキルアップに取り組んできました。
           </p>
           <p className={clsx(isMobile ? 'display-inline' : 'display-none')}>
-            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています
+            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています。
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={200}
         >
           <p className={clsx(isMobile ? 'display-none' : 'display-block')}>
-            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています
+            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています。
           </p>
         </AnimationOnScroll>
       </Text>
 
       {/* 2. chart 技术语言*/}
       <Box display="flex" justifyContent="center" alignItems="center">
-        <AnimationOnScroll
-          animateIn="animate__rollIn"
-          animateOnce={true}
-          delay={200}
-        >
+        <AnimationOnScroll animateIn="animate__zoomIn" animateOnce={true}>
           <Box
             className="chart-donut-tech-lang"
             width={300}
@@ -111,7 +107,7 @@ const HomeSkillsBrief = () => {
                       label: (context) => {
                         // TODO: i18next
                         if (context.label === 'Others') return '其他'
-                        return context.label
+                        return `\n${context.label}`
                       },
                     },
                   },
@@ -121,6 +117,9 @@ const HomeSkillsBrief = () => {
           </Box>
         </AnimationOnScroll>
       </Box>
+      <h5 className="text-align-center front-grey ">
+        * According to What I am Learning, chart data will be uopdated
+      </h5>
 
       {/* TODO: 3. navigation button */}
       <Text align={'center'}>
@@ -135,7 +134,7 @@ const HomeSkillsBrief = () => {
 
       {/* TODO: 底间距 */}
       <Toolbar variant="dense" />
-    </>
+    </div>
   )
 }
 

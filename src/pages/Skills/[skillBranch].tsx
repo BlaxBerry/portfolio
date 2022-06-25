@@ -48,7 +48,7 @@ const IndexPage = (): JSX.Element => {
       <div>
         <RadarChart
           data={data}
-          redraw={true}
+          // redraw={true}
           width={300}
           height={300}
           options={{

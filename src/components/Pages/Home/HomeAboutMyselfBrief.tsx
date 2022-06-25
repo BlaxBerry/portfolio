@@ -13,21 +13,21 @@ const HomeAboutBrief = () => {
       style={{ height: '100vh' }}
     >
       {/* title */}
-      <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce={true}>
+      <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
         <Title title={'この私について'} />
       </AnimationOnScroll>
 
       {/* content */}
       <Text align={isMobile ? 'left' : 'center'}>
         <AnimationOnScroll
-          animateIn="animate__fadeInRight"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
           <p>TODO: about my self</p>
         </AnimationOnScroll>
         <AnimationOnScroll
-          animateIn="animate__fadeInRight"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={200}
         ></AnimationOnScroll>
