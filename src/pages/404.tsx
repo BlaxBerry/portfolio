@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
-import Toolbar from '@material-ui/core/Toolbar'
-import { WarpFullScreen, Empty, Title } from '../components/Common'
+import { WarpFullScreen, Empty, Title, Text } from '../components/Common'
 
 const IndexPage = (): JSX.Element => {
   const navigate = useNavigate()
@@ -12,25 +11,28 @@ const IndexPage = (): JSX.Element => {
 
   return (
     <WarpFullScreen>
-      {/* TODO: 顶间距占位 */}
-      <Toolbar variant="dense" />
-      <Toolbar variant="dense" />
+      <div
+        className="display-flex flex-direction-column flex-justify-content-center flex-align-items-center"
+        style={{ height: '100vh' }}
+      >
+        {/* title */}
+        <Title title={'Oops! Not Found'} titleSize={'h3'} />
 
-      {/* title */}
-      <Title title={'Opps, Not Found'} />
-
-      {/* TODO: 间距 */}
-      <br />
-
-      <Empty>
-        <p>What you are looking for dose not exist</p>
-        <Button
-          variant="outlined"
-          onClick={() => navigate('/', { replace: true })}
-        >
-          Back to Home
-        </Button>
-      </Empty>
+        {/* empty content */}
+        <Empty>
+          <Text align={'center'}>
+            {/* TODO: i18next */}
+            <p>What you are looking for dose not exist</p>
+            <Button
+              variant="outlined"
+              onClick={() => navigate('/', { replace: true })}
+            >
+              {/* TODO: i18next */}
+              Back to Home
+            </Button>
+          </Text>
+        </Empty>
+      </div>
     </WarpFullScreen>
   )
 }

@@ -50,7 +50,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -60,7 +60,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -70,7 +70,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -80,7 +80,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -90,7 +90,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -100,7 +100,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      description: '...',
+      description: null,
       relations: [
         'react-ant-design',
         'react-create-react-app',
@@ -119,7 +119,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      description: '...',
+      description: null,
       relations: [
         'vue-element-ui',
         'vue-nuxt',
@@ -137,7 +137,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -147,7 +147,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -157,7 +157,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -167,7 +167,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -177,7 +177,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -208,7 +208,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -218,7 +218,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -228,7 +228,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -238,7 +238,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -248,7 +248,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -258,7 +258,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -268,7 +268,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
 
@@ -279,7 +279,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -289,7 +289,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -299,7 +299,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -309,7 +309,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -319,7 +319,7 @@ const SKILLS_FRONT: SkillItemType[] = [
     extraInfo: {
       show: false,
       preparing: true,
-      description: '...',
+      description: null,
     },
   },
   {
@@ -362,7 +362,7 @@ const SKILLS_BACK: SkillItemType[] = [
       show: true,
       preparing: false,
       relations: ['nodejs-express', 'nodejs-koa'],
-      description: '...',
+      description: null,
     },
   },
   // relations skills 不展示在 skills page
