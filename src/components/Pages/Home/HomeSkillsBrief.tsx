@@ -26,7 +26,7 @@ const HomeSkillsBrief = () => {
     datasets: [
       {
         label: '# Languages',
-        data: [1, 1, 1, 1, 0.2, 0.2, 2],
+        data: [1, 1, 1, 1, 0.2, 0.2, 4],
         backgroundColor: [
           'rgba(243, 223, 80, 0.9)',
           'rgba(50, 121, 198, 0.9)',

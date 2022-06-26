@@ -22,7 +22,8 @@ export interface NavigationItemType {
 }
 
 // 默认
-export const skillsChildrenRoute = ['front', 'back', 'others']
+// TODO: 移出该文件单独存放
+export const skillsChildrenRoute = ['front', 'back', 'others', 'design']
 export const worksChildrenRoute = ['pc', 'mobile']
 
 const RouterView = () => {
@@ -70,6 +71,7 @@ const RouterView = () => {
 export default RouterView
 
 // navbar 路由导航链接
+// TODO: 移出该文件单独存放
 export const navigationItems: Array<NavigationItemType> = [
   {
     to: '/home',

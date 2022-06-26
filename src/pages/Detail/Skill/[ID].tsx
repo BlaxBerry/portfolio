@@ -33,7 +33,7 @@ const IndexPage = (): JSX.Element => {
   // 筛选获取关联的 skills
   const RELAIONS_SKILLS = useMemo(() => {
     return currentSkill?.extraInfo?.relations?.map((x) =>
-      ALL_SKILLS?.filter((y) => !y.extraInfo.show).find((z) => z.id === x)
+      ALL_SKILLS?.find((y) => y.id === x)
     )
   }, [currentSkill])
 

@@ -80,7 +80,7 @@ const SkillsList = ({
                 {/* TODO: card style */}
                 <Paper
                   elevation={3}
-                  style={{ borderRadius: 20, overflow: 'hidden' }}
+                  style={{ borderRadius: 10, overflow: 'hidden' }}
                 >
                   <Image
                     src={item.img}
@@ -94,7 +94,7 @@ const SkillsList = ({
             {isMobile && (
               <Paper
                 elevation={3}
-                style={{ borderRadius: 20, overflow: 'hidden' }}
+                style={{ borderRadius: 10, overflow: 'hidden' }}
               >
                 <Image
                   src={item.img}
