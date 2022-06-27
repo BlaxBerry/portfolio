@@ -53,10 +53,12 @@ import SVGMongoDB from '../assets/svg/back/mongodb.svg'
 
 // others
 import SVGGraphql from '../assets/svg/others/graphql.svg'
+import SVGAxios from '../assets/svg/others/axios.svg'
 import SVGGit from '../assets/svg/others/git.svg'
 import SVGGithub from '../assets/svg/others/github.svg'
 import SVGVSCode from '../assets/svg/others/vscode.svg'
 import SVGDocker from '../assets/svg/others/docker.svg'
+import SVGAuth0 from '../assets/svg/others/auth0.svg'
 
 // designs
 import SVGAdobeXD from '../assets/svg/designs/adobe-xd.svg'
@@ -600,8 +602,9 @@ const SKILLS_OTHERS: SkillItemType[] = [
     img: SVGGraphql,
     extraInfo: {
       show: true,
-      preparing: true,
+      preparing: false,
       description: null,
+      relations: ['apollo', 'axios'],
     },
   },
   {
@@ -610,8 +613,9 @@ const SKILLS_OTHERS: SkillItemType[] = [
     img: SVGGit,
     extraInfo: {
       show: true,
-      preparing: true,
+      preparing: false,
       description: null,
+      relations: ['github'],
     },
   },
   {
@@ -639,7 +643,28 @@ const SKILLS_OTHERS: SkillItemType[] = [
     name: 'Docker',
     img: SVGDocker,
     extraInfo: {
-      show: true,
+      show: false,
+      preparing: true,
+      description: null,
+    },
+  },
+  {
+    id: 'auth0',
+    name: 'Auth0',
+    img: SVGAuth0,
+    extraInfo: {
+      show: false,
+      preparing: true,
+      description: null,
+    },
+  },
+  // 仅作为 relations skills 不展示在 skills page
+  {
+    id: 'axios',
+    name: 'Axios',
+    img: SVGAxios,
+    extraInfo: {
+      show: false,
       preparing: true,
       description: null,
     },

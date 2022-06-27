@@ -78,10 +78,7 @@ const SkillsList = ({
             {isPC && (
               <Tooltip title={item.name} arrow>
                 {/* TODO: card style */}
-                <Paper
-                  elevation={3}
-                  style={{ borderRadius: 10, overflow: 'hidden' }}
-                >
+                <Paper elevation={4}>
                   <Image
                     src={item.img}
                     loading={false}
@@ -92,10 +89,7 @@ const SkillsList = ({
             )}
             {/* Mobile 场景布局 */}
             {isMobile && (
-              <Paper
-                elevation={3}
-                style={{ borderRadius: 10, overflow: 'hidden' }}
-              >
+              <Paper elevation={4}>
                 <Image
                   src={item.img}
                   loading={false}
