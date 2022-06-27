@@ -2,7 +2,8 @@ import React, { ReactNode, useMemo } from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import { ScrollTop } from '../Common'
-import { NavbarMobile, Header, Footer } from './index'
+import Header from './Header'
+import Footer from './Footer'
 import { useWindowSize } from '../../hooks'
 
 interface LayoutProps {
@@ -10,7 +11,7 @@ interface LayoutProps {
 }
 
 const Layout = (props: LayoutProps): JSX.Element => {
-  const { isMobile, windowSize } = useWindowSize()
+  const { windowSize } = useWindowSize()
 
   const isLargeScreen = useMemo(
     (): boolean => windowSize === 'xxl',
@@ -34,9 +35,6 @@ const Layout = (props: LayoutProps): JSX.Element => {
         {/* layout Bootom Footer */}
         <Footer />
       </Typography>
-
-      {/* Mobile Bottom NavBar */}
-      {isMobile && <NavbarMobile />}
     </React.Fragment>
   )
 }
