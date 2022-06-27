@@ -10,21 +10,21 @@ const HomeWorksBrief = () => {
   const { isMobile } = useWindowSize()
 
   return (
-    <>
+    <div>
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
 
       {/* title */}
-      <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce={true}>
+      <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
         <Title title={'作品集について'} />
       </AnimationOnScroll>
 
       {/* content */}
       <Text align={isMobile ? 'left' : 'center'}>
         <AnimationOnScroll
-          animateIn="animate__fadeInRight"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
@@ -36,7 +36,7 @@ const HomeWorksBrief = () => {
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
-          animateIn="animate__fadeInRight"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={200}
         >
@@ -45,7 +45,7 @@ const HomeWorksBrief = () => {
           </p>
         </AnimationOnScroll>
       </Text>
-    </>
+    </div>
   )
 }
 

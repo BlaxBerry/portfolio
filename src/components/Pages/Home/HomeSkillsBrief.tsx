@@ -4,60 +4,68 @@ import { useNavigate } from 'react-router-dom'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
-import { Title, Text, RadarChart } from '../../Common'
+import { Title, Text, DoughnutChart } from '../../Common'
 import { useWindowSize } from '../../../hooks'
+import Box from '@material-ui/core/Box'
 
 const HomeSkillsBrief = () => {
   const { isMobile } = useWindowSize()
   const navigate = useNavigate()
 
   // chart 数据
-  const data = {
-    labels: ['Front-End', 'Back-End', 'Others', 'Design'],
+  const chartDataTechLang = {
+    labels: [
+      'JavaScript',
+      'TypeScript',
+      'Vue.js',
+      'React.js',
+      'Python',
+      'Ruby',
+      'Others',
+    ],
     datasets: [
       {
-        label: 'Skills Tendency',
-        data: [3.5, 1.5, 2.5, 3],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        label: '# Languages',
+        data: [1, 1, 1, 1, 0.2, 0.2, 4],
+        backgroundColor: [
+          'rgba(243, 223, 80, 0.9)',
+          'rgba(50, 121, 198, 0.9)',
+          'rgba(100, 180, 135, 0.9)',
+          'rgba(75, 192, 192, 0.9)',
+          'rgba(70, 115, 160, 0.9)',
+          'rgba(171, 43, 25, 0.9)',
+          'rgba(57, 73, 92, 0.9)',
+        ],
+        borderColor: [
+          'rgba(243, 223, 80, 1)',
+          'rgba(50, 121, 198, 1)',
+          'rgba(100, 180, 135, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(70, 115, 160, 1)',
+          'rgba(171, 43, 25, 1)',
+          'rgba(57, 73, 92, 1)',
+        ],
         borderWidth: 1,
       },
     ],
   }
 
-  // TODO: 不同level 的展示文本
-  const levelsName = [
-    'Master',
-    'Diamond',
-    'Gold Self-feeling',
-    'Silver New',
-    'Bronze Beginner',
-  ]
-  const handleChartLevel = (value: string) => {
-    const level = Number(value)
-    if (level < 2) return levelsName[4]
-    else if (level < 3) return levelsName[3]
-    else if (level < 4) return levelsName[2]
-    else if (level < 5) return levelsName[1]
-    else return levelsName[0]
-  }
-
   return (
-    <>
+    <div>
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
 
       {/* title */}
-      <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}>
+      <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
         <Title title={'スキルについて'} />
       </AnimationOnScroll>
 
       {/* 1. text description */}
       <Text align={isMobile ? 'left' : 'center'}>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
@@ -65,82 +73,60 @@ const HomeSkillsBrief = () => {
             フロントからバックエンドまで幅広くスキルアップに取り組んできました。
           </p>
           <p className={clsx(isMobile ? 'display-inline' : 'display-none')}>
-            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています
+            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています。
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={200}
         >
           <p className={clsx(isMobile ? 'display-none' : 'display-block')}>
-            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています
+            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています。
           </p>
         </AnimationOnScroll>
       </Text>
 
-      {/* 2. chart */}
-      <Text align={'center'} className={'my-chart'}>
-        {/* 2.1 chart graph */}
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-          {/* TODO: 间距 tyle */}
-          <p className="my-chart-graph">
-            <RadarChart
-              data={data}
+      {/* 2. chart 技术语言*/}
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <AnimationOnScroll animateIn="animate__zoomIn" animateOnce={true}>
+          <Box
+            className="chart-donut-tech-lang"
+            width={300}
+            height={300}
+            // TODO: 间距
+            my={2}
+          >
+            <DoughnutChart
+              data={chartDataTechLang}
               options={{
-                scales: {
-                  r: { min: 0, max: 5 },
-                },
                 plugins: {
                   tooltip: {
                     callbacks: {
                       title: () => '',
                       label: (context) => {
-                        const level = handleChartLevel(context.formattedValue)
-                        return ` ${level} Level`
+                        // TODO: i18next
+                        if (context.label === 'Others') return '其他'
+                        return `\n${context.label}`
                       },
                     },
                   },
                 },
-                animations: {
-                  tension: {
-                    duration: 1000,
-                    easing: 'linear',
-                    from: 0.2,
-                    to: 0,
-                    loop: true,
-                  },
-                },
               }}
             />
-          </p>
+          </Box>
         </AnimationOnScroll>
-
-        {/* 2.2 chart levele description */}
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-          {/* TODO: 间距等样式*/}
-          <div
-            className="my-chart--level-desctiption"
-            style={{ width: '300px', margin: '0 auto' }}
-          >
-            {levelsName.map((name, index) => (
-              <p
-                key={index}
-                className="p-left-100 m-0 text-align-left front-h6 front-grey"
-              >
-                {levelsName.length - index} - {name}
-              </p>
-            ))}
-          </div>
-        </AnimationOnScroll>
-      </Text>
+      </Box>
+      <h5 className="text-align-center front-grey ">
+        * According to What I am Learning, chart data will be uopdated
+      </h5>
 
       {/* TODO: 3. navigation button */}
       <Text align={'center'}>
         <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
           <p>
             <Button variant="outlined" onClick={() => navigate('/skills')}>
-              More
+              More Detail
             </Button>
           </p>
         </AnimationOnScroll>
@@ -148,7 +134,7 @@ const HomeSkillsBrief = () => {
 
       {/* TODO: 底间距 */}
       <Toolbar variant="dense" />
-    </>
+    </div>
   )
 }
 

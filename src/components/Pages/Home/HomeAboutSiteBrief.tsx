@@ -14,14 +14,14 @@ const HomeAboutBrief = () => {
       style={{ height: '100vh' }}
     >
       {/* title */}
-      <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}>
+      <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
         <Title title={'このサイトについて'} />
       </AnimationOnScroll>
 
       {/* content */}
       <Text align={isMobile ? 'left' : 'center'}>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
@@ -33,7 +33,7 @@ const HomeAboutBrief = () => {
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
-          animateIn="animate__fadeInLeft"
+          animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={200}
         >

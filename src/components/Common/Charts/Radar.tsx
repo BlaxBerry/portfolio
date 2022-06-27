@@ -21,28 +21,28 @@ ChartJS.register(
   Legend
 )
 
-interface ChartDataType {
+interface ChartType {
   data: ChartData<'radar'>
+  width: number
+  height: number
+  redraw?: boolean
   options?: ChartOptions<'radar'>
 }
 
-const RadarChart = ({ data, options }: ChartDataType): JSX.Element => {
+const RadarChart = ({
+  data,
+  options,
+  height,
+  width,
+  redraw,
+}: ChartType): JSX.Element => {
   return (
     <Radar
       data={data}
-      options={{
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 4,
-          },
-        },
-        ...options,
-      }}
-      redraw={true}
-      width={300}
-      height={300}
+      options={options}
+      redraw={redraw}
+      width={width}
+      height={height}
     />
   )
 }

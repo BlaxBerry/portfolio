@@ -1,10 +1,9 @@
 import React from 'react'
-import clsx from 'clsx'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useNavigate } from 'react-router-dom'
 import Image from 'material-ui-image'
 import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
+import Grid, { GridJustification, GridSize } from '@material-ui/core/Grid'
 import Tooltip from '@material-ui/core/Tooltip'
 import { useWindowSize } from '../../../hooks'
 
@@ -22,72 +21,86 @@ export interface SkillItemType {
 
 interface SkillsListProps {
   list: SkillItemType[]
+  xs?: GridSize
+  sm?: GridSize
+  md?: GridSize
+  lg?: GridSize
+  xl?: GridSize
+  justifyContent?: GridJustification
+  className?: string
 }
+/*
+ * xs, 全部
+ * sm, small: 600dp〜
+ * md, medium: 960dp〜
+ * lg, large: 1280dp〜
+ * xl, xlarge: 1920dp〜
+ */
 
-const SkillsList = ({ list }: SkillsListProps): JSX.Element => {
+const SkillsList = ({
+  list,
+  xs = 3,
+  sm = 2,
+  md = 2,
+  lg = 2,
+  xl = 2,
+  justifyContent = 'flex-start',
+  className,
+}: SkillsListProps): JSX.Element => {
   const naviagte = useNavigate()
 
   const { isPC, isMobile } = useWindowSize()
 
   const handleClick = (item: SkillItemType) => {
-    if (item?.extraInfo?.preparing) {
-      // TODO： 禁止进入详情页面
-      alert('Navigation Forbidden, 没有相关内容')
-    } else naviagte(`/skill/${item.id}`, { state: { item } })
+    // if (item?.extraInfo?.preparing) {
+    //   // TODO： 禁止进入详情页面
+    //   alert('Navigation Forbidden, 没有相关内容')
+    // } else
+    naviagte(`/skill/${item.id}`, { state: { item } })
   }
 
   return (
-    <>
-      {/* xs, 全部 */}
-      {/* sm, small: 600dp〜 */}
-      {/* md, medium: 960dp〜 */}
-      {/* lg, large: 1280dp〜 */}
-      {/* xl, xlarge: 1920dp〜 */}
-      <Grid
-        container
-        spacing={1}
-        className={clsx([
-          isPC &&
-            list.length < 12 &&
-            'display-flex flex-justify-content-center',
-        ])}
-      >
-        {list?.map((item, index) => (
-          <Grid key={item.id} item={true} xs={3} sm={2} md={1} lg={1} xl={1}>
-            <AnimationOnScroll
-              animateIn="animate__rubberBand"
-              animateOnce={true}
-              delay={50 * index}
-              offset={0}
-            >
-              {/* PC 场景布局 */}
-              {isPC && (
-                <Tooltip title={item.name} arrow>
-                  {/* TODO: card style */}
-                  <Paper elevation={3}>
-                    <Image
-                      src={item.img}
-                      loading={false}
-                      onClick={() => handleClick(item)}
-                    />
-                  </Paper>
-                </Tooltip>
-              )}
-              {/* Mobile 场景布局 */}
-              {isMobile && (
-                <Paper elevation={3} style={{ borderRadius: 20 }}>
+    <Grid
+      container
+      spacing={1}
+      className={className}
+      justifyContent={justifyContent}
+    >
+      {list?.map((item, index) => (
+        <Grid key={item.id} item={true} xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+          <AnimationOnScroll
+            animateIn="animate__rubberBand"
+            animateOnce={true}
+            delay={50 * index}
+            offset={0}
+          >
+            {/* PC 场景布局 */}
+            {isPC && (
+              <Tooltip title={item.name} arrow>
+                {/* TODO: card style */}
+                <Paper elevation={4}>
                   <Image
                     src={item.img}
                     loading={false}
                     onClick={() => handleClick(item)}
                   />
                 </Paper>
-              )}
-            </AnimationOnScroll>
-          </Grid>
-        ))}
-      </Grid>
-    </>
+              </Tooltip>
+            )}
+            {/* Mobile 场景布局 */}
+            {isMobile && (
+              <Paper elevation={4}>
+                <Image
+                  src={item.img}
+                  loading={false}
+                  onClick={() => handleClick(item)}
+                />
+              </Paper>
+            )}
+          </AnimationOnScroll>
+        </Grid>
+      ))}
+    </Grid>
   )
 }
 

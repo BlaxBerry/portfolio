@@ -19,9 +19,7 @@ const IndexPage = (): JSX.Element => {
       <Toolbar variant="dense" />
 
       {/* title */}
-      {/* <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}> */}
       <Title title={'スキルについて'} />
-      {/* </AnimationOnScroll> */}
 
       {/* content */}
       {/* tab 选项 */}
