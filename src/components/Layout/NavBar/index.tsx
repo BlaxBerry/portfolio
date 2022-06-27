@@ -13,7 +13,7 @@ const NavBarPC = (): JSX.Element => {
   const location = useLocation()
 
   // pathname
-  const [selectedNav, setSelectedNav] = useState<string>(navigationItems[0].to)
+  const [selectedNav, setSelectedNav] = useState<string | null>(null)
 
   const handleChange = (event: unknown, pathname: string) => {
     navigate(pathname)
