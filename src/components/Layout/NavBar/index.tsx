@@ -24,8 +24,7 @@ const NavBarPC = (): JSX.Element => {
 
   useEffect(() => {
     const currentRoute = '/' + location.pathname.split('/')[1]
-    if (currentRoute === '/') setSelectedNav(navigationItems[0].to)
-    else if (navigationItems.find(({ to }) => to === currentRoute)) {
+    if (navigationItems.find(({ to }) => to === currentRoute)) {
       setSelectedNav(currentRoute)
     }
   }, [location])
@@ -33,7 +32,7 @@ const NavBarPC = (): JSX.Element => {
   return (
     <React.Fragment>
       {/* 1. 左侧 logo */}
-      <IconButton aria-label="menu" onClick={() => navigate('/')}>
+      <IconButton aria-label="menu" onClick={() => navigate('/home')}>
         <Avatar src={logo} alt="logo" />
       </IconButton>
       {/* 2. route 页面导航按钮 */}

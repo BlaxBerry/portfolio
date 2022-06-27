@@ -41,10 +41,9 @@ const CustomList = ({ list }: ListProps): JSX.Element => {
   useEffect(() => {
     // 针对 Drawer 中 List 的 item 的路由链接选择项的选中状态
     const currentRouteName = location.pathname.split('/')[1]
-    if (currentRouteName) setChoosenItems([...choosenItems, currentRouteName])
-    else if (location.pathname === '/')
-      setChoosenItems([...choosenItems, 'home'])
-
+    if (currentRouteName) {
+      setChoosenItems([...choosenItems, currentRouteName])
+    }
     return () => {
       // 组件卸载时清空 states
       setClickedItemID(null)
