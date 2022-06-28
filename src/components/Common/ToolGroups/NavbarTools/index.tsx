@@ -55,7 +55,7 @@ const NavBarTools = (): JSX.Element => {
     {
       id: 'tool-translation',
       name: '',
-      tooltip: 'TranslationTranslationTranslation',
+      tooltip: 'Translation',
       icon: <TranslateIcon />,
       menus: translationOptionItems,
     },

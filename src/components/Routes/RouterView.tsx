@@ -72,7 +72,7 @@ const RouterView = () => {
     { path: '/work/:ID', element: <DetailWork /> },
     { path: '/about', element: <About /> },
     { path: '/home', element: <Home /> },
-    { path: '/', element: <Home /> },
+    { path: '/', element: <Navigate to={'/home'} /> },
     { path: '*', element: <NotFound /> },
   ])
 

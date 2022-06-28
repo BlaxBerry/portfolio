@@ -1,9 +1,17 @@
+// common 默认样式 & 通用变量等
 @import './common/index';
+
+// cover  覆盖UI组件库样式
+
 // Automs 基础标签元素的通用样式
 @import "./atoms/index";
+
 // Molecules 自定义基础组件的样式
-// Organisms 相对复杂的多个结合的自定义基础组件的样式 可能不需要？
+
+// Organisms 相对复杂・多个组合的自定义基础组件的样式
 @import "./organisms/index";
+
 // Templates 自定义模版样式 可能不需要？
+
 // Pages 页面的特有样式
 @import "./pages/"
