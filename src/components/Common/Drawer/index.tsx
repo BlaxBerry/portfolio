@@ -92,8 +92,8 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
     <>
       {/* 抽屉开关菜单按钮 */}
       <IconButton
+        className="my-header-drawer-toggle-btn"
         aria-label="menu"
-        style={{ position: 'absolute' }}
         onClick={() => setIsDrawerShow(true)}
       >
         <MenuIcon />

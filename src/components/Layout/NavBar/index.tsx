@@ -32,14 +32,18 @@ const NavBarPC = (): JSX.Element => {
   return (
     <React.Fragment>
       {/* 1. 左侧 logo */}
-      <IconButton aria-label="menu" onClick={() => navigate('/home')}>
+      <IconButton
+        className={'my-header-navbar-logo'}
+        aria-label="menu"
+        onClick={() => navigate('/home')}
+      >
         <Avatar src={logo} alt="logo" />
       </IconButton>
       {/* 2. route 页面导航按钮 */}
       <BottomNavigation
+        className="my-header-navbar-buttons"
         value={selectedNav}
         onChange={handleChange}
-        style={{ backgroundColor: 'transparent' }}
       >
         {navigationItems?.map((item: NavigationItemType) => (
           <BottomNavigationAction

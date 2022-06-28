@@ -12,9 +12,10 @@ import { DrwerListItemType, DrwerListCollapseItemType } from '../Drawer'
 
 interface ListProps {
   list: Array<DrwerListItemType>
+  style?: React.CSSProperties
 }
 
-const CustomList = ({ list }: ListProps): JSX.Element => {
+const CustomList = ({ list, style }: ListProps): JSX.Element => {
   const location = useLocation()
 
   // 被选中的（有选中状态）的列表选择项
@@ -52,7 +53,7 @@ const CustomList = ({ list }: ListProps): JSX.Element => {
   }, [location, setChoosenItems])
 
   return (
-    <List style={{ maxWidth: '300px', minWidth: '200px' }}>
+    <List style={style}>
       {list.map((item: DrwerListItemType) => (
         <React.Fragment key={item.id}>
           {/* 列表选择 */}

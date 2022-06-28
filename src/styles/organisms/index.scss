@@ -1,3 +1,39 @@
-.footer {
-    background-color: rgba(0, 0, 0, 0.6);
+/* 相对复杂・多个组合的自定义基础组件 */
+
+@import "../common/variables";
+
+.my-footer {
+    background-color: $cover-mask-color;
+}
+
+.my-header {
+    backdrop-filter: blur(20px)!important;
+    background-color: rgba(255,255,255,0.72)!important;;
+
+    &-navbar {
+        min-width: $min-screen-width;
+        padding: 0;
+
+        &-logo {
+            margin: auto 12px!important;
+            padding: 0!important;
+        }
+
+        &-buttons {
+            background-color:transparent!important;
+        }
+
+        // mobile
+        &-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    // mobile
+    &-drawer-toggle-btn {
+        position: absolute!important;
+    }
 }

@@ -11,15 +11,9 @@ const Header = (): JSX.Element => {
   const { isPC, isMobile } = useWindowSize()
 
   return (
-    <AppBar
-      color="inherit"
-      style={{
-        backdropFilter: 'blur(20px)',
-        backgroundColor: 'rgba(255,255,255,0.72)',
-      }}
-    >
+    <AppBar className="my-header" color="inherit">
       <Container maxWidth="lg">
-        <Toolbar variant="dense" style={{ padding: 0 }}>
+        <Toolbar className="my-header-navbar" variant="dense">
           {/* PC 布局 */}
           {isPC && <NavBarPC />}
 
@@ -29,11 +23,7 @@ const Header = (): JSX.Element => {
               {/* 1. 左侧抽屉菜单按钮开关 */}
               <Drawer direction={'left'} />
               {/* 2. 居中标题 */}
-              <Typography
-                variant="inherit"
-                className="front-700 front-h3"
-                style={{ width: '100%', textAlign: 'center' }}
-              >
+              <Typography className="my-header-navbar-title" variant="inherit">
                 {/* TODO: i18next */}
                 {"Chen's Portfolio"}
               </Typography>
