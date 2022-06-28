@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -7,6 +8,7 @@ import {
   ToolButtonItemType as MenuButtonItemType,
   ToolMenuListItemType as MenuListItemType,
 } from '../ToolGroups/NavbarTools/index'
+import { isLanguageOptionSelected } from '../../../utils'
 
 interface CustomMenuProps {
   menuItem: MenuButtonItemType
@@ -21,6 +23,8 @@ const CustomMenu = ({
   changeAnchorElement,
   menuAnchorElIdSelected, // menu will show after clicking which element
 }: CustomMenuProps) => {
+  const { i18n } = useTranslation()
+
   // 关闭菜单列表
   const closeMenu = () => changeAnchorElement(null)
 
@@ -34,9 +38,17 @@ const CustomMenu = ({
 
   // 点击展示菜单列表选项
   const handleClickMenuListItem = (listItem: MenuListItemType) => {
-    // closeMenu() // TOTO：按需处理是否需要关闭菜单
+    closeMenu()
     if (listItem.onClick) listItem.onClick()
   }
+
+  // 针对翻译菜单的选项，根据 i18n 当前语言判断该选项是否被选中
+  const languageOptionIsSelected = useCallback(
+    (itemLangID: string | undefined): boolean => {
+      return isLanguageOptionSelected(itemLangID, i18n.language)
+    },
+    [i18n?.language]
+  )
 
   return (
     <Menu
@@ -50,6 +62,11 @@ const CustomMenu = ({
         <MenuItem
           key={menuListItem?.id}
           onClick={() => handleClickMenuListItem(menuListItem)}
+          style={{
+            backgroundColor: languageOptionIsSelected(menuListItem.langID)
+              ? 'rgba(0, 0, 0, 0.1)'
+              : 'transparent',
+          }}
         >
           {menuListItem?.icon && (
             <ListItemIcon style={{ minWidth: 30 }}>

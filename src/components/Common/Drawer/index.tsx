@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import Drawer from '@material-ui/core/Drawer'
 import IconButton from '@material-ui/core/IconButton'
 import Container from '@material-ui/core/Container'
@@ -9,10 +10,10 @@ import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import TranslateIcon from '@material-ui/icons/Translate'
 import GitHubIcon from '@material-ui/icons/GitHub'
-import InfoIcon from '@material-ui/icons/Info'
+// import InfoIcon from '@material-ui/icons/Info'
 import { List } from '../'
 import LanguageOptions from '../ToolGroups/LanguageOptions'
-import { navigationItems } from '../../Routes/RouterView'
+import getNavItems from '../../Routes/NavItems'
 import { PROJECT_GITHUB_REPOSITORY } from '../../../config'
 
 export interface DrwerListItemType {
@@ -28,6 +29,7 @@ export interface DrwerListCollapseItemType {
   name: string
   icon?: JSX.Element
   onClick?: () => void
+  langID?: string
 }
 
 interface CustomDrawerProps {
@@ -35,10 +37,13 @@ interface CustomDrawerProps {
 }
 
 const CustomDrawer = ({ direction }: CustomDrawerProps) => {
-  const [isDrawerShow, setIsDrawerShow] = useState<boolean>(false)
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
+  const [isDrawerShow, setIsDrawerShow] = useState<boolean>(false)
+
   // 路由页面导航链接
+  const { navigationItems } = getNavItems()
   const LIST_ROUTES_PAGES = navigationItems.map((item) => ({
     id: item.title.toLowerCase(),
     name: item.title,
@@ -62,7 +67,7 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
     // },
     {
       id: 'drawer-translation',
-      name: 'Translation',
+      name: t('components.header.tools.translations'),
       icon: <TranslateIcon />,
       collapse: translationOptionItems,
     },
@@ -71,21 +76,21 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
   const LIST_EXTRA_INFO: Array<DrwerListItemType> = [
     {
       id: 'drawer-github-profile',
-      name: 'Github Repository',
+      name: t('components.header.tools.github-repository'),
       icon: <GitHubIcon />,
       onClick: () => window.open(PROJECT_GITHUB_REPOSITORY, '_blank'),
     },
-    {
-      id: 'drawer-about-this',
-      name: 'About This',
-      icon: <InfoIcon />,
-      onClick: () =>
-        // TODO: navigate to /about page
-        window.open(
-          'https://github.com/BlaxBerry/portfolio/blob/main/README.md',
-          '_blank'
-        ),
-    },
+    // {
+    //   id: 'drawer-about-this',
+    //   name: 'About This',
+    //   icon: <InfoIcon />,
+    //   onClick: () =>
+    //     // TODO: navigate to /about page
+    //     window.open(
+    //       'https://github.com/BlaxBerry/portfolio/blob/main/README.md',
+    //       '_blank'
+    //     ),
+    // },
   ]
 
   return (

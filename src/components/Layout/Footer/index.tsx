@@ -1,10 +1,12 @@
 import React from 'react'
 import clsx from 'clsx'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import { useTranslation } from 'react-i18next'
 import { WrapTransparent, Title, Text } from '../../Common'
 import { useWindowSize } from '../../../hooks'
 
 const FooterPC = (): JSX.Element => {
+  const { t } = useTranslation()
   const { isMobile } = useWindowSize()
 
   return (
@@ -16,10 +18,7 @@ const FooterPC = (): JSX.Element => {
         >
           {/* title */}
           <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-            <Title
-              title={'Thanks for Watching'}
-              subTitle={'最後までご覧頂き、感謝致します'}
-            />
+            <Title title={t('components.footer.title')} />
           </AnimationOnScroll>
 
           {/* content */}
@@ -28,22 +27,22 @@ const FooterPC = (): JSX.Element => {
               <p
                 className={clsx(isMobile ? 'display-inline' : 'display-block')}
               >
-                このポートフォリオを通して、私のことを少しでも知っていただければ嬉しいと思います。
+                {t('components.footer.text-1')}
               </p>
               <p
                 className={clsx(isMobile ? 'display-inline' : 'display-block')}
               >
-                もし何かコメントがありましたら、下記のリンクご利用ください。
+                {t('components.footer.text-2')}
               </p>
               <p
                 className={clsx(isMobile ? 'display-inline' : 'display-block')}
               >
-                開発していくうちに自分の不足も認識しました。今後も必ず深く勉強して改善し、専門性も高め、
+                {t('components.footer.text-3')}
               </p>
               <p
                 className={clsx(isMobile ? 'display-inline' : 'display-block')}
               >
-                一流のエンジニアを目指して、引き続き頑張っていきたいと思います。
+                {t('components.footer.text-4')}
               </p>
             </Text>
           </AnimationOnScroll>

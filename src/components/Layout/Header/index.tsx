@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import Container from '@material-ui/core/Container'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -8,6 +9,7 @@ import { Drawer } from '../../Common'
 import { useWindowSize } from '../../../hooks/index'
 
 const Header = (): JSX.Element => {
+  const { t } = useTranslation()
   const { isPC, isMobile } = useWindowSize()
 
   return (
@@ -24,8 +26,7 @@ const Header = (): JSX.Element => {
               <Drawer direction={'left'} />
               {/* 2. 居中标题 */}
               <Typography className="my-header-navbar-title" variant="inherit">
-                {/* TODO: i18next */}
-                {"Chen's Portfolio"}
+                {t('components.header.title')}
               </Typography>
             </React.Fragment>
           )}

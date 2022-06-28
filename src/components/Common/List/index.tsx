@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -9,6 +10,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 import Typography from '@material-ui/core/Typography'
 import { DrwerListItemType, DrwerListCollapseItemType } from '../Drawer'
+import { isLanguageOptionSelected } from '../../../utils'
 
 interface ListProps {
   list: Array<DrwerListItemType>
@@ -17,6 +19,7 @@ interface ListProps {
 
 const CustomList = ({ list, style }: ListProps): JSX.Element => {
   const location = useLocation()
+  const { i18n } = useTranslation()
 
   // 被选中的（有选中状态）的列表选择项
   const [choosenItems, setChoosenItems] = useState<Array<string>>([])
@@ -42,7 +45,6 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
     if (currentRouteName) {
       setChoosenItems([...choosenItems, currentRouteName])
     }
-    // TODO: 针对 i18next 的当前lang item 的选中的状态
 
     return () => {
       // 组件卸载时清空 states
@@ -51,6 +53,14 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, setChoosenItems])
+
+  // 针对翻译菜单的选项，根据 i18n 当前语言判断该选项是否被选中
+  const languageOptionIsSelected = useCallback(
+    (itemLangID: string | undefined): boolean => {
+      return isLanguageOptionSelected(itemLangID, i18n.language)
+    },
+    [i18n?.language]
+  )
 
   return (
     <List style={style}>
@@ -97,7 +107,14 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
                     <ListItem
                       button
                       key={collapseItem.id}
-                      style={{ paddingLeft: 32 }}
+                      style={{
+                        paddingLeft: 32,
+                        backgroundColor: languageOptionIsSelected(
+                          collapseItem.langID
+                        )
+                          ? 'rgba(0, 0, 0, 0.1)'
+                          : 'transparent',
+                      }}
                       onClick={() => handleClickCollapseListItem(collapseItem)}
                     >
                       {collapseItem.icon && (

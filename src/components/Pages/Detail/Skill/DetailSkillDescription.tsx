@@ -1,7 +1,7 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Title, Text } from '../../../Common'
 import { SkillItemType } from '../../Skills/SkillsList'
-import { useWindowSize } from '../../../../hooks'
 import DeatilSkillEmpty from './DeatilSkillEmpty'
 
 interface DetailSkillDescriptionProps {
@@ -11,14 +11,11 @@ interface DetailSkillDescriptionProps {
 export default function DetailSkillDescription({
   currentSkill,
 }: DetailSkillDescriptionProps): JSX.Element {
-  const { isMobile } = useWindowSize()
+  const { t } = useTranslation()
 
   return (
     <React.Fragment>
-      <Title
-        title={'About this skill'}
-        titleSize={isMobile ? 'h5' : undefined}
-      />
+      <Title title={t('pages.detail-skill.about')} titleSize={'h5'} />
 
       {/* 有详情信息时 */}
       {currentSkill?.extraInfo?.description && (

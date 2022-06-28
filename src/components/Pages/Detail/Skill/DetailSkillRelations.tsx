@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Title } from '../../../Common'
 import SkillsList, { SkillItemType } from '../../Skills/SkillsList'
 import { useWindowSize } from '../../../../hooks'
@@ -10,14 +11,12 @@ interface DetailSkillRelationsProps {
 export default function DetailSkillRelations({
   list,
 }: DetailSkillRelationsProps): JSX.Element {
+  const { t } = useTranslation()
   const { isMobile } = useWindowSize()
 
   return (
     <React.Fragment>
-      <Title
-        title={'Relations Skills I Have Used :'}
-        titleSize={isMobile ? 'h5' : undefined}
-      />
+      <Title title={t('pages.detail-skill.related-skills')} titleSize={'h5'} />
       <SkillsList
         list={list as SkillItemType[]}
         justifyContent={isMobile ? 'flex-start' : 'center'}

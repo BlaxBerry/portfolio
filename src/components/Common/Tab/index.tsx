@@ -51,6 +51,7 @@ const CustomTabs = ({ tabItems }: CustomTabProps): JSX.Element => {
               id: `simple-tab-${index}`,
               'aria-controls': `simple-tabpanel-${index}`,
             }}
+            style={{ textTransform: 'none' }}
           />
         ))}
       </Tabs>

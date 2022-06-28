@@ -37,3 +37,21 @@
         position: absolute!important;
     }
 }
+
+
+.my-chart {
+
+    &-level-desctiption {
+        margin: 20px auto 0;
+        width: 300px;
+
+        &-item {
+            color: #808080;
+            font-size: 10px;
+            margin: 0;
+            padding-left: 100px;
+            text-align: left;
+            
+        }
+    }
+}

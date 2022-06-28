@@ -74,7 +74,7 @@ still developing if not busy ....
         |- common
         |- Layout
         |- Pages  // each page's (router view) components
-        |- Routes  // route view and route elements
+        |- Routes  // route view & route elements & navigation link items
         |- ...
     |- configs
     |- hooks  // custom hooks

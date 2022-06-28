@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Tooltip from '@material-ui/core/Tooltip'
 import Zoom from '@material-ui/core/Zoom'
 import GitHubIcon from '@material-ui/icons/GitHub'
@@ -26,9 +27,12 @@ export interface ToolMenuListItemType {
   icon?: JSX.Element
   name: string
   onClick?: () => void
+  langID?: string // 针对翻译菜单的选项
 }
 
 const NavBarTools = (): JSX.Element => {
+  const { t } = useTranslation()
+
   // 语言切换选项列表
   const { translationOptionItems } = LanguageOptions()
 
@@ -36,7 +40,7 @@ const NavBarTools = (): JSX.Element => {
     {
       id: 'tool-github',
       name: '',
-      tooltip: 'GitHub Repository',
+      tooltip: t('components.header.tools.github-repository'),
       href: PROJECT_GITHUB_REPOSITORY,
       icon: <GitHubIcon />,
       onClick() {
@@ -55,7 +59,7 @@ const NavBarTools = (): JSX.Element => {
     {
       id: 'tool-translation',
       name: '',
-      tooltip: 'Translation',
+      tooltip: t('components.header.tools.translations'),
       icon: <TranslateIcon />,
       menus: translationOptionItems,
     },

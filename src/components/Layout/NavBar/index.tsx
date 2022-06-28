@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton'
 import Avatar from '@material-ui/core/Avatar'
-import logo from '../../../assets/logo/logo.jpeg'
-import { navigationItems, NavigationItemType } from '../../Routes/RouterView'
-import { NavbarTools } from '../../Common'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import { NavbarTools } from '../../Common'
+import getNavItems, { NavigationItemType } from '../../Routes/NavItems'
+import logo from '../../../assets/logo/logo.jpeg'
 
 const NavBarPC = (): JSX.Element => {
   const navigate = useNavigate()
@@ -22,12 +22,14 @@ const NavBarPC = (): JSX.Element => {
     }, 200)
   }
 
+  // 根据路由 url pathname 选中路由导航链接
+  const { navigationItems } = getNavItems()
   useEffect(() => {
     const currentRoute = '/' + location.pathname.split('/')[1]
     if (navigationItems.find(({ to }) => to === currentRoute)) {
       setSelectedNav(currentRoute)
     }
-  }, [location])
+  }, [location, navigationItems])
 
   return (
     <React.Fragment>
