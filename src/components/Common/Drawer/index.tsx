@@ -22,6 +22,7 @@ export interface DrwerListItemType {
   icon?: JSX.Element
   onClick?: () => void
   collapse?: Array<DrwerListCollapseItemType> | null
+  routePathname?: string // 针对路由导航链接选项
 }
 
 export interface DrwerListCollapseItemType {
@@ -44,19 +45,21 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
 
   // 路由页面导航链接
   const { navigationItems } = getNavItems()
-  const LIST_ROUTES_PAGES = navigationItems.map((item) => ({
-    id: item.title.toLowerCase(),
-    name: item.title,
-    icon: item.icon,
-    onClick: () => {
-      navigate(item.to)
-      setIsDrawerShow(false)
-    },
-  }))
+  const LIST_ROUTES_PAGES: Array<DrwerListItemType> = navigationItems.map(
+    (item) => ({
+      id: item.title.toLowerCase(),
+      name: item.title,
+      icon: item.icon,
+      onClick: () => {
+        navigate(item.to)
+        setIsDrawerShow(false)
+      },
+      routePathname: item.to,
+    })
+  )
 
   // 语言切换选项列表
   const { translationOptionItems } = LanguageOptions()
-
   const LIST_SETTING_TOOLS: Array<DrwerListItemType> = [
     // {
     //   id: 'xxx',
@@ -109,6 +112,7 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
         anchor={direction}
         open={isDrawerShow}
         onClose={() => setIsDrawerShow(false)}
+        // materialui Drawer 利用了遮罩层
       >
         <Container maxWidth="lg">
           <Toolbar variant="dense">
@@ -118,13 +122,13 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
           </Toolbar>
           <Divider />
           {/* 路由页面导航链接 */}
-          <List list={LIST_ROUTES_PAGES} />
+          <List list={LIST_ROUTES_PAGES} style={{ width: '60vw' }} />
           <Divider />
           {/* 设定相关操作项 */}
-          <List list={LIST_SETTING_TOOLS} />
+          <List list={LIST_SETTING_TOOLS} style={{ width: '60vw' }} />
           <Divider />
           {/* 补充内容（链接、版本信息等） */}
-          <List list={LIST_EXTRA_INFO} />
+          <List list={LIST_EXTRA_INFO} style={{ width: '60vw' }} />
         </Container>
       </Drawer>
     </>

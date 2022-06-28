@@ -1,0 +1,25 @@
+/* stylelint-disable */
+
+.MuiBottomNavigation-root {
+
+    .MuiBottomNavigationAction-wrapper {
+
+        svg {
+            margin-top: 7px!important;
+        }
+
+        .MuiBottomNavigationAction-label,
+        .MuiBottomNavigationAction-iconOnly {
+
+            height: 17px!important;
+            line-height: 17px!important;
+        }
+    }
+}
+
+
+.MuiList-root {
+
+    padding: 8px!important;
+
+}

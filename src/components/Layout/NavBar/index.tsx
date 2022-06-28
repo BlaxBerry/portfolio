@@ -51,7 +51,7 @@ const NavBarPC = (): JSX.Element => {
           <BottomNavigationAction
             key={item.to}
             value={item.to}
-            label={item.title}
+            label={<strong>{item.title}</strong>}
             icon={item.icon}
           />
         ))}

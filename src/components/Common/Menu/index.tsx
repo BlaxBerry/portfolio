@@ -57,12 +57,14 @@ const CustomMenu = ({
       keepMounted
       open={openMenu(menuItem.id)}
       onClose={closeMenu}
+      // materialui Menu 利用了遮罩层
     >
       {menuItem?.menus?.map((menuListItem) => (
         <MenuItem
           key={menuListItem?.id}
           onClick={() => handleClickMenuListItem(menuListItem)}
           style={{
+            width: '150px',
             backgroundColor: languageOptionIsSelected(menuListItem.langID)
               ? 'rgba(0, 0, 0, 0.1)'
               : 'transparent',
