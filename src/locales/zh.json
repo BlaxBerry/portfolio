@@ -1,0 +1,100 @@
+{
+  "common": {
+    "others": "其他",
+    "level": "等级",
+    "languages": {
+      "zh": "中文简体",
+      "en": "英语",
+      "ja": "日语"
+    }
+  },
+  "pages": {
+    "home": {
+      "welcome": {
+        "title": "Chen's Portfólio",
+        "subtitle": "感谢访问"
+      },
+      "about-site-brief": {
+        "title": "关于 Portfólio",
+        "subtitle": "",
+        "text-1": "该 Portfólio 总结了我从事的工作与学习获得的技能。",
+        "text-2": "我希望你能通过这个作品集尽可能多地了解我。"
+      },
+      "about-me-brief": {
+        "title": "关于我自己",
+        "subtitle": "",
+        "text": "😅 还没写。。。"
+      },
+      "skills-brief": {
+        "title": "技术简介",
+        "subtitle": "",
+        "text-1": "我一直致力于从前端到后端的各种技能的学习与研究。",
+        "text-2": "虽然广而浅，但我会继续挑战广阔的领域，继续做到最好。",
+        "navigation-button": "更多技术详情"
+      },
+      "works-brief": {
+        "title": "作品简介",
+        "subtitle": "",
+        "text-1": "从前端项目到后端项目，我都进行了广泛的练习和体验。",
+        "text-2": "随着项目的开发，我以后会不定期更新作品集"
+      }
+    },
+    "skills": {
+      "title": "关于技术",
+      "tabs": {
+        "front": "前端",
+        "back": "后端",
+        "others": "其他",
+        "design": "设计"
+      }
+    },
+    "detail-skill": {
+      "title": "",
+      "related-skills": "使用过的相关技术",
+      "about": "关于该技术",
+      "empty-content": {
+        "text-1": "内容正在准备中，即将更新发布 ...",
+        "text-2": "请返回查看其他技能",
+        "naviagtion-button": "返回 Skills 页面"
+      }
+    },
+    "404": {
+      "title": "哎呀，找不到了",
+      "subtitle": "404 错误",
+      "text": "要查找的内容不存在",
+      "naviagtion-button": "返回首页"
+    }
+  },
+  "components": {
+    "header": {
+      "title": "Chen's Portfólio",
+      "navbar": {
+        "home": "首页",
+        "skills": "技术",
+        "works": "作品"
+      },
+      "tools": {
+        "translations": "翻译",
+        "github-repository": "Github 仓库"
+      }
+    },
+    "footer": {
+      "title": "感谢观看到最后",
+      "text-1": "希望你能通过这个作品集尽可能多地了解我。",
+      "text-2": "如果有任何意见建议，请使用以下链接。",
+      "text-3": "伴随着开发，我也意识到自身的不足，我将会继续深入学习，进一步提升自身的专业知识。",
+      "text-4": "今后以成为一流的工程师为目标，继续努力下去。"
+    },
+    "charts": {
+      "skills": {
+        "tendency": "技术领域倾向",
+        "level-1": "青铜新手",
+        "level-2": "白银经验者",
+        "level-3": "自我感觉良好",
+        "level-4": "钻石专家",
+        "level-5": "大师级别",
+        "updating": "* 根据正在学习的内容，图表数据将被更新"
+      }
+    }
+  }
+}

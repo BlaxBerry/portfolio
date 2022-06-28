@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { HashRouter } from 'react-router-dom'
+import './config/i18next' // i18next
 import 'animate.css/animate.min.css' // react-animation-on-scroll
 import './styles/index.scss'
 

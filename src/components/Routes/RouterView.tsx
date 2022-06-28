@@ -1,8 +1,5 @@
 import React, { useLayoutEffect } from 'react'
 import { useRoutes, useLocation, Navigate } from 'react-router-dom'
-import HomeIcon from '@material-ui/icons/Home'
-import PieChartIcon from '@material-ui/icons/PieChart'
-import PaletteIcon from '@material-ui/icons/Palette'
 // router view pages
 import Home from '../../pages/home'
 import About from '../../pages/about'
@@ -14,12 +11,6 @@ import WorksPC from '../../pages/Works/WorksPC'
 import WorksMobile from '../../pages/Works/WorksMobile'
 import DetailSkill from '../../pages/Detail/Skill/[ID]'
 import DetailWork from '../../pages/Detail/Work/[ID]'
-
-export interface NavigationItemType {
-  to: string
-  icon: JSX.Element
-  title: string
-}
 
 // 默认子路由名
 // TODO: 移出该文件单独存放
@@ -80,28 +71,3 @@ const RouterView = () => {
 }
 
 export default RouterView
-
-// navbar 路由导航链接
-// TODO: 移出该文件单独存放
-export const navigationItems: Array<NavigationItemType> = [
-  {
-    to: '/home',
-    icon: <HomeIcon />,
-    title: 'Home',
-  },
-  {
-    to: '/skills',
-    icon: <PieChartIcon />,
-    title: 'Skills',
-  },
-  {
-    to: '/works',
-    icon: <PaletteIcon />,
-    title: 'Works',
-  },
-  // {
-  //     to: '/about',
-  //     icon: <HelpOutlineIcon />,
-  //     title: 'About',
-  // }
-]

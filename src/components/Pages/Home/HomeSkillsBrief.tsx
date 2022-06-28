@@ -2,15 +2,17 @@ import React from 'react'
 import clsx from 'clsx'
 import { useNavigate } from 'react-router-dom'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import { useTranslation } from 'react-i18next'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Box'
 import { Title, Text, DoughnutChart } from '../../Common'
 import { useWindowSize } from '../../../hooks'
-import Box from '@material-ui/core/Box'
 
 const HomeSkillsBrief = () => {
-  const { isMobile } = useWindowSize()
+  const { t } = useTranslation()
   const navigate = useNavigate()
+  const { isMobile } = useWindowSize()
 
   // chart 数据
   const chartDataTechLang = {
@@ -59,7 +61,7 @@ const HomeSkillsBrief = () => {
 
       {/* title */}
       <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-        <Title title={'スキルについて'} />
+        <Title title={t('pages.home.skills-brief.title')} />
       </AnimationOnScroll>
 
       {/* 1. text description */}
@@ -70,10 +72,10 @@ const HomeSkillsBrief = () => {
           delay={100}
         >
           <p className={clsx(isMobile ? 'display-inline' : 'display-block')}>
-            フロントからバックエンドまで幅広くスキルアップに取り組んできました。
+            {t('pages.home.skills-brief.text-1')}
           </p>
           <p className={clsx(isMobile ? 'display-inline' : 'display-none')}>
-            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています。
+            {t('pages.home.skills-brief.text-2')}
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
@@ -82,7 +84,7 @@ const HomeSkillsBrief = () => {
           delay={200}
         >
           <p className={clsx(isMobile ? 'display-none' : 'display-block')}>
-            広く浅くではありますが、今後も幅広い領域に挑戦して引き続き頑張りたいと考えています。
+            {t('pages.home.skills-brief.text-2')}
           </p>
         </AnimationOnScroll>
       </Text>
@@ -106,7 +108,8 @@ const HomeSkillsBrief = () => {
                       title: () => '',
                       label: (context) => {
                         // TODO: i18next
-                        if (context.label === 'Others') return '其他'
+                        if (context.label === 'Others')
+                          return t('common.others')
                         return `\n${context.label}`
                       },
                     },
@@ -118,15 +121,19 @@ const HomeSkillsBrief = () => {
         </AnimationOnScroll>
       </Box>
       <h5 className="text-align-center front-grey ">
-        * According to What I am Learning, chart data will be uopdated
+        {t('components.charts.skills.updating')}
       </h5>
 
       {/* TODO: 3. navigation button */}
       <Text align={'center'}>
         <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
           <p>
-            <Button variant="outlined" onClick={() => navigate('/skills')}>
-              More Detail
+            <Button
+              variant="outlined"
+              onClick={() => navigate('/skills')}
+              style={{ textTransform: 'none' }}
+            >
+              {t('pages.home.skills-brief.navigation-button')}
             </Button>
           </p>
         </AnimationOnScroll>

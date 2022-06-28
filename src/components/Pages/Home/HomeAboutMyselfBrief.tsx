@@ -1,10 +1,12 @@
 import React from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import { useTranslation } from 'react-i18next'
 import { Title, Text } from '../../Common'
 import { useWindowSize } from '../../../hooks'
 
 // 该页面组件在屏幕中居中展示
 const HomeAboutBrief = () => {
+  const { t } = useTranslation()
   const { isMobile } = useWindowSize()
 
   return (
@@ -14,7 +16,7 @@ const HomeAboutBrief = () => {
     >
       {/* title */}
       <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-        <Title title={'この私について'} />
+        <Title title={t('pages.home.about-me-brief.title')} />
       </AnimationOnScroll>
 
       {/* content */}
@@ -24,7 +26,7 @@ const HomeAboutBrief = () => {
           animateOnce={true}
           delay={100}
         >
-          <p>TODO: about my self</p>
+          <p>{t('pages.home.about-me-brief.text')}</p>
         </AnimationOnScroll>
         <AnimationOnScroll
           animateIn="animate__fadeInUp"

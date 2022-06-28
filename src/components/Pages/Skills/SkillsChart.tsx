@@ -1,13 +1,21 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { RadarChart } from '../../Common'
 
 export default function SkillsChart(): JSX.Element {
+  const { t } = useTranslation()
+
   // chart 图标数据
   const data = {
-    labels: ['Front-End', 'Back-End', 'Others', 'Design'],
+    labels: [
+      t('pages.skills.tabs.front'),
+      t('pages.skills.tabs.back'),
+      t('pages.skills.tabs.others'),
+      t('pages.skills.tabs.design'),
+    ],
     datasets: [
       {
-        label: 'Skills Tendency',
+        label: t('components.charts.skills.tendency'),
         data: [3.5, 1.5, 3, 3],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
@@ -15,13 +23,12 @@ export default function SkillsChart(): JSX.Element {
       },
     ],
   }
-  // TODO: 不同level 的展示文本
   const levelsName = [
-    'Master',
-    'Diamond Pro',
-    'Good Self-feeling',
-    'Silver New',
-    'Bronze Beginner',
+    t('components.charts.skills.level-5'),
+    t('components.charts.skills.level-4'),
+    t('components.charts.skills.level-3'),
+    t('components.charts.skills.level-2'),
+    t('components.charts.skills.level-1'),
   ]
   const handleChartLabelLevel = (value: string) => {
     const level = Number(value)
@@ -48,9 +55,8 @@ export default function SkillsChart(): JSX.Element {
                 callbacks: {
                   title: () => '',
                   label: (context) => {
-                    // TODO: i18next
                     const level = handleChartLabelLevel(context.formattedValue)
-                    return ` ${level} Level`
+                    return ` ${t('common.level')}: ${level}`
                   },
                 },
               },
@@ -68,16 +74,9 @@ export default function SkillsChart(): JSX.Element {
         />
       </div>
       {/* 图标说明 */}
-      {/* TODO: i18n */}
-      <div
-        className="my-chart--level-desctiption"
-        style={{ width: '300px', margin: '20px auto 0' }}
-      >
+      <div className="my-chart-level-desctiption">
         {levelsName.map((name, index) => (
-          <p
-            key={index}
-            className="p-left-100 m-0 text-align-left front-h6 front-grey"
-          >
+          <p key={index} className="my-chart-level-desctiption-item">
             LV{levelsName.length - index} - {name}
           </p>
         ))}

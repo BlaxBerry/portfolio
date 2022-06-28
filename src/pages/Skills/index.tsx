@@ -1,13 +1,16 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import Toolbar from '@material-ui/core/Toolbar'
 import { WarpFullScreen, Title, Tab } from '../../components/Common'
 import { TabItemsType } from '../../components/Common/Tab'
 import { skillsChildrenRoute } from '../../components/Routes/RouterView'
 
 const IndexPage = (): JSX.Element => {
+  const { t } = useTranslation()
+
   const tabItems: TabItemsType[] = skillsChildrenRoute.map((item) => ({
-    name: item, // TODO: i18n
+    name: t(`pages.skills.tabs.${item}`),
     to: item,
   }))
 
@@ -19,7 +22,7 @@ const IndexPage = (): JSX.Element => {
       <Toolbar variant="dense" />
 
       {/* title */}
-      <Title title={'スキルについて'} />
+      <Title title={t('pages.skills.title')} />
 
       {/* content */}
       {/* tab 选项 */}

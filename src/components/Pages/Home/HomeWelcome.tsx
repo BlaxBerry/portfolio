@@ -1,10 +1,11 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import { useTranslation } from 'react-i18next'
 
 // 该页面组件在屏幕中居中展示
 const HomeWelcome = () => {
-  // const [count, SetCount] = React.useState(0)
+  const { t } = useTranslation()
 
   return (
     <div
@@ -19,7 +20,7 @@ const HomeWelcome = () => {
           align="center"
           className="front-white front-700"
         >
-          {"Chen's Portfolio"}
+          {t('pages.home.welcome.title')}
         </Typography>
       </AnimationOnScroll>
 
@@ -32,7 +33,7 @@ const HomeWelcome = () => {
           gutterBottom
           className="front-700 front-white"
         >
-          {'Thanks for Watching'}
+          {t('pages.home.welcome.subtitle')}
         </Typography>
       </AnimationOnScroll>
 

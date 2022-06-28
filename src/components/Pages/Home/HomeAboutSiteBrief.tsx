@@ -1,11 +1,13 @@
 import React from 'react'
 import clsx from 'clsx'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import { useTranslation } from 'react-i18next'
 import { Title, Text } from '../../Common'
 import { useWindowSize } from '../../../hooks'
 
 // 该页面组件在屏幕中居中展示
 const HomeAboutBrief = () => {
+  const { t } = useTranslation()
   const { isMobile } = useWindowSize()
 
   return (
@@ -15,7 +17,7 @@ const HomeAboutBrief = () => {
     >
       {/* title */}
       <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-        <Title title={'このサイトについて'} />
+        <Title title={t('pages.home.about-site-brief.title')} />
       </AnimationOnScroll>
 
       {/* content */}
@@ -26,10 +28,10 @@ const HomeAboutBrief = () => {
           delay={100}
         >
           <p className={clsx(isMobile ? 'display-inline' : 'display-block')}>
-            これまでに手がけた作品や、身につけたスキルをこのポートフォリオでまとめいです。
+            {t('pages.home.about-site-brief.text-1')}
           </p>
           <p className={clsx(isMobile ? 'display-inline' : 'display-none')}>
-            このポートフォリオを通して、私のことを少しでも知っていただければ嬉しいと思います。
+            {t('pages.home.about-site-brief.text-2')}
           </p>
         </AnimationOnScroll>
         <AnimationOnScroll
@@ -38,7 +40,7 @@ const HomeAboutBrief = () => {
           delay={200}
         >
           <p className={clsx(isMobile ? 'display-none' : 'display-block')}>
-            このポートフォリオを通して、私のことを少しでも知っていただければ嬉しいと思います。
+            {t('pages.home.about-site-brief.text-2')}
           </p>
         </AnimationOnScroll>
       </Text>

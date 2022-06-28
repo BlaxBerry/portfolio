@@ -1,0 +1,100 @@
+{
+  "common": {
+    "others": "Others",
+    "level": "Level",
+    "languages": {
+      "zh": "Chinese",
+      "en": "English",
+      "ja": "Japanese"
+    }
+  },
+  "pages": {
+    "home": {
+      "welcome": {
+        "title": "Chen's Portfólio",
+        "subtitle": "Thanks for Watching"
+      },
+      "about-site-brief": {
+        "title": "About This Site",
+        "subtitle": "",
+        "text-1": "This portfolio summarizes the works I have worked on and the skills I have acquired.",
+        "text-2": "Hope you will get to know me as much as possible through this portfolio."
+      },
+      "about-me-brief": {
+        "title": "About Myself",
+        "subtitle": "",
+        "text": "😅 haven't written yet。。。"
+      },
+      "skills-brief": {
+        "title": "Skills Brief",
+        "subtitle": "",
+        "text-1": "I Have been working on a wide range of skill improvements from the front to the back end.",
+        "text-2": "Although it is wide and shallow, I would like to continue to challenge a wide range of fields and continue to do my best.",
+        "navigation-button": "More Details"
+      },
+      "works-brief": {
+        "title": "Works Brief",
+        "subtitle": "",
+        "text-1": "I have practiced and experienced a wide range from the front to the back end.",
+        "text-2": "While working on the project, I will update the collection of works irregularly from now on."
+      }
+    },
+    "skills": {
+      "title": "About Skills",
+      "tabs": {
+        "front": "Front-End",
+        "back": "Back-End",
+        "others": "Others",
+        "design": "Design"
+      }
+    },
+    "detail-skill": {
+      "title": "",
+      "related-skills": "Related skills I have used",
+      "about": "About this skill",
+      "empty-content": {
+        "text-1": "Content is preparing, it will be published ...",
+        "text-2": "Please go back to check another skill",
+        "naviagtion-button": "Back To Skills"
+      }
+    },
+    "404": {
+      "title": "Oops! Not Found",
+      "subtitle": "404 Error",
+      "text": "What you are looking for dose not exist",
+      "naviagtion-button": "Back to Home"
+    }
+  },
+  "components": {
+    "header": {
+      "title": "Chen's Portfólio",
+      "navbar": {
+        "home": "Home",
+        "skills": "Skills",
+        "works": "Works"
+      },
+      "tools": {
+        "translations": "Translations",
+        "github-repository": "Github Repository"
+      }
+    },
+    "footer": {
+      "title": "Thanks for Watching until the end",
+      "text-1": "Hope you will get to know me as much as possible through this portfolio.",
+      "text-2": "If you have any comments, please use the links below.",
+      "text-3": "As I developed it, I realized my shortage. I will continue to study deeply and improve myself.",
+      "text-4": "And continue to do my best to become a first-class engineer."
+    },
+    "charts": {
+      "skills": {
+        "tendency": "Skills Tendency",
+        "level-1": "Bronze Beginner",
+        "level-2": "Silver Experienced Person",
+        "level-3": "Good Self-feeling",
+        "level-4": "Diamond Professional",
+        "level-5": "Master",
+        "updating": "* According to What I am Learning, chart data will be uopdated"
+      }
+    }
+  }
+}

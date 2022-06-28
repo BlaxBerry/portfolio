@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -9,6 +10,8 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 import Typography from '@material-ui/core/Typography'
 import { DrwerListItemType, DrwerListCollapseItemType } from '../Drawer'
+import { isLanguageOptionSelected } from '../../../utils'
+import getNavItems from '../../Routes/NavItems'
 
 interface ListProps {
   list: Array<DrwerListItemType>
@@ -17,9 +20,8 @@ interface ListProps {
 
 const CustomList = ({ list, style }: ListProps): JSX.Element => {
   const location = useLocation()
+  const { i18n } = useTranslation()
 
-  // 被选中的（有选中状态）的列表选择项
-  const [choosenItems, setChoosenItems] = useState<Array<string>>([])
   // 被点击的列表选择项ID
   const [clickedItemID, setClickedItemID] = useState<string | null>()
 
@@ -36,21 +38,31 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
     if (item.onClick) item.onClick()
   }
 
-  useEffect(() => {
-    // 针对 Drawer 中 List 的 item 的路由链接选择项的选中状态
-    const currentRouteName = location.pathname.split('/')[1]
-    if (currentRouteName) {
-      setChoosenItems([...choosenItems, currentRouteName])
-    }
-    // TODO: 针对 i18next 的当前lang item 的选中的状态
+  // 针对 Drawer List 的翻译菜单的选项，根据 i18n 当前语言判断该选项是否被选中
+  const languageOptionIsSelected = useCallback(
+    (itemLangID: string | undefined): boolean => {
+      return isLanguageOptionSelected(itemLangID, i18n.language)
+    },
+    [i18n?.language]
+  )
 
-    return () => {
-      // 组件卸载时清空 states
-      setClickedItemID(null)
-      setChoosenItems([])
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location, setChoosenItems])
+  // 针对 Drawer List 的路由链接选择项，根据当前 location.pathname 判断该选项是否被选中
+  const { navigationItems } = getNavItems()
+  const navLinkOptionIsSelected = useCallback(
+    (itemRoutePathname: string | undefined): boolean => {
+      if (!itemRoutePathname) return false
+      else {
+        // 1. if the params is really a pathname
+        const isPathname = navigationItems
+          .map((x) => x.to)
+          .includes(itemRoutePathname)
+        // 2. only get father if has children routes
+        const currentRoutePathname = '/' + location.pathname.split('/')[1]
+        return isPathname && currentRoutePathname === itemRoutePathname
+      }
+    },
+    [location, navigationItems]
+  )
 
   return (
     <List style={style}>
@@ -61,7 +73,7 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
             button
             onClick={() => handleClickDrawerListItem(item)}
             style={{
-              backgroundColor: choosenItems.includes(item.id)
+              backgroundColor: navLinkOptionIsSelected(item.routePathname)
                 ? 'rgba(0, 0, 0, 0.1)'
                 : 'transparent',
             }}
@@ -97,7 +109,14 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
                     <ListItem
                       button
                       key={collapseItem.id}
-                      style={{ paddingLeft: 32 }}
+                      style={{
+                        paddingLeft: 32,
+                        backgroundColor: languageOptionIsSelected(
+                          collapseItem.langID
+                        )
+                          ? 'rgba(0, 0, 0, 0.1)'
+                          : 'transparent',
+                      }}
                       onClick={() => handleClickCollapseListItem(collapseItem)}
                     >
                       {collapseItem.icon && (
