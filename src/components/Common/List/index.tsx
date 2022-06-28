@@ -27,10 +27,7 @@ const CustomList = ({ list }: ListProps): JSX.Element => {
     if (item.onClick) item.onClick()
     else if (Boolean(item.collapse) && clickedItemID === item.id) {
       setClickedItemID(null)
-    } else {
-      setClickedItemID(item.id)
-      setChoosenItems([...choosenItems, item.id])
-    }
+    } else setClickedItemID(item.id)
   }
 
   // 选点击有折叠面板的列表选择项
@@ -44,6 +41,8 @@ const CustomList = ({ list }: ListProps): JSX.Element => {
     if (currentRouteName) {
       setChoosenItems([...choosenItems, currentRouteName])
     }
+    // TODO: 针对 i18next 的当前lang item 的选中的状态
+
     return () => {
       // 组件卸载时清空 states
       setClickedItemID(null)
