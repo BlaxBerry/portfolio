@@ -58,6 +58,20 @@
         "naviagtion-button": "Back To Skills"
       }
     },
+    "contact": {
+      "title": "Contact",
+      "form": {
+        "name": "Your Name",
+        "email": "Your Email Address",
+        "message": "Message Content",
+        "submit": "Send"
+      },
+      "errors": {
+        "required": "This is required!",
+        "max-length-1": "Please input less than",
+        "max-length-2": "charts!"
+      }
+    },
     "404": {
       "title": "Oops! Not Found",
       "subtitle": "404 Error",
@@ -71,7 +85,8 @@
       "navbar": {
         "home": "Home",
         "skills": "Skills",
-        "works": "Works"
+        "works": "Works",
+        "contact": "Contact"
       },
       "tools": {
         "translations": "Translations",

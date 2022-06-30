@@ -58,6 +58,20 @@
         "naviagtion-button": "スキルリストに戻る"
       }
     },
+    "contact": {
+      "title": "問い合わせ",
+      "form": {
+        "name": "お名前",
+        "email": "メールアドレス",
+        "message": "メッセージ",
+        "submit": "送信する"
+      },
+      "errors": {
+        "required": "入力必須ですよ！",
+        "max-length-1": "",
+        "max-length-2": "文字以下で入力してくださいね！"
+      }
+    },
     "404": {
       "title": "おっとっと！見つかりません",
       "subtitle": "404 エラー",
@@ -71,7 +85,8 @@
       "navbar": {
         "home": "ホーム",
         "skills": "スキル",
-        "works": "作品"
+        "works": "作品",
+        "contact": "お問合せ"
       },
       "tools": {
         "translations": "翻訳",
