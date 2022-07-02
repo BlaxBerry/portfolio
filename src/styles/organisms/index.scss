@@ -55,3 +55,37 @@
         }
     }
 }
+
+.my-works-list {
+    
+    &-item {
+        cursor: pointer;
+        position: relative;
+
+        &-message {
+            bottom: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            font-weight: 700;
+            height: 80%;
+            justify-content: end;
+            left: 0;
+            opacity: 0;
+            padding: 10px 20px;
+            position: absolute;
+            width: 100%;
+    
+
+            &:hover {
+                background: linear-gradient(transparent, rgba(0,0,0,1));
+                opacity: 1;
+            }
+
+            &-createat {
+                color: #7d4c4c;
+                margin-top: 3px;
+            }
+        }
+    }
+}

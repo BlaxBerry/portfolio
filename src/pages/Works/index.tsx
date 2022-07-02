@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Outlet } from 'react-router-dom'
 import Toolbar from '@material-ui/core/Toolbar'
-import { Title, WrapTransparent, Tab } from '../../components/Common'
+import { Title, WarpFullScreen, Tab } from '../../components/Common'
 import { TabItemsType } from '../../components/Common/Tab'
 import { worksChildrenRoute } from '../../components/Routes/RouterView'
 
@@ -15,7 +15,7 @@ const IndexPage = (): JSX.Element => {
   }))
 
   return (
-    <WrapTransparent>
+    <WarpFullScreen>
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
@@ -35,7 +35,7 @@ const IndexPage = (): JSX.Element => {
 
       {/* TODO: 间距 */}
       <Toolbar variant="dense" />
-    </WrapTransparent>
+    </WarpFullScreen>
   )
 }
 

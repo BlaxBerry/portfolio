@@ -52,11 +52,7 @@ const SkillsList = ({
   const { isPC, isMobile } = useWindowSize()
 
   const handleClick = (item: SkillItemType) => {
-    // if (item?.extraInfo?.preparing) {
-    //   // TODO： 禁止进入详情页面
-    //   alert('Navigation Forbidden, 没有相关内容')
-    // } else
-    naviagte(`/skill/${item.id}`, { state: { item } })
+    naviagte(`/skill/${item.id}`)
   }
 
   return (
