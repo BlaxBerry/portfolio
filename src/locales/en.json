@@ -73,7 +73,10 @@
         "max-length-2": "charts!",
         "min-length-1": "Please input more than",
         "min-length-2": "charts!"
-      }
+      },
+      "sending": "Sending Now...",
+      "send-success": "Succeed",
+      "send-failed": "Opps, Failed"
     },
     "404": {
       "title": "Oops! Not Found",

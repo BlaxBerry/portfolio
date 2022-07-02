@@ -10,6 +10,7 @@ import { regularExpression } from '../../../utils'
 interface ContacFormProps {
   sendMail: (templateParams: TemplateParams) => void
   isLoading: boolean
+  isSent: boolean
 }
 
 interface FormParamsType {
@@ -19,7 +20,11 @@ interface FormParamsType {
   [key: string]: string
 }
 
-export default function ContactForm({ sendMail, isLoading }: ContacFormProps) {
+export default function ContactForm({
+  sendMail,
+  isLoading,
+  isSent,
+}: ContacFormProps) {
   const { t } = useTranslation()
 
   const {
@@ -48,11 +53,12 @@ export default function ContactForm({ sendMail, isLoading }: ContacFormProps) {
       }
     }
     // TODO: 传递的 textarea 无法换行
-    // sendMail({
-    //   from_name: data.name,
-    //   reply_to: data.email,
-    //   message: data.message,
-    // })
+    // TDOD: 是否允许刷新页面后多次发送
+    sendMail({
+      from_name: data.name,
+      reply_to: data.email,
+      message: data.message,
+    })
   }
 
   // 判断 field 内容是否有错
@@ -84,7 +90,7 @@ export default function ContactForm({ sendMail, isLoading }: ContacFormProps) {
       onSubmit={handleSubmit(onSubmit)}
       style={{
         // opacity: isLoading ? 0 : 1, // TODO: loading & result
-        visibility: isLoading ? 'hidden' : 'visible',
+        visibility: isLoading || isSent ? 'hidden' : 'visible',
       }}
     >
       {/* 1. name */}

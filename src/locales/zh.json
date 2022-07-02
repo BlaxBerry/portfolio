@@ -73,7 +73,10 @@
         "max-length-2": "字符的内容!",
         "min-length-1": "请输入多于",
         "min-length-2": "字符的内容!"
-      }
+      },
+      "sending": "发送中...",
+      "send-success": "发送成功",
+      "send-failed": "发送失败"
     },
     "404": {
       "title": "哎呀，找不到了",

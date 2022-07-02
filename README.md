@@ -87,6 +87,7 @@ still developing if not busy ....
         |- 404.tsx
         |- About.tsx
         |- Home.tsx
+        |- Contact.tsx
         |- ...
     |- styles
         |- common  // common className and Sass variables
@@ -118,6 +119,7 @@ still developing if not busy ....
 - `/portfolio/works/pc`
 - `/portfolio/works/mobile`
 - `/portfolio/work/:ID`
+- `/portfolio/contact`
 - `/portfolio/404`
 
 ### Images

@@ -29,3 +29,38 @@
         line-height: 1.66;
     }
 }
+
+@mixin contact-loading-and-result-layout {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.my-contact-loading {
+   @include contact-loading-and-result-layout();
+
+    &-cricle {
+        margin-bottom: 20px;
+    }
+
+    &-message {
+        font-weight: 700!important;
+    }
+}
+
+.my-contact-result {
+    @include contact-loading-and-result-layout();
+
+    &-status-icon {
+        margin-bottom: 20px;
+    }
+
+    &-message {
+        font-weight: 700!important;
+    }
+}
