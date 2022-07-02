@@ -68,8 +68,11 @@
       },
       "errors": {
         "required": "This is required!",
+        "email-address": "Please input correct mail address!",
         "max-length-1": "Please input less than",
-        "max-length-2": "charts!"
+        "max-length-2": "charts!",
+        "min-length-1": "Please input more than",
+        "min-length-2": "charts!"
       }
     },
     "404": {

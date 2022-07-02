@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
 import Toolbar from '@material-ui/core/Toolbar'
 import { Title, WrapTransparent, CenterGlassBlock } from '../components/Common'
-import ContactForm from '../components/Common/ContacForm'
+import ContactForm from '../components/Pages/Contact/ContactForm'
 import {
   EMAILJS_SERVICE_ID,
   EMAILJS_TEMPLATE_ID,
@@ -55,6 +55,10 @@ const IndexPage = () => {
       {/* form */}
       <CenterGlassBlock>
         <ContactForm sendMail={sendMail} isLoading={isLoading} />
+
+        <div>Loading</div>
+
+        <div>result</div>
       </CenterGlassBlock>
     </WrapTransparent>
   )

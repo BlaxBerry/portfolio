@@ -59,7 +59,7 @@
       }
     },
     "contact": {
-      "title": "問い合わせ",
+      "title": "お問い合わせ",
       "form": {
         "name": "お名前",
         "email": "メールアドレス",
@@ -68,8 +68,11 @@
       },
       "errors": {
         "required": "入力必須ですよ！",
+        "email-address": "正しいメールアドレスを入力してくださいね！",
         "max-length-1": "",
-        "max-length-2": "文字以下で入力してくださいね！"
+        "max-length-2": "文字以下で入力してくださいね！",
+        "min-length-1": "",
+        "min-length-2": "文字以上で入力してくださいね！"
       }
     },
     "404": {
@@ -86,7 +89,7 @@
         "home": "ホーム",
         "skills": "スキル",
         "works": "作品",
-        "contact": "お問合せ"
+        "contact": "問合せ"
       },
       "tools": {
         "translations": "翻訳",

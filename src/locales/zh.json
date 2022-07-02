@@ -67,9 +67,12 @@
         "submit": "发送"
       },
       "errors": {
-        "required": "必须",
+        "required": "必须!",
+        "email-address": "请输入正确邮箱地址格式!",
         "max-length-1": "请输入少于",
-        "max-length-2": "字符的内容"
+        "max-length-2": "字符的内容!",
+        "min-length-1": "请输入多于",
+        "min-length-2": "字符的内容!"
       }
     },
     "404": {

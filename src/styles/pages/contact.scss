@@ -1,0 +1,31 @@
+.my-contact-form {
+
+    &-field-line {
+        padding: 10px 0;
+    }
+
+    &-field {
+        width: 100%!important;
+    }
+
+    &-label {
+        font-size: 1rem;
+        margin: 22px 0 7px;
+    }
+
+    &-textarea {
+        background-color: rgba(255, 255, 255, 0.5);
+        font-size: 1rem;
+        outline: none;
+        padding: 20px;
+        resize: none;
+        width: 100%;
+    }
+
+    &-err-message {
+        color: #f44336;
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1.66;
+    }
+}
