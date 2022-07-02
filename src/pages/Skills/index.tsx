@@ -26,9 +26,16 @@ const IndexPage = (): JSX.Element => {
 
       {/* content */}
       {/* tab 选项 */}
-      <Tab tabItems={tabItems} />
+      <Tab fatherURL="skills" tabItems={tabItems} />
+
+      {/* TODO: 间距 */}
+      <Toolbar variant="dense" />
+
       {/* 子路由展示 */}
       <Outlet />
+
+      {/* TODO: 间距 */}
+      <Toolbar variant="dense" />
     </WarpFullScreen>
   )
 }
