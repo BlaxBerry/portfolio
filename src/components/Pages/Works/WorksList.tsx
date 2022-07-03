@@ -12,7 +12,7 @@ import { Languages } from '../../../types'
 export interface WorksItemType {
   id: string
   title: Languages
-  type: 'PC' | 'Mobile'
+  type: 'PC' | 'MOBILE'
   skillsTags: string[]
   modules: string[]
   images: string[]
@@ -23,6 +23,7 @@ export interface WorksItemType {
 
 interface WorksListProps {
   list: WorksItemType[]
+  aspectRatio: number
   xs?: GridSize
   sm?: GridSize
   md?: GridSize
@@ -33,11 +34,12 @@ interface WorksListProps {
 
 export default function WorksList({
   list,
-  xs = 12,
-  sm = 6,
-  md = 6,
-  lg = 4,
-  xl = 2,
+  aspectRatio,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
   className,
 }: WorksListProps) {
   const {
@@ -72,7 +74,7 @@ export default function WorksList({
             >
               <Image
                 src={item.images[0]}
-                aspectRatio={1.5} // 纵横比 height/width
+                aspectRatio={aspectRatio} // 纵横比 height/width
                 // TODO: loading时 root 元素样式
                 // style={{ backgroundColor: 'pink' }}
               />

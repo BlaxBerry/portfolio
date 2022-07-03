@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import base64 from 'base-64'
 import Toolbar from '@material-ui/core/Toolbar'
-import { Title, WarpFullScreen } from '../../../components/Common'
+import { Title, WrapTransparent } from '../../../components/Common'
 import { WorksItemType } from '../../../components/Pages/Works/WorksList'
 import SkillsList, {
   SkillItemType,
@@ -37,10 +37,8 @@ const IndexPage = (): JSX.Element => {
     )
   }, [currentWork?.skillsTags])
 
-  console.log(currentWork)
-
   return (
-    <WarpFullScreen>
+    <WrapTransparent>
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
@@ -63,8 +61,16 @@ const IndexPage = (): JSX.Element => {
       <DetailWorkDescription />
 
       {/* images */}
-      <DetailWorkImages list={currentWork?.images as string[]} />
-    </WarpFullScreen>
+      <DetailWorkImages
+        list={currentWork?.images as string[]}
+        aspectRatio={currentWork?.type === 'PC' ? 1.7 : 0.47}
+        xs={currentWork?.type === 'PC' ? 12 : 6}
+        sm={currentWork?.type === 'PC' ? 6 : 4}
+        md={currentWork?.type === 'PC' ? 6 : 3}
+        lg={currentWork?.type === 'PC' ? 4 : 2}
+        xl={currentWork?.type === 'PC' ? 3 : 2}
+      />
+    </WrapTransparent>
   )
 }
 
