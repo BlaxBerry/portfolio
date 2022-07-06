@@ -7,11 +7,11 @@ const IndexPage = (): JSX.Element => {
     <>
       <WorksList
         list={WORKS_MOBILE}
-        aspectRatio={0.5}
+        aspectRatio={0.47}
         xs={6}
         sm={4}
         md={4}
-        lg={3}
+        lg={2}
         xl={2}
       />
     </>

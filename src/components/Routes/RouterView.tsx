@@ -59,7 +59,11 @@ const RouterView = () => {
       path: '/works',
       element: <Works />,
       children: [
-        { index: true, element: <WorksPC /> },
+        // { index: true, element: <WorksPC /> },
+        {
+          index: true,
+          element: <Navigate to={`/works/${worksChildrenRoute[0]}`} />,
+        },
         { path: 'pc', element: <WorksPC /> },
         { path: 'mobile', element: <WorksMobile /> },
       ],
