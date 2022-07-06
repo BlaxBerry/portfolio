@@ -26,10 +26,7 @@ const useWindowSize = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const isMobile = useMemo((): boolean => {
-    return windowSize === 'xs'
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [windowSize, window.innerWidth])
+  const isMobile = useMemo((): boolean => windowSize === 'xs', [windowSize])
 
   return {
     windowSize,
