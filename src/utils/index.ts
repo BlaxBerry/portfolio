@@ -12,8 +12,11 @@ const isLanguageOptionSelected = (
 }
 
 const regularExpression = {
-  meailAddress:
+  emailAddress:
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+  onlyCharts:
+    /[^\s\d!@#$%^&*()_+-=[\]{}:;''""<>,.?|/\\！＠＃＄％＾＆＊（）＿＋ー＝『』【】「」：；’’””、。＜＞・？￥｜、]+/,
+  antiBlank: /[^\s]+/,
 }
 
 export { isLanguageOptionSelected, regularExpression }

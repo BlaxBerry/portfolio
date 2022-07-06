@@ -79,7 +79,9 @@
         "max-length-1": "",
         "max-length-2": "文字以下で入力してくださいね！",
         "min-length-1": "",
-        "min-length-2": "文字以上で入力してくださいね！"
+        "min-length-2": "文字以上で入力してくださいね！",
+        "only-charts": "数値・記号・空白など文字以外のものはだめですよ！",
+        "anti-blank": "空白はだめですよ！"
       },
       "sending": "送信中...",
       "send-success": "送信しました",

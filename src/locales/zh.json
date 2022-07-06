@@ -79,7 +79,9 @@
         "max-length-1": "请输入少于",
         "max-length-2": "字符的内容!",
         "min-length-1": "请输入多于",
-        "min-length-2": "字符的内容!"
+        "min-length-2": "字符的内容!",
+        "only-charts": "请输入数字・符号以外的非空白字符",
+        "anti-blank": "空白内容不行哦"
       },
       "sending": "发送中...",
       "send-success": "发送成功",
