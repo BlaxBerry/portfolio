@@ -93,8 +93,6 @@ export default function ContactForm({
       reply_to: data.email.trim(),
       message: data.message.trim(),
     }
-    // TODO: 传递的 textarea 无法换行
-    // TDOD: 是否允许刷新页面后多次发送
     sendMail(params)
   }
 
