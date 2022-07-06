@@ -58,6 +58,28 @@
         "naviagtion-button": "返回 Skills 页面"
       }
     },
+    "contact": {
+      "title": "咨询",
+      "form": {
+        "name": "你的称呼",
+        "email": "你的联系地址",
+        "message": "信息内容",
+        "submit": "发送"
+      },
+      "errors": {
+        "required": "必须!",
+        "email-address": "请输入正确邮箱地址格式!",
+        "max-length-1": "请输入少于",
+        "max-length-2": "字符的内容!",
+        "min-length-1": "请输入多于",
+        "min-length-2": "字符的内容!",
+        "only-charts": "请输入数字・符号以外的非空白字符",
+        "anti-blank": "空白内容不行哦"
+      },
+      "sending": "发送中...",
+      "send-success": "发送成功",
+      "send-failed": "发送失败"
+    },
     "404": {
       "title": "哎呀，找不到了",
       "subtitle": "404 错误",
@@ -71,7 +93,8 @@
       "navbar": {
         "home": "首页",
         "skills": "技术",
-        "works": "作品"
+        "works": "作品",
+        "contact": "咨询"
       },
       "tools": {
         "translations": "翻译",

@@ -11,4 +11,12 @@ const isLanguageOptionSelected = (
   return Boolean(itemLangID) && i18nCurrentLang == itemLangID
 }
 
-export { isLanguageOptionSelected }
+const regularExpression = {
+  emailAddress:
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+  onlyCharts:
+    /[^\s\d!@#$%^&*()_+-=[\]{}:;''""<>,.?|/\\！＠＃＄％＾＆＊（）＿＋ー＝『』【】「」：；’’””、。＜＞・？￥｜、]+/,
+  antiBlank: /[^\s]+/,
+}
+
+export { isLanguageOptionSelected, regularExpression }

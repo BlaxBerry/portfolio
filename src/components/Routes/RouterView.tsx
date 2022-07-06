@@ -11,6 +11,7 @@ import WorksPC from '../../pages/Works/WorksPC'
 import WorksMobile from '../../pages/Works/WorksMobile'
 import DetailSkill from '../../pages/Detail/Skill/[ID]'
 import DetailWork from '../../pages/Detail/Work/[ID]'
+import Contact from '../../pages/contact'
 
 // 默认子路由名
 // TODO: 移出该文件单独存放
@@ -63,6 +64,7 @@ const RouterView = () => {
     { path: '/work/:ID', element: <DetailWork /> },
     { path: '/about', element: <About /> },
     { path: '/home', element: <Home /> },
+    { path: '/contact', element: <Contact /> },
     { path: '/', element: <Navigate to={'/home'} /> },
     { path: '*', element: <NotFound /> },
   ])

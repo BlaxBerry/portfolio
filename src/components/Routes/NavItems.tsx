@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import HomeIcon from '@material-ui/icons/Home'
 import PieChartIcon from '@material-ui/icons/PieChart'
 import PaletteIcon from '@material-ui/icons/Palette'
+import DraftsIcon from '@material-ui/icons/Drafts'
 
 export interface NavigationItemType {
   to: string
@@ -28,6 +29,11 @@ export default function NavItems() {
       to: '/works',
       icon: <PaletteIcon />,
       title: t('components.header.navbar.works'),
+    },
+    {
+      to: '/contact',
+      icon: <DraftsIcon />,
+      title: t('components.header.navbar.contact'),
     },
     // {
     //     to: '/about',
