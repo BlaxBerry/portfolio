@@ -40,7 +40,6 @@ const WORKS_PC: WorksItemType[] = [
     publishedAt: '',
     description: [],
   },
-
   {
     id: 'pc-vue-musicplayer',
     title: {
@@ -55,18 +54,24 @@ const WORKS_PC: WorksItemType[] = [
       'vue-vuetify',
       'vue-element-ui',
       'less',
+      'webpack',
       'axios',
       'npm',
     ],
     modules: [],
     images: [
       'https://github.com/BlaxBerry/vue-music-player/raw/master/public/images/search-album-01.png',
+      'https://github.com/BlaxBerry/vue-music-player/raw/master/public/images/album.png',
+      'https://github.com/BlaxBerry/vue-music-player/raw/master/public/images/search-mv-01.png',
+      'https://github.com/BlaxBerry/vue-music-player/raw/master/public/images/search-mv-02.png',
+      'https://github.com/BlaxBerry/vue-music-player/raw/master/public/images/mv.png',
+      'https://github.com/BlaxBerry/vue-music-player/raw/master/public/images/search-song-01.png',
+      'https://github.com/BlaxBerry/vue-music-player/raw/master/public/images/favourite.png',
     ],
     createdAt: '2021-05',
     publishedAt: '',
     description: [],
   },
-
   {
     id: 'pc-vuepress-studynote',
     title: {
@@ -79,6 +84,8 @@ const WORKS_PC: WorksItemType[] = [
     modules: [],
     images: [
       'https://github.com/BlaxBerry/vuepress-studynotes/raw/main/images/01.png',
+      'https://github.com/BlaxBerry/vuepress-studynotes/raw/main/images/02.png',
+      'https://github.com/BlaxBerry/vuepress-studynotes/raw/main/images/03.png',
     ],
     createdAt: '2021-09',
     publishedAt: '',
@@ -102,7 +109,135 @@ const WORKS_PC: WorksItemType[] = [
   },
 ]
 
-const WORKS_MOBILE: WorksItemType[] = []
+const WORKS_MOBILE: WorksItemType[] = [
+  {
+    id: 'mobile-vue3-shopping',
+    title: {
+      en: 'EC Shopping App',
+      ja: '電子商取引 Web App',
+      zh: '电商 Web App',
+    },
+    type: 'MOBILE',
+    skillsTags: [
+      'vite',
+      'vue',
+      'vue-vuex',
+      'vue-vant-ui',
+      'less',
+      'axios',
+      'npm',
+    ],
+    modules: [],
+    images: [
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/home-01.png',
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/category-01.png',
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/topic-01.png',
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/detail-01.png',
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/detail-02.png',
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/detail-sku.png',
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/cart-02.png',
+      'https://github.com/BlaxBerry/Vite-Vue3-Mobile-Shopping/raw/master/public/images/user-login.png',
+    ],
+    createdAt: '2021-04',
+    publishedAt: '',
+    description: [],
+  },
+  {
+    id: 'mobile-vue2-shopping-book',
+    title: {
+      en: 'EC Shopping App',
+      ja: '電子商取引 Web App',
+      zh: '电商 Web App',
+    },
+    type: 'MOBILE',
+    skillsTags: [
+      'vue',
+      'vue-vuex',
+      'vue-vant-ui',
+      'less',
+      'webpack',
+      'axios',
+      'npm',
+    ],
+    modules: [],
+    images: [
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/01.png',
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/02.png',
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/03.png',
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/04.png',
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/06.png',
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/07.png',
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/08.png',
+      'https://github.com/BlaxBerry/vue-book-shopping-mobile/raw/main/public/images/09.png',
+    ],
+    createdAt: '2021-04',
+    publishedAt: '',
+    description: [],
+  },
+  {
+    id: 'mobile-react-game-lol-detail',
+    title: {
+      en: 'LOL Heroes Detail',
+      ja: 'LOL チャンピオン一覧',
+      zh: 'LOL 角色详情',
+    },
+    type: 'MOBILE',
+    skillsTags: [
+      'react',
+      'typescript',
+      'webpack',
+      'react-router',
+      'react-redux',
+      'react-ant-design',
+      'sass',
+      'axios',
+      'yarn',
+    ],
+    modules: [],
+    images: [
+      'https://github.com/BlaxBerry/react-moba-game-characters/raw/main/public/images/detail-03.png',
+      'https://github.com/BlaxBerry/react-moba-game-characters/raw/main/public/images/heroes.png',
+      'https://github.com/BlaxBerry/react-moba-game-characters/raw/main/public/images/detail-01.png',
+      'https://github.com/BlaxBerry/react-moba-game-characters/raw/main/public/images/detail-02.png',
+      'https://github.com/BlaxBerry/react-moba-game-characters/raw/main/public/images/detail-04.png',
+    ],
+    createdAt: '2021-10',
+    publishedAt: '',
+    description: [],
+  },
+  {
+    id: 'mobile-vue3-languages-study',
+    title: {
+      en: 'Languages Study Web App',
+      ja: '外国語勉強 Web App',
+      zh: '外语学习 Web App',
+    },
+    type: 'MOBILE',
+    skillsTags: [
+      'vite',
+      'vue',
+      'typescript',
+      'vue-pinia',
+      'vue-element-ui',
+      'sass',
+      'graphql',
+      'apollo',
+      'npm',
+      'nodejs',
+      'nodejs-express',
+    ],
+    modules: ['vue-i18n', 'vue apollo', 'express-graphql'],
+    images: [
+      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/home-01.png',
+      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/home-setting.png',
+      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/list-01.png',
+      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/word-01.png',
+    ],
+    createdAt: '2021-04',
+    publishedAt: '',
+    description: [],
+  },
+]
 
 const WORKS_ALL: WorksItemType[] = [...WORKS_PC, ...WORKS_MOBILE]
 
