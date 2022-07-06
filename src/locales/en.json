@@ -72,7 +72,9 @@
         "max-length-1": "Please input less than",
         "max-length-2": "charts!",
         "min-length-1": "Please input more than",
-        "min-length-2": "charts!"
+        "min-length-2": "charts!",
+        "only-charts": "Please enter characters rather than spaces, numbers or symbols",
+        "anti-blank": "Cannot be empty"
       },
       "sending": "Sending Now...",
       "send-success": "Succeed",

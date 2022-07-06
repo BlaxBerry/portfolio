@@ -31,34 +31,38 @@ export default function ContactForm({
     handleSubmit,
     control,
     formState: { errors },
-    setError,
   } = useForm<FormParamsType>({
     mode: 'onSubmit',
     criteriaMode: 'all',
     shouldFocusError: false,
   })
 
+  // 表单验证时使用到的数据
   const validations = {
     name: { maxLength: 30 },
     message: { minLength: 20 },
   }
 
-  const onSubmit: SubmitHandler<FormParamsType> = (data) => {
-    for (const key in data) {
-      if (data[key].trim() === '') {
-        setError(key, {
-          type: 'required',
-          message: t('pages.contact.errors.required'),
-        })
-      }
-    }
-    // TODO: 传递的 textarea 无法换行
-    // TDOD: 是否允许刷新页面后多次发送
-    sendMail({
-      from_name: data.name,
-      reply_to: data.email,
-      message: data.message,
-    })
+  // 表达验证时的提示信息
+  const rulesMessages = {
+    name: {
+      required: t('pages.contact.errors.required'),
+      maxLength: `${t('pages.contact.errors.max-length-1')} ${
+        validations.name.maxLength
+      } ${t('pages.contact.errors.max-length-2')}`,
+      pattern: t('pages.contact.errors.only-charts'),
+    },
+    email: {
+      required: t('pages.contact.errors.required'),
+      pattern: t('pages.contact.errors.email-address'),
+    },
+    message: {
+      required: t('pages.contact.errors.required'),
+      minLength: `${t('pages.contact.errors.min-length-1')} ${
+        validations.message.minLength
+      } ${t('pages.contact.errors.min-length-2')}`,
+      pattern: t('pages.contact.errors.required'),
+    },
   }
 
   // 判断 field 内容是否有错
@@ -82,16 +86,25 @@ export default function ContactForm({
     return flag
   }, [errors.name, errors.email, errors.message]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  // 提交处理
+  const onSubmit: SubmitHandler<FormParamsType> = (data: FormParamsType) => {
+    const params = {
+      from_name: data.name.trim(),
+      reply_to: data.email.trim(),
+      message: data.message.trim(),
+    }
+    // TODO: 传递的 textarea 无法换行
+    // TDOD: 是否允许刷新页面后多次发送
+    sendMail(params)
+  }
+
   return (
     <form
       className="my-contact-form"
       noValidate
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      style={{
-        // opacity: isLoading ? 0 : 1, // TODO: loading & result
-        visibility: isLoading || isSent ? 'hidden' : 'visible',
-      }}
+      style={{ visibility: isLoading || isSent ? 'hidden' : 'visible' }}
     >
       {/* 1. name */}
       <div className="my-contact-form-field-line">
@@ -99,13 +112,9 @@ export default function ContactForm({
           name="name"
           control={control}
           rules={{
-            required: t('pages.contact.errors.required'),
-            maxLength: {
-              value: validations.name.maxLength,
-              message: `${t('pages.contact.errors.max-length-1')} ${
-                validations.name.maxLength
-              } ${t('pages.contact.errors.max-length-2')}`,
-            },
+            required: true,
+            pattern: regularExpression.onlyCharts,
+            maxLength: validations.name.maxLength,
           }}
           render={({
             field: { onChange, onBlur, value, name, ref },
@@ -126,6 +135,18 @@ export default function ContactForm({
             />
           )}
         />
+        {/* error messages */}
+        <div className="my-contact-form-err-message">
+          {errors.name?.type === 'required' && (
+            <span>{rulesMessages.name.required}</span>
+          )}
+          {errors.name?.type === 'maxLength' && (
+            <span>{rulesMessages.name.maxLength}</span>
+          )}
+          {errors.name?.type === 'pattern' && (
+            <span>{rulesMessages.name.pattern}</span>
+          )}
+        </div>
       </div>
 
       {/* 2. email */}
@@ -134,11 +155,8 @@ export default function ContactForm({
           name="email"
           control={control}
           rules={{
-            required: t('pages.contact.errors.required'),
-            pattern: {
-              value: regularExpression.meailAddress,
-              message: t('pages.contact.errors.email-address'),
-            },
+            required: true,
+            pattern: regularExpression.emailAddress,
           }}
           render={({
             field: { onChange, onBlur, value, name, ref },
@@ -159,6 +177,15 @@ export default function ContactForm({
             />
           )}
         />
+        {/* error messages */}
+        <div className="my-contact-form-err-message">
+          {errors.email?.type === 'required' && (
+            <span>{rulesMessages.email.required}</span>
+          )}
+          {errors.email?.type === 'pattern' && (
+            <span>{rulesMessages.email.pattern}</span>
+          )}
+        </div>
       </div>
 
       {/* 3. message */}
@@ -181,13 +208,9 @@ export default function ContactForm({
           name="message"
           control={control}
           rules={{
-            required: t('pages.contact.errors.required'),
-            minLength: {
-              value: validations.message.minLength,
-              message: `${t('pages.contact.errors.min-length-1')} ${
-                validations.message.minLength
-              } ${t('pages.contact.errors.min-length-2')}`,
-            },
+            required: true,
+            pattern: regularExpression.antiBlank,
+            minLength: validations.message.minLength,
           }}
           render={({ field: { onChange, onBlur, value, name, ref } }) => (
             <TextareaAutosize
@@ -216,14 +239,13 @@ export default function ContactForm({
           style={{ marginTop: '-5px' }}
         >
           {errors.message?.type === 'required' && (
-            <span>{t('pages.contact.errors.required')}</span>
+            <span>{rulesMessages.message.required}</span>
           )}
           {errors.message?.type === 'minLength' && (
-            <span>
-              {`${t('pages.contact.errors.min-length-1')} 
-              ${validations.message.minLength} 
-              ${t('pages.contact.errors.min-length-2')}`}
-            </span>
+            <span>{rulesMessages.message.minLength}</span>
+          )}
+          {errors.message?.type === 'pattern' && (
+            <span>{rulesMessages.message.pattern}</span>
           )}
         </div>
       </div>
