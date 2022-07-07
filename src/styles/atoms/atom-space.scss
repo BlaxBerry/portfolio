@@ -5,15 +5,15 @@ $default-space-direction: (
    right,
 );
 
-@mixin edge-distance-direction-style($which-distance) {
-    @each $value in $default-space-direction {
-        @for $i from 0 through 100 {
-            &-#{$value}-#{$i} {
-                #{$which-distance}-#{$value}: #{$i} + px !important;
-            }
-        }
-    }
-}
+// @mixin edge-distance-direction-style($which-distance) {
+//     @each $value in $default-space-direction {
+//         @for $i from 0 through 100 {
+//             &-#{$value}-#{$i} {
+//                 #{$which-distance}-#{$value}: #{$i} + px !important;
+//             }
+//         }
+//     }
+// }
 
 
 // margin 外边距
@@ -24,7 +24,7 @@ $default-space-direction: (
      * m-bottom-10  margin-bottom: 10px
      * 省略
      */
-    @include edge-distance-direction-style(margin);
+    // @include edge-distance-direction-style(margin);
 
     &-0 {
         margin: 0 !important;
@@ -39,7 +39,7 @@ $default-space-direction: (
      * p-bottom-10  padding-bottom: 10px
      * 省略
      */
-     @include edge-distance-direction-style(padding);
+    //  @include edge-distance-direction-style(padding);
 
      &-0 {
         padding: 0 !important;
