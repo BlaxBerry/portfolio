@@ -28,10 +28,17 @@ const useWindowSize = () => {
 
   const isMobile = useMemo((): boolean => windowSize === 'xs', [windowSize])
 
+  const isTextWrap = useMemo(
+    (): boolean => window.innerWidth >= 1000,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [window.innerWidth]
+  )
+
   return {
     windowSize,
     isMobile,
     isPC: !isMobile,
+    isTextWrap,
   }
 }
 

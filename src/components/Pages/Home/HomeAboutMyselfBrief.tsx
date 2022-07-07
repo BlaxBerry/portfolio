@@ -7,7 +7,7 @@ import { useWindowSize } from '../../../hooks'
 // 该页面组件在屏幕中居中展示
 const HomeAboutBrief = () => {
   const { t } = useTranslation()
-  const { isMobile } = useWindowSize()
+  const { isTextWrap } = useWindowSize()
 
   return (
     <div
@@ -20,19 +20,14 @@ const HomeAboutBrief = () => {
       </AnimationOnScroll>
 
       {/* content */}
-      <Text align={isMobile ? 'left' : 'center'}>
+      <Text align={isTextWrap ? 'center' : 'left'}>
         <AnimationOnScroll
           animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
-          <p>{t('pages.home.about-me-brief.text')}</p>
+          <span>{t('pages.home.about-me-brief.text')}</span>
         </AnimationOnScroll>
-        <AnimationOnScroll
-          animateIn="animate__fadeInUp"
-          animateOnce={true}
-          delay={200}
-        ></AnimationOnScroll>
       </Text>
     </div>
   )

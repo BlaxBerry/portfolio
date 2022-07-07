@@ -1,5 +1,4 @@
-import React from 'react'
-import clsx from 'clsx'
+import React, { useMemo } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useTranslation } from 'react-i18next'
 import { WrapTransparent, Title, Text } from '../../Common'
@@ -7,7 +6,12 @@ import { useWindowSize } from '../../../hooks'
 
 const FooterPC = (): JSX.Element => {
   const { t } = useTranslation()
-  const { isMobile } = useWindowSize()
+  const { isTextWrap } = useWindowSize()
+
+  const wrapClassName = useMemo(
+    (): string => (isTextWrap ? 'display-block' : 'display-inline'),
+    [isTextWrap]
+  )
 
   return (
     <div className="my-footer">
@@ -23,27 +27,19 @@ const FooterPC = (): JSX.Element => {
 
           {/* content */}
           <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-            <Text align={isMobile ? 'left' : 'center'}>
-              <p
-                className={clsx(isMobile ? 'display-inline' : 'display-block')}
-              >
+            <Text align={isTextWrap ? 'center' : 'left'}>
+              <span className={wrapClassName}>
                 {t('components.footer.text-1')}
-              </p>
-              <p
-                className={clsx(isMobile ? 'display-inline' : 'display-block')}
-              >
+              </span>
+              <span className={wrapClassName}>
                 {t('components.footer.text-2')}
-              </p>
-              <p
-                className={clsx(isMobile ? 'display-inline' : 'display-block')}
-              >
+              </span>
+              <span className={wrapClassName}>
                 {t('components.footer.text-3')}
-              </p>
-              <p
-                className={clsx(isMobile ? 'display-inline' : 'display-block')}
-              >
+              </span>
+              <span className={wrapClassName}>
                 {t('components.footer.text-4')}
-              </p>
+              </span>
             </Text>
           </AnimationOnScroll>
         </div>
