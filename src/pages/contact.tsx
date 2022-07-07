@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
 import Container from '@material-ui/core/Container'
-import Toolbar from '@material-ui/core/Toolbar'
 import { Title, WrapTransparent, CenterGlassBlock } from '../components/Common'
 import {
   ContactForm,
@@ -76,17 +75,17 @@ const IndexPage = () => {
 
   return (
     <WrapTransparent>
-      {/* TODO: 顶间距占位 */}
-      <Toolbar variant="dense" />
-      <Toolbar variant="dense" />
-      <Toolbar variant="dense" />
+      <div
+        className="display-flex flex-direction-column flex-justify-content-center flex-align-items-center"
+        style={{ height: '100vh' }}
+      >
+        {/* title */}
+        <Title title={t('pages.contact.title')} />
 
-      {/* title */}
-      <Title title={t('pages.contact.title')} />
-
-      {/* content */}
-      {isPC && <Container maxWidth="md">{renderContentLayout()}</Container>}
-      {isMobile && renderContentLayout()}
+        {/* content */}
+        {isPC && <Container maxWidth="md">{renderContentLayout()}</Container>}
+        {isMobile && renderContentLayout()}
+      </div>
     </WrapTransparent>
   )
 }
