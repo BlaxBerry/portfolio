@@ -10,9 +10,9 @@ const IndexPage = (): JSX.Element => {
         aspectRatio={0.47}
         xs={6}
         sm={4}
-        md={4}
+        md={3}
         lg={2}
-        xl={2}
+        xl={3}
       />
     </>
   )

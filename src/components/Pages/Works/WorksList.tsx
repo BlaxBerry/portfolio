@@ -64,7 +64,7 @@ export default function WorksList({
           <AnimationOnScroll
             animateIn="animate__bounceInLeft"
             animateOnce={true}
-            delay={50 * index}
+            delay={100 * index}
             offset={0}
           >
             <Box

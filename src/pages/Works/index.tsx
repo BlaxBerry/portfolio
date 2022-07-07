@@ -19,7 +19,6 @@ const IndexPage = (): JSX.Element => {
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
-      <Toolbar variant="dense" />
 
       {/* title */}
       <Title title={t('pages.works.title')} />
@@ -35,6 +34,7 @@ const IndexPage = (): JSX.Element => {
       <Outlet />
 
       {/* TODO: 间距 */}
+      <Toolbar variant="dense" />
       <Toolbar variant="dense" />
     </WarpFullScreen>
   )

@@ -96,7 +96,7 @@ const WORKS_PC: WorksItemType[] = [
     id: 'pc-SAGA_SUNRISE_PARK',
     title: {
       en: 'SAGA Sunrise Park Booking System',
-      ja: 'SAGA Sunrise Park ボーキングシステム',
+      ja: 'SAGA Sunrise Park ブッキングシステム',
       zh: 'SAGA Sunrise Park 预约系统',
     },
     type: 'PC',
