@@ -18,12 +18,12 @@ export interface WorksItemType {
   images: string[]
   createdAt: string | Date
   publishedAt: string | Date
-  description: []
+  description: Languages
 }
 
 interface WorksListProps {
   list: WorksItemType[]
-  aspectRatio: number
+  aspectRatio: number // 图片纵横比 height/width
   xs?: GridSize
   sm?: GridSize
   md?: GridSize
@@ -53,32 +53,23 @@ export default function WorksList({
   }
 
   return (
-    <Grid
-      container
-      spacing={1}
-      className={clsx('my-works-list', className)}
-      // justifyContent={justifyContent}
-    >
+    <Grid container spacing={2} className={clsx('my-works-list', className)}>
       {list?.map((item, index) => (
         <Grid key={item.id} item={true} xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
           <AnimationOnScroll
-            animateIn="animate__bounceInLeft"
+            animateIn="animate__fadeInLeft"
             animateOnce={true}
-            delay={100 * index}
+            delay={55 * index}
             offset={0}
           >
             <Box
               className="my-works-list-item"
-              boxShadow={3}
+              boxShadow={4}
               onClick={() => handleClick(item)}
             >
-              <Image
-                src={item.images[0]}
-                aspectRatio={aspectRatio} // 纵横比 height/width
-                // TODO: loading时 root 元素样式
-                // style={{ backgroundColor: 'pink' }}
-              />
+              <Image src={item.images[0]} aspectRatio={aspectRatio} />
 
+              {/* cover mask */}
               <div className="my-works-list-item-message">
                 <div className="my-works-list-item-message-name">
                   {item.title?.[language]}

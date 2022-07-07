@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import base64 from 'base-64'
 import Toolbar from '@material-ui/core/Toolbar'
-import { Title, WrapTransparent } from '../../../components/Common'
+import { Title, WarpFullScreen } from '../../../components/Common'
 import { WorksItemType } from '../../../components/Pages/Works/WorksList'
 import SkillsList, {
   SkillItemType,
@@ -14,6 +14,7 @@ import {
   DetailWorkDescription,
   DetailWorkImages,
 } from '../../../components/Pages/Detail/Work'
+import { Languages } from '../../../types'
 
 const IndexPage = (): JSX.Element => {
   const {
@@ -38,27 +39,34 @@ const IndexPage = (): JSX.Element => {
   }, [currentWork?.skillsTags])
 
   return (
-    <WrapTransparent>
+    <WarpFullScreen>
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
 
       {/* title */}
       <Title title={currentWork?.title?.[language]} />
+      <br />
 
-      {/* skills list */}
+      {/* description */}
+      <DetailWorkDescription
+        description={currentWork?.description as Languages}
+      />
+      <br />
+      <br />
+
+      {/* relative skills */}
       <SkillsList
         list={RELAIONS_SKILLS as SkillItemType[]}
         justifyContent={isPC ? 'center' : 'flex-start'}
         xs={2}
-        sm={2}
+        sm={1}
         md={1}
         lg={1}
         xl={1}
       />
-
-      {/* description */}
-      <DetailWorkDescription />
+      <br />
+      <br />
 
       {/* images */}
       <DetailWorkImages
@@ -70,7 +78,11 @@ const IndexPage = (): JSX.Element => {
         lg={currentWork?.type === 'PC' ? 4 : 2}
         xl={currentWork?.type === 'PC' ? 3 : 2}
       />
-    </WrapTransparent>
+
+      {/* TODO: 间距占位 */}
+      <Toolbar variant="dense" />
+      <Toolbar variant="dense" />
+    </WarpFullScreen>
   )
 }
 

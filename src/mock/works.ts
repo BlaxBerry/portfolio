@@ -38,7 +38,11 @@ const WORKS_PC: WorksItemType[] = [
     ],
     createdAt: '2022-06',
     publishedAt: '',
-    description: [],
+    description: {
+      en: 'This portfolio summarizes the works I have worked on and the skills I have acquired. Hope you will get to know me as much as possible through this portfolio.',
+      ja: 'これまでに手がけた作品や、身につけたスキルをこのポートフォリオでまとめいです。このポートフォリオを通して、私のことを少しでも知っていただければ嬉しいと思います。',
+      zh: '该 Portfólio 总结了我从事的工作与学习获得的技能。希望你能通过这个作品集尽可能多地了解我。',
+    },
   },
   {
     id: 'pc-vue-musicplayer',
@@ -70,7 +74,11 @@ const WORKS_PC: WorksItemType[] = [
     ],
     createdAt: '2021-05',
     publishedAt: '',
-    description: [],
+    description: {
+      en: '',
+      ja: '',
+      zh: '',
+    },
   },
   {
     id: 'pc-vuepress-studynote',
@@ -89,7 +97,11 @@ const WORKS_PC: WorksItemType[] = [
     ],
     createdAt: '2021-09',
     publishedAt: '',
-    description: [],
+    description: {
+      en: '',
+      ja: '',
+      zh: '',
+    },
   },
 
   {
@@ -105,7 +117,11 @@ const WORKS_PC: WorksItemType[] = [
     images: [SAGA_SUNRISE_PARK],
     createdAt: '2020-12',
     publishedAt: '',
-    description: [],
+    description: {
+      en: '',
+      ja: '',
+      zh: '',
+    },
   },
 ]
 
@@ -140,7 +156,11 @@ const WORKS_MOBILE: WorksItemType[] = [
     ],
     createdAt: '2021-04',
     publishedAt: '',
-    description: [],
+    description: {
+      en: '',
+      ja: '',
+      zh: '',
+    },
   },
   {
     id: 'mobile-vue2-shopping-book',
@@ -172,7 +192,11 @@ const WORKS_MOBILE: WorksItemType[] = [
     ],
     createdAt: '2021-04',
     publishedAt: '',
-    description: [],
+    description: {
+      en: '',
+      ja: '',
+      zh: '',
+    },
   },
   {
     id: 'mobile-react-game-lol-detail',
@@ -203,7 +227,11 @@ const WORKS_MOBILE: WorksItemType[] = [
     ],
     createdAt: '2021-10',
     publishedAt: '',
-    description: [],
+    description: {
+      en: '',
+      ja: '',
+      zh: '',
+    },
   },
   {
     id: 'mobile-vue3-languages-study',
@@ -235,7 +263,11 @@ const WORKS_MOBILE: WorksItemType[] = [
     ],
     createdAt: '2021-04',
     publishedAt: '',
-    description: [],
+    description: {
+      en: '',
+      ja: '',
+      zh: '',
+    },
   },
 ]
 
