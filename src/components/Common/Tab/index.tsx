@@ -10,28 +10,29 @@ export interface TabItemsType {
 
 interface CustomTabProps {
   tabItems: TabItemsType[]
+  fatherURL: string
 }
 
-const CustomTabs = ({ tabItems }: CustomTabProps): JSX.Element => {
+const CustomTabs = ({ tabItems, fatherURL }: CustomTabProps): JSX.Element => {
   const navigate = useNavigate()
   const location = useLocation()
   const [selectedTabIndex, setSelectedTabIndex] = React.useState<number>(0)
 
-  // 判断浏览器地址栏的URL，若合法则选中对应 Tab Ttem，否则默认选择第一项
+  // 判断浏览器地址栏的URL，若合法则选中对应 Tab Ttem，否则默认选择第一项 index 0
   useEffect(() => {
-    const skillBranchName = location.pathname.slice(
+    const childrhRouteName = location.pathname.slice(
       location.pathname.lastIndexOf('/') + 1
     )
     const isInclude = tabItems
       .map((item) => item.to)
-      .findIndex((item) => item === skillBranchName)
+      .findIndex((item) => item === childrhRouteName)
     if (isInclude !== -1) setSelectedTabIndex(isInclude)
-  }, [location, tabItems])
+  }, [location.pathname, tabItems])
 
   const handleChange = (event: unknown, selectedTabIndex: number) => {
     setSelectedTabIndex(selectedTabIndex)
     const childrenRouteURL = tabItems[selectedTabIndex].to
-    navigate(`/skills/${childrenRouteURL}`)
+    navigate(`/${fatherURL}/${childrenRouteURL}`)
   }
 
   return (

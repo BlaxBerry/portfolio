@@ -1,5 +1,4 @@
-import React from 'react'
-import clsx from 'clsx'
+import React, { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useTranslation } from 'react-i18next'
@@ -12,7 +11,12 @@ import { useWindowSize } from '../../../hooks'
 const HomeSkillsBrief = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { isMobile } = useWindowSize()
+  const { isTextWrap } = useWindowSize()
+
+  const wrapClassName = useMemo(
+    (): string => (isTextWrap ? 'display-block' : 'display-inline'),
+    [isTextWrap]
+  )
 
   // chart 数据
   const chartDataTechLang = {
@@ -57,7 +61,6 @@ const HomeSkillsBrief = () => {
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
-      <Toolbar variant="dense" />
 
       {/* title */}
       <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
@@ -65,27 +68,18 @@ const HomeSkillsBrief = () => {
       </AnimationOnScroll>
 
       {/* 1. text description */}
-      <Text align={isMobile ? 'left' : 'center'}>
+      <Text align={isTextWrap ? 'center' : 'left'}>
         <AnimationOnScroll
           animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
-          <p className={clsx(isMobile ? 'display-inline' : 'display-block')}>
+          <span className={wrapClassName}>
             {t('pages.home.skills-brief.text-1')}
-          </p>
-          <p className={clsx(isMobile ? 'display-inline' : 'display-none')}>
+          </span>
+          <span className={wrapClassName}>
             {t('pages.home.skills-brief.text-2')}
-          </p>
-        </AnimationOnScroll>
-        <AnimationOnScroll
-          animateIn="animate__fadeInUp"
-          animateOnce={true}
-          delay={200}
-        >
-          <p className={clsx(isMobile ? 'display-none' : 'display-block')}>
-            {t('pages.home.skills-brief.text-2')}
-          </p>
+          </span>
         </AnimationOnScroll>
       </Text>
 
@@ -120,22 +114,21 @@ const HomeSkillsBrief = () => {
           </Box>
         </AnimationOnScroll>
       </Box>
-      <h5 className="text-align-center front-grey ">
-        {t('components.charts.skills.updating')}
-      </h5>
 
       {/* TODO: 3. navigation button */}
       <Text align={'center'}>
         <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
-          <p>
+          <small>{t('components.charts.skills.updating')}</small>
+          <div>
             <Button
-              variant="outlined"
+              variant="contained"
+              color="primary"
               onClick={() => navigate('/skills')}
               style={{ textTransform: 'none' }}
             >
               {t('pages.home.skills-brief.navigation-button')}
             </Button>
-          </p>
+          </div>
         </AnimationOnScroll>
       </Text>
 

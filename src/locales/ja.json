@@ -58,6 +58,13 @@
         "naviagtion-button": "スキルリストに戻る"
       }
     },
+    "works": {
+      "title": "作品について",
+      "tabs": {
+        "pc": "PC",
+        "mobile": "Mobile"
+      }
+    },
     "contact": {
       "title": "お問い合わせ",
       "form": {

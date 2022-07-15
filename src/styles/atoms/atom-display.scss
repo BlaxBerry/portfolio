@@ -5,10 +5,10 @@ $default-flex-align-items-position: (
     flex-start, flex-end, center
 );
 
-@mixin flex-direction-style($direction-list) {
+@mixin flex-direction-style($attribute-name, $direction-list) {
     @each $value in $direction-list {
         &-#{$value} {
-            justify-content: $value !important;
+            #{$attribute-name}: $value !important;
         }
     }
 }
@@ -39,7 +39,7 @@ $default-flex-align-items-position: (
      * .flex-justify-content-space-between  justify-content: space-between
     */
     &-justify-content {
-        @include flex-direction-style($default-flex-justify-content-position);
+        @include flex-direction-style('justify-content', $default-flex-justify-content-position);
     }
 
     /* align-items
@@ -50,7 +50,7 @@ $default-flex-align-items-position: (
      * .flex-align-items-space-between  align-items: space-between
     */
     &-align-items {
-        @include flex-direction-style($default-flex-align-items-position);
+        @include flex-direction-style('align-items', $default-flex-align-items-position);
     }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useNavigate } from 'react-router-dom'
 import Image from 'material-ui-image'
@@ -52,33 +53,29 @@ const SkillsList = ({
   const { isPC, isMobile } = useWindowSize()
 
   const handleClick = (item: SkillItemType) => {
-    // if (item?.extraInfo?.preparing) {
-    //   // TODO： 禁止进入详情页面
-    //   alert('Navigation Forbidden, 没有相关内容')
-    // } else
-    naviagte(`/skill/${item.id}`, { state: { item } })
+    naviagte(`/skill/${item.id}`)
   }
 
   return (
     <Grid
       container
       spacing={1}
-      className={className}
+      className={clsx('my-skills-list', className)}
       justifyContent={justifyContent}
     >
       {list?.map((item, index) => (
         <Grid key={item.id} item={true} xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
           <AnimationOnScroll
-            animateIn="animate__rubberBand"
+            animateIn="animate__fadeInLeft"
             animateOnce={true}
-            delay={50 * index}
+            delay={55 * index}
             offset={0}
           >
             {/* PC 场景布局 */}
             {isPC && (
               <Tooltip title={item.name} arrow>
                 {/* TODO: card style */}
-                <Paper elevation={4}>
+                <Paper elevation={4} className="my-skills-list-item">
                   <Image
                     src={item.img}
                     loading={false}
@@ -89,7 +86,7 @@ const SkillsList = ({
             )}
             {/* Mobile 场景布局 */}
             {isMobile && (
-              <Paper elevation={4}>
+              <Paper elevation={4} className="my-skills-list-item">
                 <Image
                   src={item.img}
                   loading={false}

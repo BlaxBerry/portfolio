@@ -58,6 +58,13 @@
         "naviagtion-button": "Back To Skills"
       }
     },
+    "works": {
+      "title": "About Works",
+      "tabs": {
+        "pc": "PC",
+        "mobile": "Mobile"
+      }
+    },
     "contact": {
       "title": "Contact",
       "form": {

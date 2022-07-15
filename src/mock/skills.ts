@@ -30,6 +30,7 @@ import SVGReactQuery from '../assets/svg/front/react-query.svg'
 import SVGVueX from '../assets/svg/front/vue-vuex.svg'
 import SVGPinia from '../assets/svg/front/vue-pinia.svg'
 import SVGElementUI from '../assets/svg/front/vue-element-ui.svg'
+import SVGVantUI from '../assets/svg/front/vue-vant-ui.svg'
 import SVGVuetify from '../assets/svg/front/vue-vuetify.svg'
 import SVGNuxt from '../assets/svg/front/vue-nuxt.svg'
 import SVGVuePress from '../assets/svg/front/vue-vuepress.svg'
@@ -190,6 +191,7 @@ const SKILLS_FRONT: SkillItemType[] = [
         'vue-pinia',
         'vue-vuetify',
         'vue-element-ui',
+        'vue-vant-ui',
         'apollo',
         'storybook',
       ],
@@ -400,6 +402,16 @@ const SKILLS_FRONT: SkillItemType[] = [
     id: 'vue-element-ui',
     name: 'Element UI',
     img: SVGElementUI,
+    extraInfo: {
+      show: false,
+      preparing: true,
+      description: null,
+    },
+  },
+  {
+    id: 'vue-vant-ui',
+    name: 'Vant UI',
+    img: SVGVantUI,
     extraInfo: {
       show: false,
       preparing: true,
@@ -673,16 +685,6 @@ const SKILLS_OTHERS: SkillItemType[] = [
 
 const SKILLS_DESIGNS: SkillItemType[] = [
   {
-    id: 'sketch',
-    name: 'Sketch',
-    img: SVGSketch,
-    extraInfo: {
-      show: true,
-      preparing: true,
-      description: null,
-    },
-  },
-  {
     id: 'adobe-xd',
     name: 'Adobe XD',
     img: SVGAdobeXD,
@@ -716,6 +718,16 @@ const SKILLS_DESIGNS: SkillItemType[] = [
     id: 'adobe-pr',
     name: 'Adobe Premiere',
     img: SVGAdobePR,
+    extraInfo: {
+      show: true,
+      preparing: true,
+      description: null,
+    },
+  },
+  {
+    id: 'sketch',
+    name: 'Sketch',
+    img: SVGSketch,
     extraInfo: {
       show: true,
       preparing: true,

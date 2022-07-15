@@ -7,8 +7,8 @@ import NotFound from '../../pages/404'
 import Skills from '../../pages/Skills'
 import SkillBranch from '../../pages/Skills/[skillBranch]'
 import Works from '../../pages/Works'
-import WorksPC from '../../pages/Works/WorksPC'
-import WorksMobile from '../../pages/Works/WorksMobile'
+import WorksPC from '../../pages/Works/PC/WorksPC'
+import WorksMobile from '../../pages/Works/Mobile/WorksMobile'
 import DetailSkill from '../../pages/Detail/Skill/[ID]'
 import DetailWork from '../../pages/Detail/Work/[ID]'
 import Contact from '../../pages/contact'
@@ -48,14 +48,22 @@ const RouterView = () => {
           index: true,
           element: <Navigate to={`/skills/${skillsChildrenRoute[0]}`} />,
         },
-        { path: ':skillBranch', element: <SkillBranch /> },
+        // { path: ':skillBranch', element: <SkillBranch /> },
+        ...skillsChildrenRoute.map((item) => ({
+          path: `${item}`,
+          element: <SkillBranch />,
+        })),
       ],
     },
     {
       path: '/works',
       element: <Works />,
       children: [
-        { index: true, element: <WorksPC /> },
+        // { index: true, element: <WorksPC /> },
+        {
+          index: true,
+          element: <Navigate to={`/works/${worksChildrenRoute[0]}`} />,
+        },
         { path: 'pc', element: <WorksPC /> },
         { path: 'mobile', element: <WorksMobile /> },
       ],

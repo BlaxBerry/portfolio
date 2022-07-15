@@ -1,5 +1,4 @@
-import React from 'react'
-import clsx from 'clsx'
+import React, { useMemo } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useTranslation } from 'react-i18next'
 import { Title, Text } from '../../Common'
@@ -8,7 +7,12 @@ import { useWindowSize } from '../../../hooks'
 // 该页面组件在屏幕中居中展示
 const HomeAboutBrief = () => {
   const { t } = useTranslation()
-  const { isMobile } = useWindowSize()
+  const { isTextWrap } = useWindowSize()
+
+  const wrapClassName = useMemo(
+    (): string => (isTextWrap ? 'display-block' : 'display-inline'),
+    [isTextWrap]
+  )
 
   return (
     <div
@@ -21,27 +25,18 @@ const HomeAboutBrief = () => {
       </AnimationOnScroll>
 
       {/* content */}
-      <Text align={isMobile ? 'left' : 'center'}>
+      <Text align={isTextWrap ? 'center' : 'left'}>
         <AnimationOnScroll
           animateIn="animate__fadeInUp"
           animateOnce={true}
           delay={100}
         >
-          <p className={clsx(isMobile ? 'display-inline' : 'display-block')}>
+          <span className={wrapClassName}>
             {t('pages.home.about-site-brief.text-1')}
-          </p>
-          <p className={clsx(isMobile ? 'display-inline' : 'display-none')}>
+          </span>
+          <span className={wrapClassName}>
             {t('pages.home.about-site-brief.text-2')}
-          </p>
-        </AnimationOnScroll>
-        <AnimationOnScroll
-          animateIn="animate__fadeInUp"
-          animateOnce={true}
-          delay={200}
-        >
-          <p className={clsx(isMobile ? 'display-none' : 'display-block')}>
-            {t('pages.home.about-site-brief.text-2')}
-          </p>
+          </span>
         </AnimationOnScroll>
       </Text>
     </div>

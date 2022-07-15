@@ -28,7 +28,7 @@ const NavBarPC = (): JSX.Element => {
     const currentRoute = '/' + location.pathname.split('/')[1]
     if (navigationItems.find(({ to }) => to === currentRoute)) {
       setSelectedNav(currentRoute)
-    }
+    } else setSelectedNav(null)
   }, [location, navigationItems])
 
   return (

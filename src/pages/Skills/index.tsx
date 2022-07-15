@@ -19,16 +19,23 @@ const IndexPage = (): JSX.Element => {
       {/* TODO: 顶间距占位 */}
       <Toolbar variant="dense" />
       <Toolbar variant="dense" />
-      <Toolbar variant="dense" />
 
       {/* title */}
       <Title title={t('pages.skills.title')} />
 
       {/* content */}
       {/* tab 选项 */}
-      <Tab tabItems={tabItems} />
+      <Tab fatherURL="skills" tabItems={tabItems} />
+
+      {/* TODO: 间距 */}
+      <Toolbar variant="dense" />
+
       {/* 子路由展示 */}
       <Outlet />
+
+      {/* TODO: 间距 */}
+      <Toolbar variant="dense" />
+      <Toolbar variant="dense" />
     </WarpFullScreen>
   )
 }
