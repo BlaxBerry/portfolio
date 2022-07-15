@@ -34,6 +34,7 @@ import SVGVantUI from '../assets/svg/front/vue-vant-ui.svg'
 import SVGVuetify from '../assets/svg/front/vue-vuetify.svg'
 import SVGNuxt from '../assets/svg/front/vue-nuxt.svg'
 import SVGVuePress from '../assets/svg/front/vue-vuepress.svg'
+import SVGVueuse from '../assets/svg/front/vue-vueuse.svg'
 import SVGNpm from '../assets/svg/front/npm.svg'
 import SVGYarn from '../assets/svg/front/yarn.svg'
 import SVGApollo from '../assets/svg/front/apollo.svg'
@@ -192,6 +193,7 @@ const SKILLS_FRONT: SkillItemType[] = [
         'vue-vuetify',
         'vue-element-ui',
         'vue-vant-ui',
+        'vue-vueuse',
         'apollo',
         'storybook',
       ],
@@ -442,6 +444,16 @@ const SKILLS_FRONT: SkillItemType[] = [
     id: 'vue-nuxt',
     name: 'Nuxt',
     img: SVGNuxt,
+    extraInfo: {
+      show: false,
+      preparing: true,
+      description: null,
+    },
+  },
+  {
+    id: 'vue-vueuse',
+    name: 'Vueuse',
+    img: SVGVueuse,
     extraInfo: {
       show: false,
       preparing: true,

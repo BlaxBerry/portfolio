@@ -1,5 +1,9 @@
 import { WorksItemType } from '../components/Pages/Works/WorksList'
-import SAGA_SUNRISE_PARK from '../../public/images/examples/SAGA_SUNRISE_PARK.png'
+import SAGA_SUNRISE_PARK from '../../public/projects/realities/saga_sunrise_park/01.png'
+import SHOPPING_RABBIT_01 from '../../public/projects/practice/shopping_xiaotuxiaoer/01.png'
+import SHOPPING_RABBIT_02 from '../../public/projects/practice/shopping_xiaotuxiaoer/02.png'
+
+// https://github.com/BlaxBerry/portfolio/blob/main/public/images/examples/SAGA_SUNRISE_PARK.png?raw=true
 
 const WORKS_PC: WorksItemType[] = [
   {
@@ -45,6 +49,33 @@ const WORKS_PC: WorksItemType[] = [
     },
   },
   {
+    id: 'pc-rabbit-shopping',
+    title: {
+      en: 'Rabbit Shopping',
+      ja: 'EC ラビットショッピング',
+      zh: '小兔鲜儿商城',
+    },
+    type: 'PC',
+    skillsTags: [
+      'vue',
+      'vue-vuex',
+      'vue-vueuse',
+      'less',
+      'axios',
+      'webpack',
+      'npm',
+    ],
+    modules: ['dayjs', 'vuex-persistedstate', 'vue-validate'],
+    images: [SHOPPING_RABBIT_01, SHOPPING_RABBIT_02],
+    createdAt: '2021-06',
+    publishedAt: '',
+    description: {
+      en: 'Developement of front-end for B2C comprehensive category e-commerce platform. \nAt that moment there is no UI library suitable for Vue 3.0  for this reason almost all components & layout are basically encapsulated by ourselves.',
+      ja: 'B2C 電子商取引プラットフォームのフロントエンド側の開発。 \n開発時点では、Vue 3.0に適したUIコンポーネントライブラリがないため、ほとんどすべてのコンポーネントとレイアウトは基本的に自分でカプセル化されています。',
+      zh: 'B2C综合品类电子商务平台的前端部分开发。\n开发时还非常没有适合 Vue 3.0 的 UI 组件库，因此几乎所有的组件和布局基本上都是我们自己封装的。',
+    },
+  },
+  {
     id: 'pc-vue-musicplayer',
     title: {
       en: 'Music Player',
@@ -81,6 +112,25 @@ const WORKS_PC: WorksItemType[] = [
     },
   },
   {
+    id: 'pc-SAGA_SUNRISE_PARK',
+    title: {
+      en: 'SAGA Sunrise Park Booking System',
+      ja: 'SAGA Sunrise Park ブッキングシステム',
+      zh: 'SAGA Sunrise Park 预约系统',
+    },
+    type: 'PC',
+    skillsTags: [],
+    modules: [],
+    images: [SAGA_SUNRISE_PARK],
+    createdAt: '2022-08',
+    publishedAt: '',
+    description: {
+      en: 'Development of front end for SAGA Sunrise Park customer booking system and admin management system',
+      ja: '佐賀サンライズパーク（SAGA Sunrise Park）のカスタマーブッキングシステムおよびアドミ管理システムのフロントエンドの開発。',
+      zh: '',
+    },
+  },
+  {
     id: 'pc-vuepress-studynote',
     title: {
       en: 'Study Note',
@@ -103,26 +153,38 @@ const WORKS_PC: WorksItemType[] = [
       zh: '',
     },
   },
-
-  {
-    id: 'pc-SAGA_SUNRISE_PARK',
-    title: {
-      en: 'SAGA Sunrise Park Booking System',
-      ja: 'SAGA Sunrise Park ブッキングシステム',
-      zh: 'SAGA Sunrise Park 预约系统',
-    },
-    type: 'PC',
-    skillsTags: [],
-    modules: [],
-    images: [SAGA_SUNRISE_PARK],
-    createdAt: '2020-12',
-    publishedAt: '',
-    description: {
-      en: '',
-      ja: '',
-      zh: '',
-    },
-  },
+  // {
+  //   id: 'pc-static-weidding',
+  //   title: {
+  //     en: 'Wedding',
+  //     ja: 'Wedding',
+  //     zh: 'Wedding',
+  //   },
+  //   type: 'PC',
+  //   skillsTags: [
+  //     'bootstrap',
+  //     'less',
+  //     'javascript',
+  //     'jquery',
+  //     'webpack'
+  //   ],
+  //   modules: [
+  //   ],
+  //   images: [
+  //     'https://github.com/BlaxBerry/PC-Static-Weddng-Dress/raw/master/images/01.png',
+  //     'https://github.com/BlaxBerry/PC-Static-Weddng-Dress/raw/master/images/02.png',
+  //     'https://github.com/BlaxBerry/PC-Static-Weddng-Dress/raw/master/images/03.png',
+  //     'https://github.com/BlaxBerry/PC-Static-Weddng-Dress/raw/master/images/04.png',
+  //     'https://github.com/BlaxBerry/PC-Static-Weddng-Dress/raw/master/images/05.png'
+  //   ],
+  //   createdAt: '2019-06',
+  //   publishedAt: '',
+  //   description: {
+  //     en: '',
+  //     ja: '',
+  //     zh: '',
+  //   },
+  // },
 ]
 
 const WORKS_MOBILE: WorksItemType[] = [
@@ -233,42 +295,42 @@ const WORKS_MOBILE: WorksItemType[] = [
       zh: '',
     },
   },
-  {
-    id: 'mobile-vue3-languages-study',
-    title: {
-      en: 'Languages Study Web App',
-      ja: '外国語勉強 Web App',
-      zh: '外语学习 Web App',
-    },
-    type: 'MOBILE',
-    skillsTags: [
-      'vite',
-      'vue',
-      'typescript',
-      'vue-pinia',
-      'vue-element-ui',
-      'sass',
-      'graphql',
-      'apollo',
-      'npm',
-      'nodejs',
-      'nodejs-express',
-    ],
-    modules: ['vue-i18n', 'vue apollo', 'express-graphql'],
-    images: [
-      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/home-01.png',
-      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/home-setting.png',
-      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/list-01.png',
-      'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/word-01.png',
-    ],
-    createdAt: '2021-04',
-    publishedAt: '',
-    description: {
-      en: '',
-      ja: '',
-      zh: '',
-    },
-  },
+  // {
+  //   id: 'mobile-vue3-languages-study',
+  //   title: {
+  //     en: 'Languages Study Web App',
+  //     ja: '外国語勉強 Web App',
+  //     zh: '外语学习 Web App',
+  //   },
+  //   type: 'MOBILE',
+  //   skillsTags: [
+  //     'vite',
+  //     'vue',
+  //     'typescript',
+  //     'vue-pinia',
+  //     'vue-element-ui',
+  //     'sass',
+  //     'graphql',
+  //     'apollo',
+  //     'npm',
+  //     'nodejs',
+  //     'nodejs-express',
+  //   ],
+  //   modules: ['vue-i18n', 'vue apollo', 'express-graphql'],
+  //   images: [
+  //     'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/home-01.png',
+  //     'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/home-setting.png',
+  //     'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/list-01.png',
+  //     'https://github.com/BlaxBerry/vue3-words-study-mobile/raw/main/public/images/word-01.png',
+  //   ],
+  //   createdAt: '2021-04',
+  //   publishedAt: '',
+  //   description: {
+  //     en: '',
+  //     ja: '',
+  //     zh: '',
+  //   },
+  // },
 ]
 
 const WORKS_ALL: WorksItemType[] = [...WORKS_PC, ...WORKS_MOBILE]
