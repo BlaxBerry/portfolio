@@ -8,6 +8,9 @@ import Image from 'material-ui-image'
 import Grid, { GridSize } from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 import { Languages } from '../../../types'
+import NoImagePC from '../../../assets/images/noImage-pc.png'
+import NoImageMobile from '../../../assets/images/noImage-mobile.png'
+import linkJump from '../../../assets/images/link-jump.png'
 
 export interface WorksItemType {
   id: string
@@ -19,6 +22,10 @@ export interface WorksItemType {
   createdAt: string | Date
   publishedAt: string | Date
   description: Languages
+  links: {
+    demo?: string
+    github?: string
+  }
 }
 
 interface WorksListProps {
@@ -52,6 +59,14 @@ export default function WorksList({
     navigate(`/work/${encodeID}`)
   }
 
+  const getImageSrc = (item: WorksItemType): string => {
+    if (item.images.length <= 0) {
+      if (item.type === 'PC') return NoImagePC
+      else if (item.type === 'MOBILE') return NoImageMobile
+    }
+    return item.images[0]
+  }
+
   return (
     <Grid container spacing={2} className={clsx('my-works-list', className)}>
       {list?.map((item, index) => (
@@ -67,16 +82,30 @@ export default function WorksList({
               boxShadow={4}
               onClick={() => handleClick(item)}
             >
-              <Image src={item.images[0]} aspectRatio={aspectRatio} />
+              <Image src={getImageSrc(item)} aspectRatio={aspectRatio} />
 
               {/* cover mask */}
               <div className="my-works-list-item-message">
-                <div className="my-works-list-item-message-name">
-                  {item.title?.[language]}
+                {/* title */}
+                <strong>{item.title?.[language]}</strong>
+                <div>
+                  {/* create date */}
+                  <small className="my-works-list-item-message-createat">
+                    {item.createdAt.toString()}
+                  </small>
+                  {/* demo link */}
+                  {item.links?.demo && (
+                    <img
+                      src={linkJump}
+                      alt="link"
+                      className="my-works-list-item-message-link"
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        window.open(item?.links?.demo as string, '_blank')
+                      }}
+                    />
+                  )}
                 </div>
-                <small className="my-works-list-item-message-createat">
-                  {item.createdAt.toString()}
-                </small>
               </div>
             </Box>
           </AnimationOnScroll>

@@ -1,9 +1,4 @@
 import { WorksItemType } from '../components/Pages/Works/WorksList'
-import SAGA_SUNRISE_PARK from '../../public/projects/realities/saga_sunrise_park/01.png'
-import SHOPPING_RABBIT_01 from '../../public/projects/practice/shopping_xiaotuxiaoer/01.png'
-import SHOPPING_RABBIT_02 from '../../public/projects/practice/shopping_xiaotuxiaoer/02.png'
-
-// https://github.com/BlaxBerry/portfolio/blob/main/public/images/examples/SAGA_SUNRISE_PARK.png?raw=true
 
 const WORKS_PC: WorksItemType[] = [
   {
@@ -25,8 +20,9 @@ const WORKS_PC: WorksItemType[] = [
       'yarn',
     ],
     modules: [
-      'email.js',
       'animate.css',
+      'base64',
+      'email.js',
       'react-chartjs-2',
       'react-i18next',
       'react-hook-form',
@@ -47,6 +43,7 @@ const WORKS_PC: WorksItemType[] = [
       ja: 'これまでに手がけた作品や、身につけたスキルをこのポートフォリオでまとめいです。このポートフォリオを通して、私のことを少しでも知っていただければ嬉しいと思います。',
       zh: '该 Portfólio 总结了我从事的工作与学习获得的技能。希望你能通过这个作品集尽可能多地了解我。',
     },
+    links: {},
   },
   {
     id: 'pc-rabbit-shopping',
@@ -66,13 +63,30 @@ const WORKS_PC: WorksItemType[] = [
       'npm',
     ],
     modules: ['dayjs', 'vuex-persistedstate', 'vue-validate'],
-    images: [SHOPPING_RABBIT_01, SHOPPING_RABBIT_02],
-    createdAt: '2021-06',
+    images: [
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/01.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/02.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/03.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/04.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/05.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/06.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/07.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/08.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/09.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/10.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/11.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/12.png?raw=true',
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/practice/shopping_xiaotuxiaoer/13.png?raw=true',
+    ],
+    createdAt: '2021-01',
     publishedAt: '',
     description: {
       en: 'Developement of front-end for B2C comprehensive category e-commerce platform. \nAt that moment there is no UI library suitable for Vue 3.0  for this reason almost all components & layout are basically encapsulated by ourselves.',
       ja: 'B2C 電子商取引プラットフォームのフロントエンド側の開発。 \n開発時点では、Vue 3.0に適したUIコンポーネントライブラリがないため、ほとんどすべてのコンポーネントとレイアウトは基本的に自分でカプセル化されています。',
       zh: 'B2C综合品类电子商务平台的前端部分开发。\n开发时还非常没有适合 Vue 3.0 的 UI 组件库，因此几乎所有的组件和布局基本上都是我们自己封装的。',
+    },
+    links: {
+      demo: 'http://erabbit.itheima.net',
     },
   },
   {
@@ -110,6 +124,7 @@ const WORKS_PC: WorksItemType[] = [
       ja: '',
       zh: '',
     },
+    links: {},
   },
   {
     id: 'pc-SAGA_SUNRISE_PARK',
@@ -121,13 +136,18 @@ const WORKS_PC: WorksItemType[] = [
     type: 'PC',
     skillsTags: [],
     modules: [],
-    images: [SAGA_SUNRISE_PARK],
+    images: [
+      'https://github.com/BlaxBerry/portfolio/blob/main/public/projects/realities/saga_sunrise_park/01.png?raw=true',
+    ],
     createdAt: '2022-08',
     publishedAt: '',
     description: {
       en: 'Development of front end for SAGA Sunrise Park customer booking system and admin management system',
       ja: '佐賀サンライズパーク（SAGA Sunrise Park）のカスタマーブッキングシステムおよびアドミ管理システムのフロントエンドの開発。',
       zh: '',
+    },
+    links: {
+      demo: 'https://saga-sunrisepark.com',
     },
   },
   {
@@ -145,12 +165,15 @@ const WORKS_PC: WorksItemType[] = [
       'https://github.com/BlaxBerry/vuepress-studynotes/raw/main/images/02.png',
       'https://github.com/BlaxBerry/vuepress-studynotes/raw/main/images/03.png',
     ],
-    createdAt: '2021-09',
+    createdAt: '2020-09',
     publishedAt: '',
     description: {
       en: '',
       ja: '',
       zh: '',
+    },
+    links: {
+      demo: 'https://blaxberry.github.io/vuepress-studynotes/',
     },
   },
   // {
@@ -184,6 +207,7 @@ const WORKS_PC: WorksItemType[] = [
   //     ja: '',
   //     zh: '',
   //   },
+  //   links:{}
   // },
 ]
 
@@ -223,6 +247,7 @@ const WORKS_MOBILE: WorksItemType[] = [
       ja: '',
       zh: '',
     },
+    links: {},
   },
   {
     id: 'mobile-vue2-shopping-book',
@@ -259,6 +284,7 @@ const WORKS_MOBILE: WorksItemType[] = [
       ja: '',
       zh: '',
     },
+    links: {},
   },
   {
     id: 'mobile-react-game-lol-detail',
@@ -294,6 +320,7 @@ const WORKS_MOBILE: WorksItemType[] = [
       ja: '',
       zh: '',
     },
+    links: {},
   },
   // {
   //   id: 'mobile-vue3-languages-study',
@@ -330,6 +357,7 @@ const WORKS_MOBILE: WorksItemType[] = [
   //     ja: '',
   //     zh: '',
   //   },
+  //   links:{}
   // },
 ]
 

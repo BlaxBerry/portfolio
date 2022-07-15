@@ -85,9 +85,25 @@
             transition: all 0.5s;
             width: 100%;
     
+            div {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+            }
+
             &-createat {
                 color: #7d4c4c;  // TODO：time color
                 margin-top: 3px;
+            }
+
+            &-link {
+                height: 1rem;
+                opacity: 0.5;
+                width: 1rem;
+
+                &:hover {
+                    opacity: 1;
+                }
             }
         }
 
