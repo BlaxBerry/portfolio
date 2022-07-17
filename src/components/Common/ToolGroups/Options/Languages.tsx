@@ -10,7 +10,7 @@ const LanguageOptions = () => {
     i18n.changeLanguage(languageID)
   }
 
-  const translationOptionItems: Array<ToolMenuListItemType> = [
+  const TRANSLATION_OPTIONS: Array<ToolMenuListItemType> = [
     {
       id: 'tool-translation-cn',
       langID: 'zh',
@@ -35,7 +35,7 @@ const LanguageOptions = () => {
   ]
 
   return {
-    translationOptionItems,
+    TRANSLATION_OPTIONS,
   }
 }
 

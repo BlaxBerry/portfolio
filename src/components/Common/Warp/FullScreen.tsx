@@ -7,7 +7,10 @@ export interface WarpProps {
 
 const FullScreen = ({ children }: WarpProps) => {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'white' }}>
+    <div
+      className="my-warp-FullScreenContainer"
+      style={{ minHeight: '100vh', backgroundColor: 'white' }}
+    >
       <Container maxWidth="lg">{children}</Container>
     </div>
   )

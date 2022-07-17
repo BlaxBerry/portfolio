@@ -10,9 +10,10 @@ import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import TranslateIcon from '@material-ui/icons/Translate'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import ThemeIcon from '@material-ui/icons/Brightness4'
 // import InfoIcon from '@material-ui/icons/Info'
 import { List } from '../'
-import LanguageOptions from '../ToolGroups/LanguageOptions'
+import { ThemesOptions, LanguagesOptions } from '../ToolGroups/Options'
 import getNavItems from '../../Routes/NavItems'
 import { PROJECT_GITHUB_REPOSITORY } from '../../../config'
 
@@ -31,6 +32,7 @@ export interface DrwerListCollapseItemType {
   icon?: JSX.Element
   onClick?: () => void
   langID?: string
+  theme?: 'light' | 'dark' | undefined
 }
 
 interface CustomDrawerProps {
@@ -58,8 +60,10 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
     })
   )
 
+  // 主题切换
+  const { THEME_OPTIONIS } = ThemesOptions()
   // 语言切换选项列表
-  const { translationOptionItems } = LanguageOptions()
+  const { TRANSLATION_OPTIONS } = LanguagesOptions()
   const LIST_SETTING_TOOLS: Array<DrwerListItemType> = [
     // {
     //   id: 'xxx',
@@ -72,7 +76,13 @@ const CustomDrawer = ({ direction }: CustomDrawerProps) => {
       id: 'drawer-translation',
       name: t('components.header.tools.translations'),
       icon: <TranslateIcon />,
-      collapse: translationOptionItems,
+      collapse: TRANSLATION_OPTIONS,
+    },
+    {
+      id: 'drawer-theme',
+      name: t('components.header.tools.themes'),
+      icon: <ThemeIcon />,
+      collapse: THEME_OPTIONIS,
     },
   ]
 

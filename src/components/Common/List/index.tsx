@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useThemeSwitcher } from 'react-css-theme-switcher'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -10,7 +11,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 import Typography from '@material-ui/core/Typography'
 import { DrwerListItemType, DrwerListCollapseItemType } from '../Drawer'
-import { isLanguageOptionSelected } from '../../../utils'
+import { isLanguageOptionSelected, isThemeOptionSelected } from '../../../utils'
 import getNavItems from '../../Routes/NavItems'
 
 interface ListProps {
@@ -21,6 +22,7 @@ interface ListProps {
 const CustomList = ({ list, style }: ListProps): JSX.Element => {
   const location = useLocation()
   const { i18n } = useTranslation()
+  const { currentTheme } = useThemeSwitcher()
 
   // 被点击的列表选择项ID
   const [clickedItemID, setClickedItemID] = useState<string | null>()
@@ -38,12 +40,23 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
     if (item.onClick) item.onClick()
   }
 
-  // 针对 Drawer List 的翻译菜单的选项，根据 i18n 当前语言判断该选项是否被选中
-  const languageOptionIsSelected = useCallback(
-    (itemLangID: string | undefined): boolean => {
-      return isLanguageOptionSelected(itemLangID, i18n.language)
+  const isOptionSelected = useCallback(
+    (
+      item: DrwerListItemType,
+      optionItem: DrwerListCollapseItemType
+    ): boolean => {
+      switch (item.id) {
+        // 针对 Drawer List 的翻译菜单的选项，根据 i18n 当前语言判断该选项是否被选中
+        case 'drawer-translation':
+          return isLanguageOptionSelected(optionItem.langID, i18n.language)
+        // 针对 Drawer List 的主题菜单的选项，根据 current 当前主题判断是否为该选项是否被选中
+        case 'drawer-theme':
+          return isThemeOptionSelected(optionItem.theme, currentTheme)
+        default:
+          return false
+      }
     },
-    [i18n?.language]
+    [i18n?.language, currentTheme]
   )
 
   // 针对 Drawer List 的路由链接选择项，根据当前 location.pathname 判断该选项是否被选中
@@ -111,9 +124,7 @@ const CustomList = ({ list, style }: ListProps): JSX.Element => {
                       key={collapseItem.id}
                       style={{
                         paddingLeft: 32,
-                        backgroundColor: languageOptionIsSelected(
-                          collapseItem.langID
-                        )
+                        backgroundColor: isOptionSelected(item, collapseItem)
                           ? 'rgba(0, 0, 0, 0.1)'
                           : 'transparent',
                       }}

@@ -6,6 +6,10 @@
       "zh": "中文简体",
       "en": "英语",
       "ja": "日语"
+    },
+    "theme": {
+      "light": "明亮模式",
+      "dark": "暗黑模式"
     }
   },
   "pages": {
@@ -105,6 +109,7 @@
       },
       "tools": {
         "translations": "翻译",
+        "themes": "主题模式",
         "github-repository": "Github 仓库"
       }
     },

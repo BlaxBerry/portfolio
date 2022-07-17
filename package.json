@@ -28,6 +28,7 @@
     "react-animation-on-scroll": "^5.1.0",
     "react-chartjs-2": "^4.2.0",
     "react-country-flag": "^3.0.2",
+    "react-css-theme-switcher": "^0.3.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.33.0",
     "react-i18next": "^11.17.3",
