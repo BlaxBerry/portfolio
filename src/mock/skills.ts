@@ -52,6 +52,7 @@ import SVGNodejs from '../assets/svg/back/nodejs.svg'
 import SVGExpress from '../assets/svg/back/nodejs-express.svg'
 import SVGKoa from '../assets/svg/back/nodejs-koa.svg'
 import SVGMongoDB from '../assets/svg/back/mongodb.svg'
+import SVGMongoose from '../assets/svg/back/nodejs-mongoose.svg'
 
 // others
 import SVGGraphql from '../assets/svg/others/graphql.svg'
@@ -510,7 +511,13 @@ const SKILLS_BACK: SkillItemType[] = [
     extraInfo: {
       show: true,
       preparing: false,
-      relations: ['nodejs-express', 'nodejs-koa', 'npm', 'yarn'],
+      relations: [
+        'npm',
+        'yarn',
+        'nodejs-express',
+        'nodejs-koa',
+        'nodejs-mongoose',
+      ],
       description: null,
     },
   },
@@ -571,6 +578,16 @@ const SKILLS_BACK: SkillItemType[] = [
     id: 'nodejs-koa',
     name: 'Koa',
     img: SVGKoa,
+    extraInfo: {
+      show: false,
+      preparing: true,
+      description: null,
+    },
+  },
+  {
+    id: 'nodejs-mongoose',
+    name: 'Mongoose',
+    img: SVGMongoose,
     extraInfo: {
       show: false,
       preparing: true,

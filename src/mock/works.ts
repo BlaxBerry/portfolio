@@ -151,6 +151,43 @@ const WORKS_PC: WorksItemType[] = [
     },
   },
   {
+    id: 'pc-react-admin-languages-study',
+    title: {
+      en: 'Fullstack Languages Study',
+      ja: 'フルスタック開発・外国語勉強',
+      zh: '全栈开发・外语学习管理',
+    },
+    type: 'PC',
+    skillsTags: [
+      'vite',
+      'typescript',
+      'react',
+      'react-router',
+      'react-ant-design',
+      'sass',
+      'apollo',
+      'graphql',
+      'nodejs',
+      'nodejs-express',
+      'mongodb',
+      'nodejs-mongoose',
+    ],
+    modules: [],
+    images: [
+      'https://github.com/BlaxBerry/fullstack-languages-study/blob/main/client/public/share/wordCreate-01.png?raw=true',
+      'https://github.com/BlaxBerry/fullstack-languages-study/blob/main/client/public/share/wordDetail-03-dark.png?raw=true',
+      'https://github.com/BlaxBerry/fullstack-languages-study/blob/main/client/public/share/statistics.png?raw=true',
+    ],
+    createdAt: '2022-07',
+    publishedAt: '',
+    description: {
+      en: 'fullstack project for personal using. Still developing...',
+      ja: '私用なフルスタックプロジェクト、まだ開発・改善中です。\nクラウド上にある MongoDB（MongoDB Cloud）を使ってアプリケーションを構築しました。現在単語の「リスト」、「詳細」、「追加」機能と画面の「ダークモード」機能を完成しました。',
+      zh: '个人使用的全栈练习项目，还在开发中... 目前完成单词列表、单词的追加、单词详情功能',
+    },
+    links: {},
+  },
+  {
     id: 'pc-vuepress-studynote',
     title: {
       en: 'Study Note',
