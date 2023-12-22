@@ -2,9 +2,9 @@
 
 ## Tech Stacks
 
-- [Astro]()
-- [TypeScript]()
-- [TailwindCSS]()
+- [Astro]() v4
+- [TypeScript]() v5
+- [TailwindCSS]() v3
 
 ## Project Structure
 
@@ -14,6 +14,8 @@
 │   ├── favicon.svg
 │   └── ...
 ├── src/
+│   ├── __mocks__
+│   ├── assets
 │   ├── components/
 │   │   ├── astro/
 │   │   │   └── *.astro
@@ -23,6 +25,9 @@
 │   └── pages/
 │       ├── *.astro
 │       └── index.astro
+├── astro.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
 ├── package.json
 └── ...
 ```
