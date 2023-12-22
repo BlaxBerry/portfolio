@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import type { Skill } from "@__mocks__/skills";
+
+interface Props extends Skill {
+  link: string;
+}
+
+const { id, img, link } = Astro.props;
+---
+
+<div
+  class="rounded-lg border bg-white shadow-inner saturate-50 hover:shadow-lg hover:saturate-100"
+>
+  <a href={link}>
+    <div class="p-1">
+      <Image src={img} alt={id} />
+    </div>
+  </a>
+</div>

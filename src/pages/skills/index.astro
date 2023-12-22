@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@layouts/BaseLayout/index.astro";
+import SkillsCard from "@components/astro/cards/SkillsCard.astro";
+import Typography from "@components/astro/typography/Typography.astro";
+import { SKILLS_LIST } from "@__mocks__/skills";
+---
+
+<BaseLayout title="Skills" description="Skills Page.">
+  <Typography title="Languages Runtimes">
+    <div class="grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-10">
+      {
+        SKILLS_LIST.LANGUAGES.map((item) => (
+          <SkillsCard {...item} link={`/portfolio/works?skillID=${item.id}`} />
+        ))
+      }
+    </div>
+  </Typography>
+
+  <Typography title="Frameworks">
+    <div class="grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-10">
+      {
+        SKILLS_LIST.FRAMEWORKS.map((data) => (
+          <SkillsCard {...data} link={`/portfolio/works?skillID=${data.id}`} />
+        ))
+      }
+    </div>
+  </Typography>
+</BaseLayout>
+
+<style></style>

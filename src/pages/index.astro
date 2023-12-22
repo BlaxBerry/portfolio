@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@layouts/BaseLayout/index.astro";
+---
+
+<BaseLayout description="Home Page.">
+  <section
+    class="-my-4 flex min-h-screen flex-col justify-center lg:flex-row lg:items-center"
+  >
+    <div class="text-6xl font-bold md:text-8xl">
+      <strong>CHEN'S</strong>
+      <strong>PORTFOLIO</strong>
+    </div>
+
+    <div
+      class="p-0 pt-14 font-bold tracking-widest lg:pl-14 lg:pt-0 lg:text-right"
+    >
+      <p>Hello, My name is Chen.</p>
+      <p>I am a web developer currently based in Tokyo,Japan.</p>
+      <p>Passionate about new technologies and intuitive interfaces.</p>
+      <p>Love basketball and pop music.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  strong {
+    background: var(--body-bg-img) no-repeat bottom;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--font-color-prmary);
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>

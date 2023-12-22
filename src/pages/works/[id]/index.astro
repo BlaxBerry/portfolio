@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout/index.astro";
+import MOCK_BG from "@assets/images/mock_bg.png";
+import SkillsCard from "@components/astro/cards/SkillsCard.astro";
+import Typography from "@components/astro/typography/Typography.astro";
+import { WORKS_LIST } from "@__mocks__/works";
+import { SKILLS_LIST } from "@__mocks__/skills";
+
+export async function getStaticPaths() {
+  return WORKS_LIST.map((work) => ({
+    params: { id: work.id },
+  }));
+}
+
+const { id } = Astro.params;
+const workDetail = WORKS_LIST.find((item) => item.id === id);
+---
+
+<BaseLayout title="Works" description="Works Page.">
+  <h1 class="py-8 text-4xl font-bold md:text-5xl">
+    {workDetail?.name}
+  </h1>
+
+  <section class="mb-10 md:mb-20">
+    <Image src={workDetail?.imgs?.[0] ?? MOCK_BG} alt={id} class="rounded-lg" />
+  </section>
+
+  <Typography title="Description">
+    <p>
+      {workDetail?.description}
+      <a
+        class="text-blue-600 after:content-['_↗']"
+        href={workDetail?.link}
+        target="_blank">More</a
+      >
+    </p>
+  </Typography>
+
+  <Typography title="Skills I Used">
+    <div class="grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-12">
+      {
+        workDetail?.skillIDs?.map((skillID) => {
+          const specificSkill = SKILLS_LIST.ALL.find(
+            (item) => item.id === skillID,
+          );
+          if (!specificSkill) return null;
+          return (
+            <SkillsCard
+              {...specificSkill}
+              link={`/portfolio/works?skillID=${skillID}`}
+            />
+          );
+        })
+      }
+    </div>
+  </Typography>
+
+  <Typography title="What I Have Done">
+    <p>xxxx</p>
+    <p>xxxx</p>
+    <p>xxxx</p>
+  </Typography>
+</BaseLayout>
+
+<style></style>

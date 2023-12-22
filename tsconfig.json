@@ -1,0 +1,25 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+
+  "plugins": [
+    {
+      "name": "@astrojs/ts-plugin"
+    }
+  ],
+
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@__mocks__/*": ["src/__mocks__/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@libs/*": ["src/libs/*"],
+      "@styles/*": ["src/styles/*"],
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"]
+    }
+  }
+}

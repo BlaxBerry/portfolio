@@ -1,0 +1,67 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import BaseLayoutHeader from './LayoutHeader.astro';
+import BaseLayoutFooter from './LayoutFooter.astro';
+import BaseLayoutMain from './LayoutMain.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "BlaxBerry's Portfolio"
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="overscroll-none">
+  <head>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta name="description" property="og:description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="themecolor" media="(prefers-color-scheme: light)" content="white" />
+    <meta name="themecolor" media="(prefers-color-scheme: dark)" content="black" />
+    <!-- CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap" rel="stylesheet" />
+
+    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+    <title>{title ? `${title} | Portfolio` : "Portfolio"}</title>
+    <ViewTransitions />
+  </head>
+
+  <body 
+    class="font-mono text-base overscroll-none scroll-smooth select-none bg-fixed bg-no-repeat bg-cover bg-bottom" 
+  >
+    <!-- main layout's header -->
+    <BaseLayoutHeader/>
+    <!-- main layout's main content -->
+    <BaseLayoutMain>
+      <slot />
+    </BaseLayoutMain>
+    <!-- main layout's footer -->
+    <BaseLayoutFooter/>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+  --font-color-prmary: #eee;
+  --body-bg-img: url("/portfolio/background.png");
+  }
+
+  html {
+    min-width: 375px;  /* iPhone SE */
+  }
+
+  body {
+    background-image: var(--body-bg-img);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: var(--font-color-prmary);
+  }
+</style>

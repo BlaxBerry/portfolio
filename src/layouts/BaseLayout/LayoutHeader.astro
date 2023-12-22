@@ -1,0 +1,58 @@
+---
+import clsx from "clsx";
+
+const NAV_LINKS: Array<{ label: string; link: string }> = [
+  { label: "Skills", link: "/portfolio/skills" },
+  { label: "Works", link: "/portfolio/works" },
+  { label: "Contact", link: "/portfolio/contact" },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-10 h-14 px-4 shadow-md lg:px-0">
+  <div class="mx-auto mt-0 flex h-full max-w-5xl items-center">
+    <a href="/portfolio/">
+      <h1 class="hidden pr-14 text-2xl font-bold md:block">Portfolio</h1>
+      <h1 class="mr-4 font-bold md:hidden">Portfolio</h1>
+    </a>
+
+    <div class="hidden grow md:block"></div>
+
+    <nav class="h-full">
+      <ul class="flex h-full">
+        {
+          NAV_LINKS.map(({ label, link }) => {
+            const active = pathname.startsWith(link);
+            return (
+              <li class="relative h-full px-2 md:px-4">
+                <a
+                  href={link}
+                  class={clsx([
+                    "flex h-full items-center",
+                    "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full",
+                    "transition-colors duration-100 hover:text-gray-400",
+                    active && "after:bg-white",
+                  ])}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    box-shadow:
+      rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+      rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+      rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+    background: var(--body-bg-img) no-repeat top;
+    background-size: cover;
+  }
+</style>

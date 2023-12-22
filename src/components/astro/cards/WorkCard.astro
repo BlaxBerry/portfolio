@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import type { Work } from "@__mocks__/works";
+import MOCK_BG from "@assets/images/mock_bg.png";
+
+interface Props extends Work {
+  link: string;
+}
+
+const { link, id, name, date, imgs } = Astro.props;
+---
+
+<article
+  class="mx-auto my-1 overflow-hidden rounded-lg border bg-white shadow saturate-50 hover:shadow-lg hover:saturate-100 sm:my-0"
+>
+  <a href={link}>
+    <Image src={imgs?.[0] ?? MOCK_BG} alt={id} />
+
+    <div
+      class="truncate py-4 text-center font-sans font-semibold leading-snug tracking-normal antialiased"
+    >
+      <h2 class="text-xl text-gray-900">{name}</h2>
+      <time class="text-base text-gray-400">{date}</time>
+    </div>
+  </a>
+</article>

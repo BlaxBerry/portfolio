@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@layouts/BaseLayout/index.astro";
+import WorkCard from "@components/astro/cards/WorkCard.astro";
+import { WORKS_LIST } from "@__mocks__/works";
+---
+
+<BaseLayout title="Works" description="Works Page.">
+  <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+    {
+      WORKS_LIST?.map((data) => (
+        <WorkCard {...data} link={`/portfolio/works/${data.id}`} />
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style></style>
